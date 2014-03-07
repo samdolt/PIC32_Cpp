@@ -16,6 +16,7 @@
 #include "SK32MX795F512L.h"
 #include "TextDisplay.h"
 #include "Delay.h"
+#include "Port.h"
 
 //=====================================----------------------------------------
 // Fuses configuration
@@ -91,6 +92,8 @@
 #define VAL_PR4 (40.0 / T4_TICK)
 
 
+
+
 //=====================================----------------------------------------
 // fonction main
 //=====================================----------------------------------------
@@ -115,10 +118,10 @@ int main (void){
 
   while(1){
     // Ne rien faire (juste un comptage)
-    LED0_W = 0;
-    delay::us(1);
-    LED0_W = 1;
-    delay::us(1);
+      pin::set('A', 0);
+      delay::ms(1000);
+      pin::clear('A', 0);
+      delay::ms(1000);
   }
 
   return 0; // Le C++ oblige un retour de valeur pour la fonction main

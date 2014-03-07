@@ -7,6 +7,7 @@
       <itemPath>../SK32MX795F512L.h</itemPath>
       <itemPath>../TextDisplay.h</itemPath>
       <itemPath>../Delay.h</itemPath>
+      <itemPath>../Port.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
