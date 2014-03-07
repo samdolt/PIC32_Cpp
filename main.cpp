@@ -14,8 +14,8 @@
 #include <tgmath.h>
 
 #include "SK32MX795F512L.h"
-#include "Mc32Delays.h"
 #include "TextDisplay.h"
+#include "Delay.h"
 
 //=====================================----------------------------------------
 // Fuses configuration
@@ -23,7 +23,7 @@
 // Set configuration fuses (but only once)
 
 // Set clock configuration
-// Input clock = HS 20MHz
+
 #pragma config POSCMOD = HS // Primary Oscillator mode = HS
 #pragma config FSOSCEN = OFF // Secondary Oscillator Disable
 #pragma config IESO = OFF // Internal External Switch Over bit Disable
@@ -76,9 +76,9 @@
 //=====================================----------------------------------------
 
 #define SYS_FREQ (80000000L)    //80 MHz
-#define PB_DIV 8
-// #define PB_FREQ (SYS_FREQ / PB_DIV)
-#define PB_FREQ (4000000L)
+#define PB_DIV 1
+#define PB_FREQ (SYS_FREQ / PB_DIV)
+
 
 #define PRESCALE 256
 #define T1_TICK ((1000000.0 * PRESCALE)/PB_FREQ) // en us
@@ -101,7 +101,7 @@ int main (void){
   // memory wait states fine tuning
   // TO BE CHECKED
   SYSTEMConfigPerformance(SYS_FREQ);
-  // Etablit PB_CLOCK à 4 MHz
+  // Etablit PB_CLOCK = à SYSCLK
    
   // Default SK32MX775F512L i/os config and values
   SK32MX795F512L_IO_Default();  
@@ -116,9 +116,9 @@ int main (void){
   while(1){
     // Ne rien faire (juste un comptage)
     LED0_W = 0;
-    delay_ms(1000);
+    delay::ns(500);
     LED0_W = 1;
-    delay_ms(1000);
+    delay::ns(500);
   }
 
   return 0; // Le C++ oblige un retour de valeur pour la fonction main

@@ -16,10 +16,10 @@
 
 #include "p32mx795f512l.h"
 #include "SK32MX795F512L.h"
-#include "Mc32Delays.h"
 
 
 #include "TextDisplay.h"
+#include "Delay.h"
 
 /******************************************************************************
  * CONSTANTE
@@ -87,7 +87,7 @@ TextDisplay::TextDisplay() {
     // on va effectuer exactement ce que demande le ks0066
     // on repositionne LCD_E tout pour un démarrage correct
     LCD_E_W = 0;
-    delay_us(1); // si LCD_E était à 1, on attend
+    delay::us(1); // si LCD_E était à 1, on attend
     LCD_RS_W = 0;  // demandé pour une commande
     LCD_RW_W = 0;
     // suivant comment l'interfaçage avec le LCD s'est arrêté, il faut tout remettre à plat
@@ -95,22 +95,22 @@ TextDisplay::TextDisplay() {
     // pour lui faire croire que nous sommes en interface8 bits
     // chaque envoi doit être séparé de 5ms!!
     send_nibble(0x03); // correspond à 0x30, interface 8 bits
-    delay_ms(5);
+    delay::ms(5);
     send_nibble(0x03); // correspond à 0x30, interface 8 bits
-    delay_ms(5);
+    delay::ms(5);
     send_nibble(0x03); // correspond à 0x30, interface 8 bits
-    delay_ms(5);
+    delay::ms(5);
     // maintenant, on peut configurer notre LCD en interface 4 bits
     LCD_RS_W = 0;  // demandé pour une commande (on assure!)
     send_nibble(2);// 4 bits interface
 
     command(LCD::DISPLAYCONTROL | LCD::LINE2 | LCD::DISPLAYOFF);
-    delay_us(40); //ds0066 demande >39us
+    delay::us(40); //ds0066 demande >39us
 
     // Initilisation du mode par défaut:
      m_display_control = LCD::DISPLAYON | LCD::CURSOROFF | LCD::BLINKOFF;
     command( LCD::DISPLAYCONTROL | m_display_control);
-    delay_us(40); //ds0066 demande >39us
+    delay::us(40); //ds0066 demande >39us
 
     // Effacage de l'écran
     clear();
@@ -120,7 +120,7 @@ TextDisplay::TextDisplay() {
     command(LCD::ENTRYMODESET | m_display_mode);
 
     set_cursor(1,1);
-    delay_us(40); //ds0066 demande >39us
+    delay::us(40); //ds0066 demande >39us
 }
 
 void TextDisplay::print(const char *ptr_char) {
@@ -196,7 +196,7 @@ void TextDisplay::write(const uint8_t c) {
 void TextDisplay::home(void)
 {
   command(LCD::RETURNHOME); 
-  delay_ms(2);
+  delay::ms(2);
 }
 
 int8_t TextDisplay::set_cursor(uint8_t y, uint8_t x) {
@@ -257,7 +257,7 @@ void TextDisplay::disable_backlight(void) {
 void TextDisplay::clear( void )
 {
     command(LCD::CLEARDISPLAY);
-    delay_ms(2);
+    delay::ms(2);
 }
 
 void TextDisplay::disable_display(void) {
@@ -273,14 +273,14 @@ void TextDisplay::enable_blinking_cursor( void )
 {
     m_display_control |= LCD::BLINKON;
     command( LCD::DISPLAYCONTROL | m_display_control);
-    delay_ms(2);
+    delay::ms(2);
 }
 
 void TextDisplay::disable_blinking_cursor( void )
 {
     m_display_control &= ~LCD::BLINKON;
     command( LCD::DISPLAYCONTROL | m_display_control);
-    delay_ms(2);
+    delay::ms(2);
 }
 
 void TextDisplay::disable_underline_cursor(void) {
@@ -345,11 +345,11 @@ void TextDisplay::send_nibble(uint8_t n) {
    LCD_DB6_W = NibbleToWrite.bits.b2;
    LCD_DB5_W = NibbleToWrite.bits.b1;
    LCD_DB4_W = NibbleToWrite.bits.b0;
-   delay500ns();
+   delay::ns(500);
    LCD_E_W = 1;
-   delay500ns(); // E pulse width min = 450ns pour le 1!
+   delay::ns(500); // E pulse width min = 450ns pour le 1!
    LCD_E_W = 0;
-   delay500ns(); // E pulse width min = 450ns également pour le 0!
+   delay::ns(500); // E pulse width min = 450ns également pour le 0!
 }
 
 /******************************************************************************
@@ -364,23 +364,23 @@ uint8_t TextDisplay::read_byte( void )
     LCD_DB6_T = 1;
     LCD_DB7_T = 1;
     LCD_RW_W = 1;
-    delay500ns(); //ds0066 demande 0.5us
+    delay::ns(500); //ds0066 demande 0.5us
     LCD_E_W = 1;
-    delay500ns(); //ds0066 demande 0.5us
+    delay::ns(500); //ds0066 demande 0.5us
     lcd_read_byte.bits.b7 = LCD_DB7_R;
     lcd_read_byte.bits.b6 = LCD_DB6_R;
     lcd_read_byte.bits.b5 = LCD_DB5_R;
     lcd_read_byte.bits.b4 = LCD_DB4_R;
     LCD_E_W = 0; // attention e pulse min = 500ns à 1 et autant à 0
-    delay500ns();
+    delay::ns(500);
     LCD_E_W = 1;
-    delay500ns();
+    delay::ns(500);
     lcd_read_byte.bits.b3 = LCD_DB7_R;
     lcd_read_byte.bits.b2 = LCD_DB6_R;
     lcd_read_byte.bits.b1 = LCD_DB5_R;
     lcd_read_byte.bits.b0 = LCD_DB4_R;
     LCD_E_W = 0;
-    delay500ns();
+    delay::ns(500);
     LCD_DB4_T = 0; // 0=output
     LCD_DB5_T = 0;
     LCD_DB6_T = 0;
