@@ -24,50 +24,50 @@
 
 // Set clock configuration
 // Input clock = HS 20MHz
-#pragma POSCMOD = HS // Primary Oscillator mode = HS
-#pragma FSOSCEN = OFF // Secondary Oscillator Disable
-#pragma IESO = OFF // Internal External Switch Over bit Disable
-#pragma FNOSC = PRIPLL // Primary oscillator (XT, HS, EC) w/ PLL  
-#pragma OSCIOFNC = OFF // Disabled output on clko pin
-#pragma FCKSM = CSDCMD // Clock Switching Disabled, Clock Monitoring Disabled  
+#pragma config POSCMOD = HS // Primary Oscillator mode = HS
+#pragma config FSOSCEN = OFF // Secondary Oscillator Disable
+#pragma config IESO = OFF // Internal External Switch Over bit Disable
+#pragma config FNOSC = PRIPLL // Primary oscillator (XT, HS, EC) w/ PLL
+#pragma config OSCIOFNC = OFF // Disabled output on clko pin
+#pragma config FCKSM = CSDCMD // Clock Switching Disabled, Clock Monitoring Disabled
 
 //Set system PLL configuration (Quartz 8 MHz)
 // #pragma FPLLIDIV = DIV_5 // Divide by 5 clock for input to pll ->4MHz
-#pragma FPLLIDIV = DIV_2 // Divide by 2 clock for input to pll ->4MHz
-#pragma FPLLMUL = MUL_20 // Multiply by 20 -> pll output = 80MHz
-#pragma FPLLODIV = DIV_1 // System clock = pll Divide by 1 = 80MHz
+#pragma config FPLLIDIV = DIV_2 // Divide by 2 clock for input to pll ->4MHz
+#pragma config FPLLMUL = MUL_20 // Multiply by 20 -> pll output = 80MHz
+#pragma config FPLLODIV = DIV_1 // System clock = pll Divide by 1 = 80MHz
 
 // Set peripheral clk div
-#pragma FPBDIV = DIV_8 // Divide by 8 
+#pragma config FPBDIV = DIV_8 // Divide by 8
 
 // Set power up timer
 #pragma PUT = ON
 
 // set USB
-#pragma FVBUSONIO = OFF // VBUS_ON pin is controlled by the Port Function  
-#pragma FUSBIDIO = OFF // USBID pin is controlled by the Port Function  
+#pragma config FVBUSONIO = OFF // VBUS_ON pin is controlled by the Port Function
+#pragma config FUSBIDIO = OFF // USBID pin is controlled by the Port Function
 
 // Set CAN
-#pragma FCANIO = ON // Default CAN IO Pins  
+#pragma config FCANIO = ON // Default CAN IO Pins
 
 // Set Ethernet
-#pragma FETHIO = ON // Default Ethernet IO Pins  
-#pragma FMIIEN = ON // MII enabled  
+#pragma config FETHIO = ON // Default Ethernet IO Pins
+#pragma config FMIIEN = ON // MII enabled
 
 // set watchdog
-#pragma  FWDTEN = OFF // Disabled  
+#pragma  config FWDTEN = OFF // Disabled
 
 // Set code protect
-#pragma CP = OFF // Disabled  
+#pragma config CP = OFF // Disabled
 
 // Set boot flash code protect
-#pragma BWP = OFF // Disabled  
+#pragma config BWP = OFF // Disabled
 
 // Set ICD3 channel
-#pragma ICESEL = ICS_PGx2 // ICE pins are shared with PGC2, PGD2  
+#pragma config ICESEL = ICS_PGx2 // ICE pins are shared with PGC2, PGD2
 
 // Set debug bit
-#pragma DEBUG = ON // Enabled  
+#pragma config DEBUG = ON // Enabled
 
 
 
@@ -115,6 +115,10 @@ int main (void){
 
   while(1){
     // Ne rien faire (juste un comptage)
+    LED0_W = 0;
+    delay_ms(1000);
+    LED0_W = 1;
+    delay_ms(1000);
   }
 
   return 0; // Le C++ oblige un retour de valeur pour la fonction main
