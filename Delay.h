@@ -14,7 +14,6 @@
 
 namespace delay {
     void ms(uint32_t delay);
-    void ns(uint32_t delay);
     void us(uint32_t delay);
 }
 

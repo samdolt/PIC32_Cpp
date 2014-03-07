@@ -116,9 +116,9 @@ int main (void){
   while(1){
     // Ne rien faire (juste un comptage)
     LED0_W = 0;
-    delay::ns(500);
+    delay::us(1);
     LED0_W = 1;
-    delay::ns(500);
+    delay::us(1);
   }
 
   return 0; // Le C++ oblige un retour de valeur pour la fonction main

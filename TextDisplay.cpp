@@ -345,11 +345,11 @@ void TextDisplay::send_nibble(uint8_t n) {
    LCD_DB6_W = NibbleToWrite.bits.b2;
    LCD_DB5_W = NibbleToWrite.bits.b1;
    LCD_DB4_W = NibbleToWrite.bits.b0;
-   delay::ns(500);
+   delay::us(1);;
    LCD_E_W = 1;
-   delay::ns(500); // E pulse width min = 450ns pour le 1!
+   delay::us(1); // E pulse width min = 450ns pour le 1!
    LCD_E_W = 0;
-   delay::ns(500); // E pulse width min = 450ns également pour le 0!
+   delay::us(1); // E pulse width min = 450ns également pour le 0!
 }
 
 /******************************************************************************
@@ -364,23 +364,23 @@ uint8_t TextDisplay::read_byte( void )
     LCD_DB6_T = 1;
     LCD_DB7_T = 1;
     LCD_RW_W = 1;
-    delay::ns(500); //ds0066 demande 0.5us
+    delay::us(1); //ds0066 demande 0.5us
     LCD_E_W = 1;
-    delay::ns(500); //ds0066 demande 0.5us
+    delay::us(1); //ds0066 demande 0.5us
     lcd_read_byte.bits.b7 = LCD_DB7_R;
     lcd_read_byte.bits.b6 = LCD_DB6_R;
     lcd_read_byte.bits.b5 = LCD_DB5_R;
     lcd_read_byte.bits.b4 = LCD_DB4_R;
     LCD_E_W = 0; // attention e pulse min = 500ns à 1 et autant à 0
-    delay::ns(500);
+    delay::us(1);
     LCD_E_W = 1;
-    delay::ns(500);
+    delay::us(1);
     lcd_read_byte.bits.b3 = LCD_DB7_R;
     lcd_read_byte.bits.b2 = LCD_DB6_R;
     lcd_read_byte.bits.b1 = LCD_DB5_R;
     lcd_read_byte.bits.b0 = LCD_DB4_R;
     LCD_E_W = 0;
-    delay::ns(500);
+    delay::us(1);
     LCD_DB4_T = 0; // 0=output
     LCD_DB5_T = 0;
     LCD_DB6_T = 0;

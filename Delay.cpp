@@ -35,15 +35,6 @@ namespace delay {
             // Waiting
         };
     }
-    void ns(uint32_t delay)
-    {
-        uint32_t time_to_wait;
-        WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000000000.0 * delay;
-        while(ReadCoreTimer() < time_to_wait){
-            // Waiting
-        };
-    }
 }
 
 /******************************************************************************
