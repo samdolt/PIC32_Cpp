@@ -1,16 +1,19 @@
 Librairie et exemple de code C++ pour PIC32
 ===========================================
 
-## Pré-requis
+## PrÃ©-requis
 
 ### Contrainte logiciel
 
-Le code est déstiné à l'IDE MPLAB X avec le compilateur XC32 pour PIC32.
+Le code est detinÃ© Ã  l'IDE MPLAB X avec le compilateur XC32 pour PIC32.
 
-Les versions utilisées sont : MPLAB X v. 2.00 - XC32 v. 1.31
+Les versions utilisÃ©es sont : MPLAB X v. 2.00 - XC32 v. 1.31
 
-### Contrainte matériel
+### Contrainte mateiel
 
-Ce projet est conçut pour fonctionner sur le start kit "PIC32" de
-l'Ecole Supérieur de l'ETML à Lausanne www.etml-es.ch
+Ce projet est conÃ§ut pour fonctionner sur le start kit "PIC32" de
+l'Ecole SupÃ©rieur de l'ETML Ã  Lausanne www.etml-es.ch
 
+### Documentation
+La documentation est disponible Ã  l'adresse suivante:
+https://github.com/samdolt/PIC32_Cpp/wiki
