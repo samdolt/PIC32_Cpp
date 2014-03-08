@@ -212,7 +212,7 @@ namespace convert {
  ******************************************************************************/
 
 /*
- * Copyright (c) 2014, École supérieur de l'ETML <www.etml-es.ch>
+ * Copyright (c) 2014, Samuel Dolt <samuel@dolt.ch>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
