@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=gnumkdir -p
+MKDIR=mkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -72,7 +72,7 @@ LDLIBSOPTIONS=
 FIXDEPS=fixDeps
 
 .build-conf:  ${BUILD_SUBPROJECTS}
-	${MAKE} ${MAKE_OPTIONS} -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/Pic32Moteur.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/Pic32Moteur.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=32MX775F512L
 MP_LINKER_FILE_OPTION=
@@ -101,50 +101,50 @@ ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o: ../SK32MX795F512L.cpp  nbproject/Makefi
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" -o ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o ../SK32MX795F512L.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" -o ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o ../SK32MX795F512L.cpp  
 	
 ${OBJECTDIR}/_ext/1472/TextDisplay.o: ../TextDisplay.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/TextDisplay.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/TextDisplay.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" -o ${OBJECTDIR}/_ext/1472/TextDisplay.o ../TextDisplay.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" -o ${OBJECTDIR}/_ext/1472/TextDisplay.o ../TextDisplay.cpp  
 	
 ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d" -o ${OBJECTDIR}/_ext/1472/main.o ../main.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d" -o ${OBJECTDIR}/_ext/1472/main.o ../main.cpp  
 	
 ${OBJECTDIR}/_ext/1472/Delay.o: ../Delay.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/Delay.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/Delay.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Delay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/Delay.o.d" -o ${OBJECTDIR}/_ext/1472/Delay.o ../Delay.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Delay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/Delay.o.d" -o ${OBJECTDIR}/_ext/1472/Delay.o ../Delay.cpp  
 	
 else
 ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o: ../SK32MX795F512L.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" -o ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o ../SK32MX795F512L.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/SK32MX795F512L.o.d" -o ${OBJECTDIR}/_ext/1472/SK32MX795F512L.o ../SK32MX795F512L.cpp  
 	
 ${OBJECTDIR}/_ext/1472/TextDisplay.o: ../TextDisplay.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/TextDisplay.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/TextDisplay.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" -o ${OBJECTDIR}/_ext/1472/TextDisplay.o ../TextDisplay.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/TextDisplay.o.d" -o ${OBJECTDIR}/_ext/1472/TextDisplay.o ../TextDisplay.cpp  
 	
 ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d" -o ${OBJECTDIR}/_ext/1472/main.o ../main.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d" -o ${OBJECTDIR}/_ext/1472/main.o ../main.cpp  
 	
 ${OBJECTDIR}/_ext/1472/Delay.o: ../Delay.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/Delay.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/Delay.o 
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Delay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/Delay.o.d" -o ${OBJECTDIR}/_ext/1472/Delay.o ../Delay.cpp  
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Delay.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -I"../../../../../../../../Program Files (x86)/Microchip/xc32/v1.31/pic32mx/include/proc" -I"../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc" -I"../../../../../../../../Program Files/Microchip/xc32/v1.31/pic32mx/include/proc" -MMD -MF "${OBJECTDIR}/_ext/1472/Delay.o.d" -o ${OBJECTDIR}/_ext/1472/Delay.o ../Delay.cpp  
 	
 endif
 
@@ -159,7 +159,7 @@ else
 dist/${CND_CONF}/${IMAGE_TYPE}/Pic32Moteur.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
 	${MP_CPPC} $(MP_EXTRA_LD_PRE)  -mprocessor=$(MP_PROCESSOR_OPTION)  -o dist/${CND_CONF}/${IMAGE_TYPE}/Pic32Moteur.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} ${OBJECTFILES_QUOTED_IF_SPACED}          -Wl,--defsym=__MPLAB_BUILD=1$(MP_EXTRA_LD_POST)$(MP_LINKER_FILE_OPTION),--defsym=_min_heap_size=1024,-Map="TpTestKitPic32.map"
-	${MP_CC_DIR}\\xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/Pic32Moteur.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
+	${MP_CC_DIR}/xc32-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/Pic32Moteur.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} 
 endif
 
 
@@ -178,7 +178,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif
