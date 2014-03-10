@@ -15,6 +15,18 @@ namespace port {
         switch(PORT) {
             case 'A':
                 return PORTA;
+            case 'B':
+                return PORTB;
+            case 'C':
+                return PORTC;
+            case 'D':
+                return PORTD;
+            case 'E':
+                return PORTE;
+            case 'F':
+                return PORTF;
+            case 'G':
+                return PORTG;
             default:
                 return 0;
         }
@@ -25,7 +37,18 @@ namespace port {
         switch(PORT) {
             case 'A':
                 PORTA = value;
-                break;
+            case 'B':
+                PORTB = value;
+            case 'C':
+                PORTC = value;
+            case 'D':
+                PORTD = value;
+            case 'E':
+                PORTE = value;
+            case 'F':
+                PORTF = value;
+            case 'G':
+                PORTG = value;
             default:
                 break;
         }
@@ -123,6 +146,12 @@ namespace pin {
             case 'E':
                 TRISE |= (1<<PIN);
                 break;
+            case 'F':
+                TRISG |= (1<<PIN);
+                break;
+            case 'G':
+                TRISG |= (1<<PIN);
+                break;
             default:
                 break;
         }
@@ -147,6 +176,12 @@ namespace pin {
                 break;
             case 'E':
                 TRISE &= ~(1<<PIN);
+                break;
+            case 'F':
+                TRISF &= ~(1<<PIN);
+                break;
+            case 'G':
+                TRISG &= ~(1<<PIN);
                 break;
             default:
                 break;
@@ -173,6 +208,12 @@ namespace pin {
             case 'E':
                 LATE |= (1<<PIN);
                 break;
+            case 'F':
+                LATF |= (1<<PIN);
+                break;
+            case 'G':
+                LATG |= (1<<PIN);
+                break;
             default:
                 break;
         }
@@ -196,6 +237,12 @@ namespace pin {
             case 'E':
                 LATE &= ~(1<<PIN);
                 break;
+            case 'F':
+                LATF &= ~(1<<PIN);
+                break;
+            case 'G':
+                LATG &= ~(1<<PIN);
+                break;
             default:
                 break;
         }
@@ -214,6 +261,10 @@ namespace pin {
                 return (PORTD & (1<<PIN)) >> PIN;
             case 'E':
                 return (PORTE & (1<<PIN)) >> PIN;
+            case 'F':
+                return (PORTF & (1<<PIN)) >> PIN;
+            case 'G':
+                return (PORTG & (1<<PIN)) >> PIN;
         default:
             return 0;
         }
