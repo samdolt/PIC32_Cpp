@@ -58,12 +58,63 @@ namespace pin {
 
     }
 
+    void direction(const char PIN[], enum direction_e VALUE)
+    {
+        switch(VALUE)
+        {
+            case INPUT:
+                set_input(PIN[0], PIN[1] - '0');
+                break;
+            case OUTPUT:
+                set_output(PIN[0], PIN[1] - '0');
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    void set_input(const char PORT, const uint8_t PIN)
+    {
+        // INPUT => 1
+        switch(PORT) {
+            case 'A':
+                TRISA |= (1<<PIN);
+                break;
+            case 'E':
+                TRISE |= (1<<PIN);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    void set_output(const char PORT, const uint8_t PIN)
+    {
+        // OUTPUT => 0
+        switch(PORT) {
+            case 'A':
+                TRISA &= ~(1<<PIN);
+                break;
+            case 'E':
+                TRISE &= ~(1<<PIN);
+                break;
+            default:
+                break;
+        }
+
+    }
+
 
     void set(const char PORT, const uint8_t PIN)
     {
         switch(PORT) {
             case 'A':
                 LATA |= (1<<PIN);
+                break;
+            case 'E':
+                LATE |= (1<<PIN);
                 break;
             default:
                 break;
@@ -76,6 +127,9 @@ namespace pin {
             case 'A':
                 LATA &= ~(1<<PIN);
                 break;
+            case 'E':
+                LATE &= ~(1<<PIN);
+                break;
             default:
                 break;
         }
@@ -86,6 +140,8 @@ namespace pin {
         switch(PORT) {
             case 'A':
                 return (PORTA & (1<<PIN)) >> PIN;
+            case 'E':
+                return (PORTE & (1<<PIN)) >> PIN;
         default:
             return 0;
         }

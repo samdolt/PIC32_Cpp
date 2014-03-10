@@ -27,6 +27,11 @@ namespace pin {
         LOW = 0,
         HIGH = 1
     };
+
+    enum direction_e {
+        OUTPUT = 0,
+        INPUT = 1
+    };
     void set(const char PORT, const uint8_t PIN);
 
     void clear(const char PORT, const uint8_t PIN);
@@ -36,6 +41,12 @@ namespace pin {
     uint8_t read(const char PIN[]);
 
     void write(const char PIN[], enum value_e VALUE);
+
+    void direction(const char PIN[], enum direction_e VALUE);
+
+    void set_input(const char PORT, const uint8_t PIN);
+
+    void set_output(const char PORT, const uint8_t PIN);
 }
 
 /******************************************************************************
