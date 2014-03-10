@@ -3,69 +3,51 @@
  * Auteur  : Samuel Dolt
  *
  * Exemple de projet C++
- *
- * Ce projet est destiné au circuit "Starter-kit PIC32" de l'ETML-ES
  */
-#define __32MX795F512L__
 
-#include <GenericTypeDefs.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <plib.h>
-#include <tgmath.h>
 
-#include "SK32MX795F512L.h"
-#include "TextDisplay.h"
-#include "Delay.h"
 #include "Port.h"
+#include "Delay.h"
+#include "TextDisplay.h"
 
-//=====================================----------------------------------------
-// Fuses configuration
-//=====================================----------------------------------------
-// Set configuration fuses (but only once)
 
-// Set clock configuration
 
-#pragma config POSCMOD = HS // Primary Oscillator mode = HS
-#pragma config FSOSCEN = OFF // Secondary Oscillator Disable
+/*******************************************************************************
+ * CONFIGURATION DES FUSIBLES
+ ******************************************************************************/
+
+
+/* Configuration des oscillateurs
+ * ------------------------------ */
+
+#pragma config POSCMOD = HS // Oscillateur primaire en mode "HIGH SPEED CRYSTAL"
+#pragma config FSOSCEN = OFF // Oscillateur secondaire désactivé
 #pragma config IESO = OFF // Internal External Switch Over bit Disable
-#pragma config FNOSC = PRIPLL // Primary oscillator (XT, HS, EC) w/ PLL
-#pragma config OSCIOFNC = OFF // Disabled output on clko pin
+#pragma config FNOSC = PRIPLL // Oscillateur primaire avec PLL
+#pragma config OSCIOFNC = OFF // Désactivation de la sortie sur la pin CLKO
 #pragma config FCKSM = CSDCMD // Clock Switching Disabled, Clock Monitoring Disabled
 
-//Set system PLL configuration (Quartz 8 MHz)
-// #pragma FPLLIDIV = DIV_5 // Divide by 5 clock for input to pll ->4MHz
-#pragma config FPLLIDIV = DIV_2 // Divide by 2 clock for input to pll ->4MHz
-#pragma config FPLLMUL = MUL_20 // Multiply by 20 -> pll output = 80MHz
-#pragma config FPLLODIV = DIV_1 // System clock = pll Divide by 1 = 80MHz
 
-// Set peripheral clk div
-#pragma config FPBDIV = DIV_8 // Divide by 8
+/* Configuration de la PLL avec un quartz externe de 8 MHz
+ * ------------------------------------------------------- */
+#pragma config FPLLIDIV = DIV_2 // Division de l'oscillateur primaire par 2 ->4MHz
+#pragma config FPLLMUL = MUL_20 // Multiplication par 20 -> 80MHz en sortie de la PLL
+#pragma config FPLLODIV = DIV_1 // Division par 1 -> 80MHz pour l'horloge système
+#define SYS_FREQ (80000000L)    // Constante stockant la valeur de l'horloge système
 
-// Set power up timer
-#pragma PUT = ON
 
-// set USB
-#pragma config FVBUSONIO = OFF // VBUS_ON pin is controlled by the Port Function
-#pragma config FUSBIDIO = OFF // USBID pin is controlled by the Port Function
 
-// Set CAN
-#pragma config FCANIO = ON // Default CAN IO Pins
+/* Configuration du chien de garde (WATCHDOG)
+ * ------------------------------------------ */
+#pragma  config FWDTEN = OFF // Désactivé
 
-// Set Ethernet
-#pragma config FETHIO = ON // Default Ethernet IO Pins
-#pragma config FMIIEN = ON // MII enabled
 
-// set watchdog
-#pragma  config FWDTEN = OFF // Disabled
 
-// Set code protect
-#pragma config CP = OFF // Disabled
-
-// Set boot flash code protect
-#pragma config BWP = OFF // Disabled
-
-// Set ICD3 channel
+/* Configuration du programmeur
+ * ------------------------------------------ */
 #pragma config ICESEL = ICS_PGx2 // ICE pins are shared with PGC2, PGD2
 
 // Set debug bit
@@ -73,24 +55,6 @@
 
 
 
-//=====================================----------------------------------------
-// définitions pour les Timers
-//=====================================----------------------------------------
-
-#define SYS_FREQ (80000000L)    //80 MHz
-#define PB_DIV 1
-#define PB_FREQ (SYS_FREQ / PB_DIV)
-
-
-#define PRESCALE 256
-#define T1_TICK ((1000000.0 * PRESCALE)/PB_FREQ) // en us
-// 25 ms => 25'000 us
-#define VAL_PR1 (25000 / T1_TICK)
-
-#define PRESCALE_4 1
-#define T4_TICK ((1000000.0 * PRESCALE_4)/PB_FREQ) // en us
-// 40 us
-#define VAL_PR4 (40.0 / T4_TICK)
 
 
 
@@ -104,12 +68,8 @@ int main (void){
 
   // memory wait states fine tuning
   // TO BE CHECKED
-  SYSTEMConfigPerformance(SYS_FREQ);
+  SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK
   // Etablit PB_CLOCK = à SYSCLK
-   
-  // Default SK32MX775F512L i/os config and values
-  SK32MX795F512L_IO_Default();  
- 
 
   TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
 
@@ -120,6 +80,7 @@ int main (void){
 
   while(1){
     // Ne rien faire (juste un comptage)
+      pin::set_output('A', 0);
       pin::set('A', 0);
       delay::ms(1000);
       pin::clear('A', 0);

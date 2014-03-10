@@ -4,8 +4,6 @@
  * License : BSD 3 clauses
  *
  * Fonction d'abstraction pour le entrée/sortie générique
- *
- * Ce pilote est destiné au circuit "Starter-kit PIC32" de l'ETML-ES
  */
 
 #ifndef PORT_H

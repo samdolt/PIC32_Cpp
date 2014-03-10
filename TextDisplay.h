@@ -6,8 +6,6 @@
  * Pilote orienté object pour affichage LCD basé sur un circuit
  * Hitachi HD44780 ou compatible
  *
- * Ce pilote est destiné au circuit "Starter-kit PIC32" de l'ETML-ES
- *
  * Ce code est basé sur:
  *     - Le fichier t Mc32DriverLcd.c de Gomes Andres (ETML-ES)
  */
