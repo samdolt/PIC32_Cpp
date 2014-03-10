@@ -8,24 +8,65 @@
  * Ce pilote est destiné au circuit "Starter-kit PIC32" de l'ETML-ES
  */
 
-#ifndef PORT_H
-#define	PORT_H
-
-
-
 namespace port {
-    uint32_t read(const char PORT);
+    uint32_t read(const char PORT)
+    {
+        switch(PORT) {
+            case 'A':
+                return PORTA;
+            default:
+                return 0;
+        }
+    }
 
-    void write(const char PORT, const uint32_t value);
+    void write(const char PORT, const uint32_t value)
+    {
+        switch(PORT) {
+            case 'A':
+                PORTA = value;
+                break;
+            default:
+                break;
+        }
+    }
+
 }
 
 namespace pin {
 
-    void set(const char PORT, const uint8_t PIN);
+    void set(const char PORT, const uint8_t PIN)
+    {
+        switch(PORT) {
+            case 'A':
+                LATA |= (1<<PIN);
+                break;
+            default:
+                break;
+        }
+    }
 
-    void clear(char PORT, const uint8_t PIN);
+    void clear(char PORT, const uint8_t PIN)
+    {
+        switch(PORT) {
+            case 'A':
+                LATA &= ~(1<<PIN);
+                break;
+            default:
+                break;
+        }
+    }
 
-    uint32_t get(const char PORT, const uint8_t PIN);
+    uint32_t get(const char PORT, const uint8_t PIN)
+    {
+        switch(PORT) {
+            case 'A':
+                return (PORTA & (1<<PIN)) >> PIN;
+        default:
+            return 0;
+        }
+
+        return 0;
+    }
 }
 
 /******************************************************************************
@@ -60,5 +101,3 @@ namespace pin {
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#endif	/* PORT_H */
-
