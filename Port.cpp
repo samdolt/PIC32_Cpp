@@ -37,9 +37,36 @@ namespace port {
 
 namespace pin {
 
+    uint8_t get_number(const char PIN[])
+    {
+        uint8_t return_data = 0;
+        for(uint8_t i = 0; PIN[i] != '\0'; i++)
+        {
+            if(i == 0)
+            {
+                // Ne rien faire, information sur le port
+            }
+            else if(i==1)
+            {
+                return_data = PIN[i] - '0';
+            }
+            else if(i == 2)
+            {
+                // Le numéro de pin est supérieur à 9:
+                return_data *= 10;
+                return_data += PIN[i] - '0';
+            }
+            else
+            {
+                // Ne rien faire
+            }
+        }
+        return return_data;
+    }
+
     uint8_t read(const char PIN[])
     {
-        return get(PIN[0], PIN[1] - '0');
+        return get(PIN[0], get_number(PIN));
     }
 
     void write(const char PIN[], uint8_t VALUE)
@@ -47,10 +74,10 @@ namespace pin {
         switch(VALUE)
         {
             case HIGH:
-                set(PIN[0], PIN[1] - '0');
+                set(PIN[0], get_number(PIN));
                 break;
             case LOW:
-                clear(PIN[0], PIN[1] - '0');
+                clear(PIN[0], get_number(PIN));
                 break;
             default:
                 break;
@@ -63,10 +90,10 @@ namespace pin {
         switch(VALUE)
         {
             case INPUT:
-                set_input(PIN[0], PIN[1] - '0');
+                set_input(PIN[0], get_number(PIN));
                 break;
             case OUTPUT:
-                set_output(PIN[0], PIN[1] - '0');
+                set_output(PIN[0], get_number(PIN));
                 break;
             default:
                 break;

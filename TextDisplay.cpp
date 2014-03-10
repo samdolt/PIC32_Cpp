@@ -83,49 +83,49 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     M_RS[1] = RS[1];
     M_RS[2] = '\0';
     M_RS_PORT = RS[0];
-    M_RS_PIN = RS[1] - '0';
+    M_RS_PIN = pin::get_number(RS);
 
     M_RW[0] = RW[0];
     M_RW[1] = RW[1];
     M_RW[2] = '\0';
     M_RW_PORT = RW[0];
-    M_RW_PIN = RW[1] - '0';
+    M_RW_PIN = pin::get_number(RW);
 
     M_EN[0] = EN[0];
     M_EN[1] = EN[1];
     M_EN[2] = '\0';
     M_EN_PORT = EN[0];
-    M_EN_PIN = EN[1] - '0';
+    M_EN_PIN = pin::get_number(EN);
 
     M_BL[0] = BL[0];
     M_BL[1] = BL[1];
     M_BL[2] = '\0';
     M_BL_PORT = BL[0];
-    M_BL_PIN = BL[1] - '0';
+    M_BL_PIN = pin::get_number(BL);
 
     M_DB4[0] = DB4[0];
     M_DB4[1] = DB4[1];
     M_DB4[2] = '\0';
     M_DB4_PORT = DB4[0];
-    M_DB4_PIN = DB4[1] - '0';
+    M_DB4_PIN = pin::get_number(DB4);
 
     M_DB5[0] = DB5[0];
     M_DB5[1] = DB5[1];
     M_DB5[2] = '\0';
     M_DB5_PORT = DB5[0];
-    M_DB5_PIN = DB5[1] - '0';
+    M_DB5_PIN = pin::get_number(DB5);
 
     M_DB6[0] = DB6[0];
     M_DB6[1] = DB6[1];
     M_DB6[2] = '\0';
     M_DB6_PORT = DB6[0];
-    M_DB6_PIN = DB6[1] - '0';
+    M_DB6_PIN = pin::get_number(DB6);
 
     M_DB7[0] = DB7[0];
     M_DB7[1] = DB7[1];
     M_DB7[2] = '\0';
     M_DB7_PORT = DB7[0];
-    M_DB7_PIN = DB7[1] - '0';
+    M_DB7_PIN = pin::get_number(DB7);
     
     /*--------------------------------------------------------*/
     /* Définition du tableau pour l'adresse des lignes
@@ -147,12 +147,6 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     pin::set(M_RW_PORT, M_RW_PIN);
     pin::set(M_EN_PORT, M_EN_PIN);
     pin::clear(M_EN_PORT, M_EN_PIN);
-    
-/*
-        LCD_DB4_W = 1;
-        LCD_DB5_W = 1;
-        LCD_DB6_W = 1;
-        LCD_DB7_W = 1; */
     
     pin::set_output(M_RS_PORT, M_RS_PIN);
     pin::set_output(M_RW_PORT, M_RW_PIN);
