@@ -4,7 +4,6 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../SK32MX795F512L.h</itemPath>
       <itemPath>../TextDisplay.h</itemPath>
       <itemPath>../Delay.h</itemPath>
       <itemPath>../Port.h</itemPath>
@@ -16,7 +15,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../SK32MX795F512L.cpp</itemPath>
       <itemPath>../TextDisplay.cpp</itemPath>
       <itemPath>../main.cpp</itemPath>
       <itemPath>../Delay.cpp</itemPath>
@@ -115,7 +113,7 @@
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
-        <property key="heap-size" value="1024"/>
+        <property key="heap-size" value="3072"/>
         <property key="input-libraries" value=""/>
         <property key="linker-symbols" value=""/>
         <property key="map-file" value="TpTestKitPic32.map"/>

@@ -46,12 +46,10 @@
 
 
 
-/* Configuration du programmeur
- * ------------------------------------------ */
-#pragma config ICESEL = ICS_PGx2 // ICE pins are shared with PGC2, PGD2
-
-// Set debug bit
-#pragma config DEBUG = ON // Enabled
+/* Configuration du programmeur et du débogueur
+ * -------------------------------------------- */
+#pragma config ICESEL = ICS_PGx2 // Les pins ICE sont partagée avec PGC2 et PGD2
+#pragma config DEBUG = ON // Mode DEBUG enclenché
 
 
 
@@ -59,39 +57,46 @@
 
 
 
-//=====================================----------------------------------------
-// fonction main
-//=====================================----------------------------------------
+/*******************************************************************************
+ * FONCTION PRINCIPALE
+ ******************************************************************************/
 int main (void){
-  // disable JTAG port to free RA0, RA1, RA4 et RA5
-  mJTAGPortEnable(0);
+    /*
+     * CONFIGURATION
+     * -------------- */
+    SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK = 80MHz
+    mJTAGPortEnable(0); // Désactivation du JTAG, libère RA0, RA1, RA4 et RA5
 
-  // memory wait states fine tuning
-  // TO BE CHECKED
-  SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK
-  // Etablit PB_CLOCK = à SYSCLK
+    /*
+     * Initialisation des objets
+     * ------------------------- */
+    TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
 
-  TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
+    /*
+     * Affichage initiale
+     * ------------------------- */
+    lcd << "Exemple PIC32 C++" << endl << endl << endl;
+    lcd << "Starter Kit ETML-ES" << endl;
 
-  lcd << "LCD C++ avec Stream" << endl;
-  lcd << "Hex : " << convert::to_hex(3452) << endl;
-  lcd << "Dec : " << 3452 << endl;
-  lcd << "brochage variable" << endl;
+    /*
+     * LED Clignottante
+     * ------------------------- */
 
-  while(1){
-    // Ne rien faire (juste un comptage)
-      pin::set_output('A', 0);
-      pin::set('A', 0);
-      delay::ms(1000);
-      pin::clear('A', 0);
-      delay::ms(1000);
-  }
+    pin::direction("A0", pin::OUTPUT);
+    while(1){
+        pin::write("A0", pin::HIGH);
+        delay::ms(1000);
+        pin::write("A0", pin::LOW);
+        delay::ms(1000);
+    }
 
-  return 0; // Le C++ oblige un retour de valeur pour la fonction main
+    return 0;
 }
 
-
+/*******************************************************************************
+ * VECTEURS D'INTERRUPTIONS
+ ******************************************************************************/
 extern "C"
 {
-    // Les interruptions doivent être inclus ici
+    // Les vecteurs d'interruption doivent être compilé en "mode" C
 }
