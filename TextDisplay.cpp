@@ -14,13 +14,15 @@
 
 #include "GenericTypeDefs.h"
 
-#include "p32xxxx.h"
+#include <p32xxxx.h>
+#include <cstring>
 #include "SK32MX795F512L.h"
 
 
 #include "TextDisplay.h"
 #include "Delay.h"
 #include "Port.h"
+
 
 /******************************************************************************
  * CONSTANTE
@@ -79,52 +81,36 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
      * Sauvegarde des paramètres
      **************************************************************************/
 
-    M_RS[0] = RS[0];
-    M_RS[1] = RS[1];
-    M_RS[2] = '\0';
-    M_RS_PORT = RS[0];
+    strcpy(M_RS, RS);
+    M_RS_PORT = pin::get_port(RS);
     M_RS_PIN = pin::get_number(RS);
 
-    M_RW[0] = RW[0];
-    M_RW[1] = RW[1];
-    M_RW[2] = '\0';
-    M_RW_PORT = RW[0];
+    strcpy(M_RW, RW);
+    M_RW_PORT = pin::get_port(RW);
     M_RW_PIN = pin::get_number(RW);
 
-    M_EN[0] = EN[0];
-    M_EN[1] = EN[1];
-    M_EN[2] = '\0';
-    M_EN_PORT = EN[0];
+    strcpy(M_EN, EN);
+    M_EN_PORT = pin::get_port(EN);
     M_EN_PIN = pin::get_number(EN);
 
-    M_BL[0] = BL[0];
-    M_BL[1] = BL[1];
-    M_BL[2] = '\0';
-    M_BL_PORT = BL[0];
+    strcpy(M_BL, BL);
+    M_BL_PORT = pin::get_port(BL);
     M_BL_PIN = pin::get_number(BL);
 
-    M_DB4[0] = DB4[0];
-    M_DB4[1] = DB4[1];
-    M_DB4[2] = '\0';
-    M_DB4_PORT = DB4[0];
+    strcpy(M_DB4, DB4);
+    M_DB4_PORT = pin::get_port(DB4);
     M_DB4_PIN = pin::get_number(DB4);
 
-    M_DB5[0] = DB5[0];
-    M_DB5[1] = DB5[1];
-    M_DB5[2] = '\0';
-    M_DB5_PORT = DB5[0];
+    strcpy(M_DB5, DB5);
+    M_DB5_PORT = pin::get_port(DB5);
     M_DB5_PIN = pin::get_number(DB5);
 
-    M_DB6[0] = DB6[0];
-    M_DB6[1] = DB6[1];
-    M_DB6[2] = '\0';
-    M_DB6_PORT = DB6[0];
+    strcpy(M_DB6, DB6);
+    M_DB6_PORT = pin::get_port(DB6);
     M_DB6_PIN = pin::get_number(DB6);
 
-    M_DB7[0] = DB7[0];
-    M_DB7[1] = DB7[1];
-    M_DB7[2] = '\0';
-    M_DB7_PORT = DB7[0];
+    strcpy(M_DB7, DB7);
+    M_DB7_PORT = pin::get_port(DB7);
     M_DB7_PIN = pin::get_number(DB7);
     
     /*--------------------------------------------------------*/

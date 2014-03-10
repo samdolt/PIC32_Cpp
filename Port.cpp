@@ -37,6 +37,11 @@ namespace port {
 
 namespace pin {
 
+    char get_port(const char PIN[])
+    {
+        return PIN[0];
+    }
+    
     uint8_t get_number(const char PIN[])
     {
         uint8_t return_data = 0;

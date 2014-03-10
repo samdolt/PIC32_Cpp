@@ -45,6 +45,7 @@ namespace pin {
     void set_output(const char PORT, const uint8_t PIN);
 
     uint8_t get_number(const char PIN[]);
+    char get_port(const char PIN[]);
 }
 
 /******************************************************************************
