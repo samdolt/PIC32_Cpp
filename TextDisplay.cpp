@@ -14,7 +14,7 @@
 
 #include "GenericTypeDefs.h"
 
-#include "p32mx795f512l.h"
+#include "p32xxxx.h"
 #include "SK32MX795F512L.h"
 
 

@@ -11,6 +11,7 @@
 #define	DELAY_H
 
 #include <cstdint>
+#include <p32xxxx.h>
 
 namespace delay {
     void ms(uint32_t delay);

@@ -1,5 +1,5 @@
 /**
- * Fichier : Port.h
+ * Fichier : Port.c
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
@@ -7,6 +7,9 @@
  *
  * Ce pilote est destiné au circuit "Starter-kit PIC32" de l'ETML-ES
  */
+
+#include "Port.h"
+#include <p32xxxx.h>
 
 namespace port {
     uint32_t read(const char PORT)
@@ -34,6 +37,28 @@ namespace port {
 
 namespace pin {
 
+    uint8_t read(const char PIN[])
+    {
+        return get(PIN[0], PIN[1] - '0');
+    }
+
+    void write(const char PIN[], enum value_e VALUE)
+    {
+        switch(VALUE)
+        {
+            case HIGH:
+                set(PIN[0], PIN[1] - '0');
+                break;
+            case LOW:
+                clear(PIN[0], PIN[1] - '0');
+                break;
+            default:
+                break;
+        }
+
+    }
+
+
     void set(const char PORT, const uint8_t PIN)
     {
         switch(PORT) {
@@ -45,7 +70,7 @@ namespace pin {
         }
     }
 
-    void clear(char PORT, const uint8_t PIN)
+    void clear(const char PORT, const uint8_t PIN)
     {
         switch(PORT) {
             case 'A':
@@ -56,7 +81,7 @@ namespace pin {
         }
     }
 
-    uint32_t get(const char PORT, const uint8_t PIN)
+    uint8_t get(const char PORT, const uint8_t PIN)
     {
         switch(PORT) {
             case 'A':

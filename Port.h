@@ -11,6 +11,8 @@
 #ifndef PORT_H
 #define	PORT_H
 
+#include <stdint.h>
+
 
 
 namespace port {
@@ -21,11 +23,19 @@ namespace port {
 
 namespace pin {
 
+    enum value_e {
+        LOW = 0,
+        HIGH = 1
+    };
     void set(const char PORT, const uint8_t PIN);
 
-    void clear(char PORT, const uint8_t PIN);
+    void clear(const char PORT, const uint8_t PIN);
 
-    uint32_t get(const char PORT, const uint8_t PIN);
+    uint8_t get(const char PORT, const uint8_t PIN);
+
+    uint8_t read(const char PIN[]);
+
+    void write(const char PIN[], enum value_e VALUE);
 }
 
 /******************************************************************************

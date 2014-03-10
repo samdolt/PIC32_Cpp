@@ -8,7 +8,9 @@
  */
 
 
+#include <p32xxxx.h>
 #include <plib.h>
+
 #include "Delay.h"
 
 #ifndef SYS_FREQ

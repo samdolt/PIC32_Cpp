@@ -6,6 +6,7 @@
  *
  * Ce projet est destiné au circuit "Starter-kit PIC32" de l'ETML-ES
  */
+#define __32MX795F512L__
 
 #include <GenericTypeDefs.h>
 #include <stdio.h>

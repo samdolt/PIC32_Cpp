@@ -20,6 +20,7 @@
       <itemPath>../TextDisplay.cpp</itemPath>
       <itemPath>../main.cpp</itemPath>
       <itemPath>../Delay.cpp</itemPath>
+      <itemPath>../Port.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -42,7 +43,7 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
         <languageToolchainVersion>1.31</languageToolchainVersion>
-        <platform>4</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
@@ -111,13 +112,6 @@
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
         <property key="extra-lib-directories" value=""/>
-        <property key="fill-flash-options-addr" value=""/>
-        <property key="fill-flash-options-const" value=""/>
-        <property key="fill-flash-options-how" value="0"/>
-        <property key="fill-flash-options-inc-const" value="1"/>
-        <property key="fill-flash-options-increment" value=""/>
-        <property key="fill-flash-options-seq" value=""/>
-        <property key="fill-flash-options-what" value="0"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
@@ -147,7 +141,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="..\..\..\..\..\..\..\..\Program Files (x86)\Microchip\xc32\v1.31\pic32mx\include\proc;../../../../../Applications/microchip/xc32/v1.30/pic32mx/include/proc;..\..\..\..\..\..\..\..\Program Files\Microchip\xc32\v1.31\pic32mx\include\proc"/>
+                  value="..\..\..\..\..\..\..\..\Program Files (x86)\Microchip\xc32\v1.31\pic32mx\include;../../../../../Applications/microchip/xc32/v1.30/pic32mx/include;..\..\..\..\..\..\..\..\Program Files\Microchip\xc32\v1.31\pic32mx\include"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
@@ -196,10 +190,6 @@
         <property key="OUTPUT COMPARE 5" value="true"/>
         <property key="PARALLEL MASTER/SLAVE PORT" value="true"/>
         <property key="REAL TIME CLOCK" value="true"/>
-        <property key="SPI 1" value="true"/>
-        <property key="SPI 2" value="true"/>
-        <property key="SPI 3" value="true"/>
-        <property key="SPI 4" value="true"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="TIMER2" value="true"/>
