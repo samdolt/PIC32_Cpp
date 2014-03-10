@@ -11,7 +11,8 @@ Les versions utilisées sont : MPLAB X v. 2.00 - XC32 v. 1.31
 
 #### Remarque
 
-Le projet MPLAB fournis devrait fonctionner sur tous Windows 7 64 bits. Pour les versions 32 bits, il faut modifier le lien définit dans le champ "include" dans les propriétés du compilateur XC32, sous g++. Il faut passer de "Program File x86" à "Program File"
+Le projet MPLAB X fournis devrait fonctionner sur Windows 32 bits et Windows 64 bits, ainsi que sur Mac OS X
+
 
 ### Contrainte materielle
 
