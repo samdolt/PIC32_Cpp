@@ -81,6 +81,15 @@ namespace pin {
             case 'A':
                 TRISA |= (1<<PIN);
                 break;
+            case 'B':
+                TRISB |= (1<<PIN);
+                break;
+            case 'C':
+                TRISC |= (1<<PIN);
+                break;
+            case 'D':
+                TRISD |= (1<<PIN);
+                break;
             case 'E':
                 TRISE |= (1<<PIN);
                 break;
@@ -96,6 +105,15 @@ namespace pin {
         switch(PORT) {
             case 'A':
                 TRISA &= ~(1<<PIN);
+                break;
+            case 'B':
+                TRISB &= ~(1<<PIN);
+                break;
+            case 'C':
+                TRISC &= ~(1<<PIN);
+                break;
+            case 'D':
+                TRISD &= ~(1<<PIN);
                 break;
             case 'E':
                 TRISE &= ~(1<<PIN);
@@ -113,6 +131,15 @@ namespace pin {
             case 'A':
                 LATA |= (1<<PIN);
                 break;
+            case 'B':
+                LATB |= (1<<PIN);
+                break;
+            case 'C':
+                LATC |= (1<<PIN);
+                break;
+            case 'D':
+                LATD |= (1<<PIN);
+                break;
             case 'E':
                 LATE |= (1<<PIN);
                 break;
@@ -127,6 +154,15 @@ namespace pin {
             case 'A':
                 LATA &= ~(1<<PIN);
                 break;
+            case 'B':
+                LATB &= ~(1<<PIN);
+                break;
+            case 'C':
+                LATC &= ~(1<<PIN);
+                break;
+            case 'D':
+                LATD &= ~(1<<PIN);
+                break;
             case 'E':
                 LATE &= ~(1<<PIN);
                 break;
@@ -140,6 +176,12 @@ namespace pin {
         switch(PORT) {
             case 'A':
                 return (PORTA & (1<<PIN)) >> PIN;
+            case 'B':
+                return (PORTB & (1<<PIN)) >> PIN;
+            case 'C':
+                return (PORTC & (1<<PIN)) >> PIN;
+            case 'D':
+                return (PORTD & (1<<PIN)) >> PIN;
             case 'E':
                 return (PORTE & (1<<PIN)) >> PIN;
         default:
