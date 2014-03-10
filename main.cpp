@@ -111,11 +111,12 @@ int main (void){
   SK32MX795F512L_IO_Default();  
  
 
-  TextDisplay lcd = TextDisplay();
+  TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
 
   lcd << "LCD C++ avec Stream" << endl;
   lcd << "Hex : " << convert::to_hex(3452) << endl;
   lcd << "Dec : " << 3452 << endl;
+  lcd << "brochage variable" << endl;
 
   while(1){
     // Ne rien faire (juste un comptage)

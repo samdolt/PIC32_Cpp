@@ -46,7 +46,9 @@ public:
     /*
      *  Constructeur par défaut de la classe
      */
-    TextDisplay();
+    TextDisplay(const char RS[], const char RW[], const char E[],
+                const char BL[], const char DB4[], const char DB5[],
+                const char DB6[], const char DB7[]);
 
     /*
      * print permet d'afficher une chaine de caractère à l'écran
@@ -154,6 +156,26 @@ private:
      * Envoi d'une commande
      */
     void command(uint8_t value);
+
+    /*
+     * Stockage des broches utilisée
+     */
+    char M_RS[3];
+    char M_RW[3];
+    char M_EN[3];
+    char M_BL[3];
+
+
+    char M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;
+    int M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;
+
+    char M_DB4[3];
+    char M_DB5[3];
+    char M_DB6[3];
+    char M_DB7[3];
+
+    char M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;
+    int M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;
 
     /*
      * Tableau contenant les adresses de ligne

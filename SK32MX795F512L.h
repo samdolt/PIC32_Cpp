@@ -175,6 +175,8 @@
 /*--------------------------------------------------------*/
 /* LCD
 /*--------------------------------------------------------*/
+
+/*
 //On écrit dans le latch pour éviter les problèmes de R/W
 #define LCD_RS_W       LATEbits.LATE0
 #define LCD_RW_W       LATEbits.LATE1
@@ -203,6 +205,7 @@
 #define LCD_DB5_T    TRISEbits.TRISE5
 #define LCD_DB6_T    TRISEbits.TRISE6
 #define LCD_DB7_T    TRISEbits.TRISE7
+ * */
 
 /*--------------------------------------------------------*/
 /* Ponts en H

@@ -140,25 +140,7 @@ void SK32MX795F512L_IO_Default(void)
 	/*--------------------------------------------------------*/
 	/* LCD
 	/*--------------------------------------------------------*/
-	// On met d'abord toutes les pattes du LCD à 1 sauf le backlight
-        LCD_RS_W = 1;
-        LCD_RW_W = 1;
-        LCD_E_W = 1;
-        LCD_BL_W = 0;
-        LCD_DB4_W = 1;
-        LCD_DB5_W = 1;
-        LCD_DB6_W = 1;
-        LCD_DB7_W = 1;
-        // Puis on configure toutes les pattes en sortie, lorsqu'on aura besoin, on modifiera
-        // ce qu'il faut en entrée
-	LCD_RS_T = 0; //LCD_RS en sortie
-	LCD_RW_T = 0; //LCD_RW en sortie
-	LCD_E_T = 0; //LCD_E en sortie
-	LCD_BL_T = 0; //LCD_BL en sortie
-	LCD_DB4_T = 0; //LCD_DB4 en sortie
-	LCD_DB5_T = 0; //LCD_DB5 en sortie
-	LCD_DB6_T = 0; //LCD_DB6 en sortie
-	LCD_DB7_T = 0; //LCD_DB7 en sortie
+
 	
 	/*--------------------------------------------------------*/
 	/* Pont en H

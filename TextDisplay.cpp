@@ -20,6 +20,7 @@
 
 #include "TextDisplay.h"
 #include "Delay.h"
+#include "Port.h"
 
 /******************************************************************************
  * CONSTANTE
@@ -69,7 +70,63 @@ namespace LCD {
 /******************************************************************************
  * FONCTION PUBLIQUE
  ******************************************************************************/
-TextDisplay::TextDisplay() {
+
+TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
+                         const char BL[], const char DB4[], const char DB5[],
+                         const char DB6[], const char DB7[]) {
+
+    /**************************************************************************
+     * Sauvegarde des paramètres
+     **************************************************************************/
+
+    M_RS[0] = RS[0];
+    M_RS[1] = RS[1];
+    M_RS[2] = '\0';
+    M_RS_PORT = RS[0];
+    M_RS_PIN = RS[1] - '0';
+
+    M_RW[0] = RW[0];
+    M_RW[1] = RW[1];
+    M_RW[2] = '\0';
+    M_RW_PORT = RW[0];
+    M_RW_PIN = RW[1] - '0';
+
+    M_EN[0] = EN[0];
+    M_EN[1] = EN[1];
+    M_EN[2] = '\0';
+    M_EN_PORT = EN[0];
+    M_EN_PIN = EN[1] - '0';
+
+    M_BL[0] = BL[0];
+    M_BL[1] = BL[1];
+    M_BL[2] = '\0';
+    M_BL_PORT = BL[0];
+    M_BL_PIN = BL[1] - '0';
+
+    M_DB4[0] = DB4[0];
+    M_DB4[1] = DB4[1];
+    M_DB4[2] = '\0';
+    M_DB4_PORT = DB4[0];
+    M_DB4_PIN = DB4[1] - '0';
+
+    M_DB5[0] = DB5[0];
+    M_DB5[1] = DB5[1];
+    M_DB5[2] = '\0';
+    M_DB5_PORT = DB5[0];
+    M_DB5_PIN = DB5[1] - '0';
+
+    M_DB6[0] = DB6[0];
+    M_DB6[1] = DB6[1];
+    M_DB6[2] = '\0';
+    M_DB6_PORT = DB6[0];
+    M_DB6_PIN = DB6[1] - '0';
+
+    M_DB7[0] = DB7[0];
+    M_DB7[1] = DB7[1];
+    M_DB7[2] = '\0';
+    M_DB7_PORT = DB7[0];
+    M_DB7_PIN = DB7[1] - '0';
+    
     /*--------------------------------------------------------*/
     /* Définition du tableau pour l'adresse des lignes
     /*--------------------------------------------------------*/
@@ -81,15 +138,41 @@ TextDisplay::TextDisplay() {
 
     M_NUMBER_OF_LINE = 4;
     M_NUMBER_OF_COLUMN = 20;
+
+    /***************************************************************
+     * GESTION DES PIN
+     ***************************************************************/
+     // On met d'abord toutes les pattes du LCD à 1 sauf le backlight
+    pin::set(M_RS_PORT, M_RS_PIN);
+    pin::set(M_RW_PORT, M_RW_PIN);
+    pin::set(M_EN_PORT, M_EN_PIN);
+    pin::clear(M_EN_PORT, M_EN_PIN);
     
+/*
+        LCD_DB4_W = 1;
+        LCD_DB5_W = 1;
+        LCD_DB6_W = 1;
+        LCD_DB7_W = 1; */
+    
+    pin::set_output(M_RS_PORT, M_RS_PIN);
+    pin::set_output(M_RW_PORT, M_RW_PIN);
+    pin::set_output(M_EN_PORT, M_EN_PIN);
+    pin::set_output(M_EN_PORT, M_EN_PIN);
+    pin::set_output(M_DB4_PORT, M_DB4_PIN);
+    pin::set_output(M_DB5_PORT, M_DB5_PIN);
+    pin::set_output(M_DB6_PORT, M_DB6_PIN);
+    pin::set_output(M_DB7_PORT, M_DB7_PIN);
+
      enable_backlight();
 
     // on va effectuer exactement ce que demande le ks0066
     // on repositionne LCD_E tout pour un démarrage correct
-    LCD_E_W = 0;
+    pin::clear(M_EN_PORT, M_EN_PIN);
     delay::us(1); // si LCD_E était à 1, on attend
-    LCD_RS_W = 0;  // demandé pour une commande
-    LCD_RW_W = 0;
+    pin::clear(M_RS_PORT, M_RS_PIN);   
+    pin::clear(M_RW_PORT, M_RW_PIN);
+
+    
     // suivant comment l'interfaçage avec le LCD s'est arrêté, il faut tout remettre à plat
     // selon les notes d'applications, il faut envoyer 3 fois un nibble 0x3
     // pour lui faire croire que nous sommes en interface8 bits
@@ -101,14 +184,16 @@ TextDisplay::TextDisplay() {
     send_nibble(0x03); // correspond à 0x30, interface 8 bits
     delay::ms(5);
     // maintenant, on peut configurer notre LCD en interface 4 bits
-    LCD_RS_W = 0;  // demandé pour une commande (on assure!)
+
+    pin::clear(M_RS_PORT, M_RS_PIN);
+
     send_nibble(2);// 4 bits interface
 
     command(LCD::DISPLAYCONTROL | LCD::LINE2 | LCD::DISPLAYOFF);
     delay::us(40); //ds0066 demande >39us
 
     // Initilisation du mode par défaut:
-     m_display_control = LCD::DISPLAYON | LCD::CURSOROFF | LCD::BLINKOFF;
+    m_display_control = LCD::DISPLAYON | LCD::CURSOROFF | LCD::BLINKOFF;
     command( LCD::DISPLAYCONTROL | m_display_control);
     delay::us(40); //ds0066 demande >39us
 
@@ -245,13 +330,13 @@ int8_t TextDisplay::set_cursor(uint8_t y, uint8_t x) {
 }
 
 void TextDisplay::enable_backlight(void) {
-    LCD_BL_T = 0;
-    LCD_BL_W = 1;
+    pin::set_output(M_BL_PORT, M_BL_PIN);
+    pin::set(M_BL_PORT, M_BL_PIN);
 }
 
 void TextDisplay::disable_backlight(void) {
-    LCD_BL_T = 0;
-    LCD_BL_W = 0;
+    pin::set_output(M_BL_PORT, M_BL_PIN);
+    pin::clear(M_BL_PORT, M_BL_PIN);
 }
 
 void TextDisplay::clear( void )
@@ -325,13 +410,14 @@ void TextDisplay::command(uint8_t value) {
 }
 
 void TextDisplay::send_byte(uint8_t address, uint8_t n) {
-    LCD_RS_W = 0;
+    pin::clear(M_RS_PORT, M_RS_PIN);
 
     while ( (read_byte() & 0x80) == 0x80 ){
     };
 
-    LCD_RS_W = address;
-    LCD_RW_W = 0;
+    pin::write(M_RS, address);
+
+    pin::clear(M_RW_PORT, M_RW_PIN);
 
     //LCD_E déjà à 0
     send_nibble(n >> 4);
@@ -341,14 +427,15 @@ void TextDisplay::send_byte(uint8_t address, uint8_t n) {
 void TextDisplay::send_nibble(uint8_t n) {
    UINT8_BITS NibbleToWrite;
    NibbleToWrite.Val = n;
-   LCD_DB7_W = NibbleToWrite.bits.b3;
-   LCD_DB6_W = NibbleToWrite.bits.b2;
-   LCD_DB5_W = NibbleToWrite.bits.b1;
-   LCD_DB4_W = NibbleToWrite.bits.b0;
-   delay::us(1);;
-   LCD_E_W = 1;
+   pin::write(M_DB7, NibbleToWrite.bits.b3);
+   pin::write(M_DB6, NibbleToWrite.bits.b2);
+   pin::write(M_DB5, NibbleToWrite.bits.b1);
+   pin::write(M_DB4, NibbleToWrite.bits.b0);
+   delay::us(1);
+
+   pin::set(M_EN_PORT, M_EN_PIN);
    delay::us(1); // E pulse width min = 450ns pour le 1!
-   LCD_E_W = 0;
+   pin::clear(M_EN_PORT, M_EN_PIN);
    delay::us(1); // E pulse width min = 450ns également pour le 0!
 }
 
@@ -359,32 +446,33 @@ void TextDisplay::send_nibble(uint8_t n) {
 uint8_t TextDisplay::read_byte( void )
 {
     UINT8_BITS lcd_read_byte;
-    LCD_DB4_T = 1; // 1=input
-    LCD_DB5_T = 1;
-    LCD_DB6_T = 1;
-    LCD_DB7_T = 1;
-    LCD_RW_W = 1;
+    pin::set_input(M_DB4_PORT, M_DB4_PIN);
+    pin::set_input(M_DB5_PORT, M_DB5_PIN);
+    pin::set_input(M_DB6_PORT, M_DB6_PIN);
+    pin::set_input(M_DB7_PORT, M_DB7_PIN);
+    pin::set(M_RW_PORT, M_RW_PIN);
     delay::us(1); //ds0066 demande 0.5us
-    LCD_E_W = 1;
+    pin::set(M_EN_PORT, M_EN_PIN);
     delay::us(1); //ds0066 demande 0.5us
-    lcd_read_byte.bits.b7 = LCD_DB7_R;
-    lcd_read_byte.bits.b6 = LCD_DB6_R;
-    lcd_read_byte.bits.b5 = LCD_DB5_R;
-    lcd_read_byte.bits.b4 = LCD_DB4_R;
-    LCD_E_W = 0; // attention e pulse min = 500ns à 1 et autant à 0
+    lcd_read_byte.bits.b7 = pin::get(M_DB7_PORT, M_DB7_PIN);
+    lcd_read_byte.bits.b6 = pin::get(M_DB6_PORT, M_DB6_PIN);
+    lcd_read_byte.bits.b5 = pin::get(M_DB5_PORT, M_DB5_PIN);
+    lcd_read_byte.bits.b4 = pin::get(M_DB4_PORT, M_DB4_PIN);
+    pin::clear(M_EN_PORT, M_EN_PIN); // attention e pulse min = 500ns à 1 et autant à 0
     delay::us(1);
-    LCD_E_W = 1;
+    pin::set(M_EN_PORT, M_EN_PIN);
     delay::us(1);
-    lcd_read_byte.bits.b3 = LCD_DB7_R;
-    lcd_read_byte.bits.b2 = LCD_DB6_R;
-    lcd_read_byte.bits.b1 = LCD_DB5_R;
-    lcd_read_byte.bits.b0 = LCD_DB4_R;
-    LCD_E_W = 0;
+    lcd_read_byte.bits.b3 = pin::get(M_DB7_PORT, M_DB7_PIN);
+    lcd_read_byte.bits.b2 = pin::get(M_DB6_PORT, M_DB6_PIN);
+    lcd_read_byte.bits.b1 = pin::get(M_DB5_PORT, M_DB5_PIN);
+    lcd_read_byte.bits.b0 = pin::get(M_DB4_PORT, M_DB4_PIN);
+    pin::clear(M_EN_PORT, M_EN_PIN);
     delay::us(1);
-    LCD_DB4_T = 0; // 0=output
-    LCD_DB5_T = 0;
-    LCD_DB6_T = 0;
-    LCD_DB7_T = 0;
+
+    pin::set_output(M_DB4_PORT, M_DB4_PIN);
+    pin::set_output(M_DB5_PORT, M_DB5_PIN);
+    pin::set_output(M_DB6_PORT, M_DB6_PIN);
+    pin::set_output(M_DB7_PORT, M_DB7_PIN);
 
     return(lcd_read_byte.Val);
 }
@@ -395,9 +483,9 @@ char TextDisplay::read( uint8_t x, uint8_t y)
     set_cursor(x,y);
     while ( read_byte() & 0x80 ){
     }; // wait until busy flag is low
-    LCD_RS_W = 1;
+    pin::set(M_RS_PORT, M_RS_PIN);
     value = read_byte();
-    LCD_RS_W = 0;
+    pin::clear(M_RS_PORT, M_RS_PIN);
     return(value);
 }
 
