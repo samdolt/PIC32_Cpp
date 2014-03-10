@@ -140,8 +140,7 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories"
-                  value="C:\Program Files (x86)\Microchip\xc32\v1.31\pic32mx\include;/Applications/microchip/xc32/v1.30/pic32mx/include;C:\Program Files\Microchip\xc32\v1.31\pic32mx\include"/>
+        <property key="extra-include-directories" value=""/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>

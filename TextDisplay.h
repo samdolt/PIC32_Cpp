@@ -34,7 +34,7 @@ enum stream_symbol {
     endl
 };
 
-enum lcd_e
+enum lcd_type_e
 {
     LCD2X16,
     LCD4X20
