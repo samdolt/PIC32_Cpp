@@ -12,7 +12,7 @@
 #include "Port.h"
 #include "Delay.h"
 #include "TextDisplay.h"
-
+#include "Key.h"
 
 
 /*******************************************************************************
@@ -70,13 +70,15 @@ int main (void){
     /*
      * Initialisation des objets
      * ------------------------- */
-    TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
 
+    TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
+    Key OK_key = Key("G12");
     /*
      * Affichage initiale
      * ------------------------- */
     lcd << "Exemple PIC32 C++" << endl << endl << endl;
     lcd << "Starter Kit ETML-ES" << endl;
+    lcd.set_cursor(2,1);
 
     /*
      * LED Clignottante
@@ -84,10 +86,13 @@ int main (void){
 
     pin::direction("A0", pin::OUTPUT);
     while(1){
-        pin::write("A0", pin::HIGH);
-        delay::ms(1000);
-        pin::write("A0", pin::LOW);
-        delay::ms(1000);
+
+        OK_key.update();
+        if(OK_key.has_a_new_state()){
+            lcd.print("+");
+        }
+
+
     }
 
     return 0;
