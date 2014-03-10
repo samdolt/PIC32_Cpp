@@ -42,7 +42,7 @@ namespace pin {
         return get(PIN[0], PIN[1] - '0');
     }
 
-    void write(const char PIN[], enum value_e VALUE)
+    void write(const char PIN[], uint8_t VALUE)
     {
         switch(VALUE)
         {
@@ -58,7 +58,7 @@ namespace pin {
 
     }
 
-    void direction(const char PIN[], enum direction_e VALUE)
+    void direction(const char PIN[], uint8_t VALUE)
     {
         switch(VALUE)
         {
