@@ -145,7 +145,7 @@
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
         <property key="make-warnings-into-errors" value="false"/>
-        <property key="optimization-level" value=""/>
+        <property key="optimization-level" value="-O1"/>
         <property key="place-data-into-section" value="false"/>
         <property key="post-instruction-scheduling" value="default"/>
         <property key="pre-instruction-scheduling" value="default"/>
@@ -155,6 +155,7 @@
         <property key="use-cci" value="false"/>
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
+        <appendMe value="-fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            "/>
       </C32CPP>
       <C32Global>
         <property key="legacy-libc" value="false"/>
