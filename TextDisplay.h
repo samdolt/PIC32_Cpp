@@ -44,11 +44,21 @@ enum lcd_type_e
  *
  * Pour l'instant, la classe gère uniquement des écrans de 4 lignes
  */
+
 class TextDisplay{
 public:
 
-    /*
-     *  Constructeur par défaut de la classe
+    /**
+     * @brief Constructeur de TextDisplay
+     *
+     * @param RS Chaîne représentant une broche
+     * @param RW Chaîne représentant une broche
+     * @param E Chaîne représentant une broche
+     * @param BL Chaîne représentant une broche
+     * @param DB4 Chaîne représentant une broche
+     * @param DB5 Chaîne représentant une broche
+     * @param DB6 Chaîne représentant une broche
+     * @param DB7 Chaîne représentant une broche
      */
     TextDisplay(const char RS[], const char RW[], const char E[],
                 const char BL[], const char DB4[], const char DB5[],
