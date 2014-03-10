@@ -9,10 +9,6 @@ Le code est detiné à l'IDE MPLAB X avec le compilateur XC32 pour PIC32.
 
 Les versions utilisées sont : MPLAB X v. 2.00 - XC32 v. 1.31
 
-#### Remarque
-
-Le projet MPLAB X fournis devrait fonctionner sur Windows 32 bits et Windows 64 bits, ainsi que sur Mac OS X
-
 
 ### Contrainte materielle
 
