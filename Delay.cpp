@@ -18,6 +18,14 @@
 #endif
 
 namespace delay {
+
+    void s(uint32_t delay)
+    {
+        for(int i = 0; i < delay; i++) {
+            ms(1000);
+        }
+    }
+
     void ms(uint32_t delay)
     {
         uint32_t time_to_wait;

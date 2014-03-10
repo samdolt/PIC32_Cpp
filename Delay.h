@@ -14,6 +14,7 @@
 #include <p32xxxx.h>
 
 namespace delay {
+    void s(uint32_t delay);
     void ms(uint32_t delay);
     void us(uint32_t delay);
 }
