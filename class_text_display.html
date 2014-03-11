@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>PIC32 C++: RÃ©fÃ©rence de la classe TextDisplay</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PIC32 C++
+   &#160;<span id="projectnumber">BETA</span>
+   </div>
+   <div id="projectbrief">Librairie et exemple de code C++ pour PIC32</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Liste&#160;des&#160;classes</span></a></li>
+      <li><a href="classes.html"><span>Index&#160;des&#160;classes</span></a></li>
+      <li><a href="functions.html"><span>Membres&#160;de&#160;classe</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_text_display.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ã‰numÃ©rations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs Ã©numÃ©rÃ©es</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="class_text_display-members.html">Liste de tous les membres</a>  </div>
+  <div class="headertitle">
+<div class="title">RÃ©fÃ©rence de la classe TextDisplay</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_text_display_8h_source.html">TextDisplay.h</a>&gt;</code></p>
+<div class="dynheader">
+Graphe de collaboration de TextDisplay:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_text_display__coll__graph.png" border="0" usemap="#_text_display_coll__map" alt="Collaboration graph"/></div>
+<map name="_text_display_coll__map" id="_text_display_coll__map">
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:aa82f048ee8430b61f40cd741f0895f33"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#aa82f048ee8430b61f40cd741f0895f33">TextDisplay</a> (const char RS[], const char RW[], const char E[], const char BL[], const char DB4[], const char DB5[], const char DB6[], const char DB7[])</td></tr>
+<tr class="memdesc:aa82f048ee8430b61f40cd741f0895f33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de <a class="el" href="class_text_display.html">TextDisplay</a>.  <a href="#aa82f048ee8430b61f40cd741f0895f33">Plus de dÃ©tails...</a><br/></td></tr>
+<tr class="separator:aa82f048ee8430b61f40cd741f0895f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdaa96053a8f6feb20ced3a6a18289cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">print</a> (const char *ptr_char)</td></tr>
+<tr class="separator:afdaa96053a8f6feb20ced3a6a18289cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03713d376519ac69c2e4259a4037698f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a03713d376519ac69c2e4259a4037698f">print</a> (const int32_t number)</td></tr>
+<tr class="separator:a03713d376519ac69c2e4259a4037698f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d1b63c74f5c20179c0f7b5a55571914"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a6d1b63c74f5c20179c0f7b5a55571914">print</a> (const <a class="el" href="structconvert__s.html">convert_s</a> data)</td></tr>
+<tr class="separator:a6d1b63c74f5c20179c0f7b5a55571914"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3f98a217ee8fb0dc16d1fdd299378ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#ae3f98a217ee8fb0dc16d1fdd299378ec">print</a> (enum <a class="el" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408">stream_symbol</a> symbol)</td></tr>
+<tr class="separator:ae3f98a217ee8fb0dc16d1fdd299378ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18cc6da3a17dcb57498e0c6c0edf091d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a18cc6da3a17dcb57498e0c6c0edf091d">write</a> (const uint8_t c)</td></tr>
+<tr class="separator:a18cc6da3a17dcb57498e0c6c0edf091d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a0424b830c795241c52cde3148e29cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a0a0424b830c795241c52cde3148e29cd">home</a> (void)</td></tr>
+<tr class="separator:a0a0424b830c795241c52cde3148e29cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad35285161ff8c86d1d0982d70707f9a5"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#ad35285161ff8c86d1d0982d70707f9a5">set_cursor</a> (uint8_t x, uint8_t y)</td></tr>
+<tr class="separator:ad35285161ff8c86d1d0982d70707f9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f77f80b5bf7ff44941f6c446432e2f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a5f77f80b5bf7ff44941f6c446432e2f6">enable_backlight</a> (void)</td></tr>
+<tr class="separator:a5f77f80b5bf7ff44941f6c446432e2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a499793df217191851836363ccde2d9b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a499793df217191851836363ccde2d9b6">disable_backlight</a> (void)</td></tr>
+<tr class="separator:a499793df217191851836363ccde2d9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6dc692a336cec63d4a4d377a95fded"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a8a6dc692a336cec63d4a4d377a95fded">clear</a> (void)</td></tr>
+<tr class="separator:a8a6dc692a336cec63d4a4d377a95fded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0fc9d68dd350b100364b35c7b555c6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#aa0fc9d68dd350b100364b35c7b555c6c">disable_display</a> (void)</td></tr>
+<tr class="separator:aa0fc9d68dd350b100364b35c7b555c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1597211b0818782d792495f0591d2b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a6c1597211b0818782d792495f0591d2b">enable_display</a> (void)</td></tr>
+<tr class="separator:a6c1597211b0818782d792495f0591d2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d1ebb26dcc65a1dfed0ffa2b6713c20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a5d1ebb26dcc65a1dfed0ffa2b6713c20">enable_blinking_cursor</a> (void)</td></tr>
+<tr class="separator:a5d1ebb26dcc65a1dfed0ffa2b6713c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d75c86d6d79daa3cc2ff463267d839e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a8d75c86d6d79daa3cc2ff463267d839e">disable_blinking_cursor</a> (void)</td></tr>
+<tr class="separator:a8d75c86d6d79daa3cc2ff463267d839e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfdb348afe4b49681d1b847bfd780794"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#adfdb348afe4b49681d1b847bfd780794">disable_underline_cursor</a> (void)</td></tr>
+<tr class="separator:adfdb348afe4b49681d1b847bfd780794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3fb1b376cbbed031a2f2a250a72413f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#af3fb1b376cbbed031a2f2a250a72413f">enable_underline_cursor</a> (void)</td></tr>
+<tr class="separator:af3fb1b376cbbed031a2f2a250a72413f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10765a25117b1c9f1ab5f626dd2a9b43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a10765a25117b1c9f1ab5f626dd2a9b43">enable_autoscroll</a> (void)</td></tr>
+<tr class="separator:a10765a25117b1c9f1ab5f626dd2a9b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af100fed528bcc73d8c31a76cdefd8a39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#af100fed528bcc73d8c31a76cdefd8a39">disable_autoscroll</a> (void)</td></tr>
+<tr class="separator:af100fed528bcc73d8c31a76cdefd8a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a527dcdb48fabdf008290431309b9cdae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a527dcdb48fabdf008290431309b9cdae">scroll_right</a> (void)</td></tr>
+<tr class="separator:a527dcdb48fabdf008290431309b9cdae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80835e0518758ac66fd87822af22e087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#a80835e0518758ac66fd87822af22e087">scroll_left</a> (void)</td></tr>
+<tr class="separator:a80835e0518758ac66fd87822af22e087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeafd95e233de83db3ec68380651a7c0"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_text_display.html#afeafd95e233de83db3ec68380651a7c0">~TextDisplay</a> ()</td></tr>
+<tr class="separator:afeafd95e233de83db3ec68380651a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description dÃ©taillÃ©e</h2>
+<div class="textblock">
+<p>DÃ©finition Ã  la ligne <a class="el" href="_text_display_8h_source.html#l00048">48</a> du fichier <a class="el" href="_text_display_8h_source.html">TextDisplay.h</a>.</p>
+</div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="aa82f048ee8430b61f40cd741f0895f33"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TextDisplay::TextDisplay </td>
+          <td>(</td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>RS</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>RW</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>E</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>BL</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>DB4</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>DB5</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>DB6</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char&#160;</td>
+          <td class="paramname"><em>DB7</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructeur de <a class="el" href="class_text_display.html">TextDisplay</a>. </p>
+<dl class="params"><dt>ParamÃ¨tres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">RS</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">RW</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">E</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">BL</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">DB4</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">DB5</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">DB6</td><td>Chaîne représentant une broche </td></tr>
+    <tr><td class="paramname">DB7</td><td>Chaîne représentant une broche </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>DÃ©finition Ã  la ligne <a class="el" href="_text_display_8cpp_source.html#l00074">74</a> du fichier <a class="el" href="_text_display_8cpp_source.html">TextDisplay.cpp</a>.</p>
+
+<p><div class="dynheader">
+Voici le graphe d'appel pour cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_text_display_aa82f048ee8430b61f40cd741f0895f33_cgraph.png" border="0" usemap="#class_text_display_aa82f048ee8430b61f40cd741f0895f33_cgraph" alt=""/></div>
+<map name="class_text_display_aa82f048ee8430b61f40cd741f0895f33_cgraph" id="class_text_display_aa82f048ee8430b61f40cd741f0895f33_cgraph">
+<area shape="rect" id="node2" href="namespacepin.html#ab49596e9e9d6efbbfdc1ab0bc8fc64be" title="pin::get_port" alt="" coords="254,5,349,32"/><area shape="rect" id="node3" href="namespacepin.html#ad27a9724d6db584cd97db7ebad15a87c" title="pin::get_number" alt="" coords="244,56,359,83"/><area shape="rect" id="node4" href="namespacepin.html#a27ccd17a378d0e3075b8ac557a9c9e72" title="pin::set" alt="" coords="269,107,334,133"/><area shape="rect" id="node5" href="namespacepin.html#abbf56f967b6bed1e73f01ea6b47f29b6" title="pin::clear" alt="" coords="264,157,339,184"/><area shape="rect" id="node6" href="namespacepin.html#a1b6ac2efd7a9479e7e7ed5d6e2cbfc0c" title="pin::set_output" alt="" coords="247,208,355,235"/><area shape="rect" id="node7" href="class_text_display.html#a5f77f80b5bf7ff44941f6c446432e2f6" title="TextDisplay::enable\l_backlight" alt="" coords="233,259,369,301"/><area shape="rect" id="node8" href="namespacedelay.html#a5b7f2482ab61c053da138b657478544d" title="delay::us" alt="" coords="264,325,339,352"/><area shape="rect" id="node9" href="namespacedelay.html#a8d9510dd2ca0eeea083f9df373f8f48d" title="delay::ms" alt="" coords="262,376,341,403"/><area shape="rect" id="node10" href="class_text_display.html#a8a6dc692a336cec63d4a4d377a95fded" title="TextDisplay::clear" alt="" coords="238,427,365,453"/><area shape="rect" id="node11" href="class_text_display.html#ad35285161ff8c86d1d0982d70707f9a5" title="TextDisplay::set_cursor" alt="" coords="222,477,381,504"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="afeafd95e233de83db3ec68380651a7c0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual TextDisplay::~TextDisplay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a class="anchor" id="a8a6dc692a336cec63d4a4d377a95fded"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::clear </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_text_display_a8a6dc692a336cec63d4a4d377a95fded_icgraph.png" border="0" usemap="#class_text_display_a8a6dc692a336cec63d4a4d377a95fded_icgraph" alt=""/></div>
+<map name="class_text_display_a8a6dc692a336cec63d4a4d377a95fded_icgraph" id="class_text_display_a8a6dc692a336cec63d4a4d377a95fded_icgraph">
+<area shape="rect" id="node2" href="class_text_display.html#aa82f048ee8430b61f40cd741f0895f33" title="Constructeur de TextDisplay. " alt="" coords="182,5,349,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af100fed528bcc73d8c31a76cdefd8a39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::disable_autoscroll </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a499793df217191851836363ccde2d9b6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::disable_backlight </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d75c86d6d79daa3cc2ff463267d839e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::disable_blinking_cursor </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa0fc9d68dd350b100364b35c7b555c6c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::disable_display </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adfdb348afe4b49681d1b847bfd780794"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::disable_underline_cursor </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a10765a25117b1c9f1ab5f626dd2a9b43"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::enable_autoscroll </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5f77f80b5bf7ff44941f6c446432e2f6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::enable_backlight </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_text_display_a5f77f80b5bf7ff44941f6c446432e2f6_icgraph.png" border="0" usemap="#class_text_display_a5f77f80b5bf7ff44941f6c446432e2f6_icgraph" alt=""/></div>
+<map name="class_text_display_a5f77f80b5bf7ff44941f6c446432e2f6_icgraph" id="class_text_display_a5f77f80b5bf7ff44941f6c446432e2f6_icgraph">
+<area shape="rect" id="node2" href="class_text_display.html#aa82f048ee8430b61f40cd741f0895f33" title="Constructeur de TextDisplay. " alt="" coords="190,12,357,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d1ebb26dcc65a1dfed0ffa2b6713c20"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::enable_blinking_cursor </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6c1597211b0818782d792495f0591d2b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::enable_display </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af3fb1b376cbbed031a2f2a250a72413f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::enable_underline_cursor </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0a0424b830c795241c52cde3148e29cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::home </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afdaa96053a8f6feb20ced3a6a18289cf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::print </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>ptr_char</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_text_display_afdaa96053a8f6feb20ced3a6a18289cf_icgraph.png" border="0" usemap="#class_text_display_afdaa96053a8f6feb20ced3a6a18289cf_icgraph" alt=""/></div>
+<map name="class_text_display_afdaa96053a8f6feb20ced3a6a18289cf_icgraph" id="class_text_display_afdaa96053a8f6feb20ced3a6a18289cf_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="193,5,244,32"/><area shape="rect" id="node3" href="_text_display_8h.html#a1a40987df65bab8d61423b8358c82f78" title="operator\&lt;\&lt;" alt="" coords="176,56,261,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a03713d376519ac69c2e4259a4037698f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::print </td>
+          <td>(</td>
+          <td class="paramtype">const int32_t&#160;</td>
+          <td class="paramname"><em>number</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6d1b63c74f5c20179c0f7b5a55571914"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::print </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structconvert__s.html">convert_s</a>&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae3f98a217ee8fb0dc16d1fdd299378ec"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::print </td>
+          <td>(</td>
+          <td class="paramtype">enum <a class="el" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408">stream_symbol</a>&#160;</td>
+          <td class="paramname"><em>symbol</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a80835e0518758ac66fd87822af22e087"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::scroll_left </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a527dcdb48fabdf008290431309b9cdae"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::scroll_right </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad35285161ff8c86d1d0982d70707f9a5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t TextDisplay::set_cursor </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><div class="dynheader">
+Voici le graphe des appelants de cette fonction :</div>
+<div class="dyncontent">
+<div class="center"><img src="class_text_display_ad35285161ff8c86d1d0982d70707f9a5_icgraph.png" border="0" usemap="#class_text_display_ad35285161ff8c86d1d0982d70707f9a5_icgraph" alt=""/></div>
+<map name="class_text_display_ad35285161ff8c86d1d0982d70707f9a5_icgraph" id="class_text_display_ad35285161ff8c86d1d0982d70707f9a5_icgraph">
+<area shape="rect" id="node2" href="main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="272,5,323,32"/><area shape="rect" id="node3" href="class_text_display.html#aa82f048ee8430b61f40cd741f0895f33" title="Constructeur de TextDisplay. " alt="" coords="214,56,381,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a18cc6da3a17dcb57498e0c6c0edf091d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TextDisplay::write </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentation de cette classe a Ã©tÃ© gÃ©nÃ©rÃ©e Ã  partir des fichiers suivants :<ul>
+<li><a class="el" href="_text_display_8h_source.html">TextDisplay.h</a></li>
+<li><a class="el" href="_text_display_8cpp_source.html">TextDisplay.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="class_text_display.html">TextDisplay</a></li>
+    <li class="footer">GÃ©nÃ©rÃ© le Mardi 11 Mars 2014 15:30:37 pour PIC32 C++ par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

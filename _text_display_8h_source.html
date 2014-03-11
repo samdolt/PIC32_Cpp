@@ -1,0 +1,1014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.6"/>
+<title>PIC32 C++:  Fichier source de TextDisplay.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { searchBox.OnSelectItem(0); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">PIC32 C++
+   &#160;<span id="projectnumber">BETA</span>
+   </div>
+   <div id="projectbrief">Librairie et exemple de code C++ pour PIC32</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- GÃ©nÃ©rÃ© par Doxygen 1.8.6 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Page&#160;principale</span></a></li>
+      <li><a href="namespaces.html"><span>Espaces&#160;de&#160;nommage</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li class="current"><a href="files.html"><span>Fichiers</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Liste&#160;des&#160;fichiers</span></a></li>
+      <li><a href="globals.html"><span>Membres&#160;de&#160;fichier</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('_text_display_8h_source.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>Tout</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Espaces de nommage</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Fichiers</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Fonctions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Ã‰numÃ©rations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Valeurs Ã©numÃ©rÃ©es</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">TextDisplay.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_text_display_8h.html">Aller Ã  la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef TEXTDISPLAY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TEXTDISPLAY_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> * Structure permettant de définir un nombre et la base dans lequel on</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * veut l&#39;afficher</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structconvert__s.html">   23</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span>{</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structconvert__s.html#a797911c41f04c5f14435ae8b6ade5010">   24</a></span>&#160;    uint8_t <a class="code" href="structconvert__s.html#a797911c41f04c5f14435ae8b6ade5010">base</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structconvert__s.html#adc46ad587327f85c838aa146f51f57af">   25</a></span>&#160;    int32_t <a class="code" href="structconvert__s.html#adc46ad587327f85c838aa146f51f57af">number</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}<a class="code" href="structconvert__s.html">convert_s</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> * Permet l&#39;utilisation du code endl</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408">   31</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408">stream_symbol</a> {</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408a5cbad4ad24fd9b8c066cdad096cd2f18">   32</a></span>&#160;    <a class="code" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408a5cbad4ad24fd9b8c066cdad096cd2f18">endl</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21">   35</a></span>&#160;<span class="keyword">enum</span> <a class="code" href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21">lcd_type_e</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21a9acd837e846bc135ac78f2274408f3a2">   37</a></span>&#160;    <a class="code" href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21a9acd837e846bc135ac78f2274408f3a2">LCD2X16</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21acc501562cdab7106413f5043a8c1da43">   38</a></span>&#160;    <a class="code" href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21acc501562cdab7106413f5043a8c1da43">LCD4X20</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"> * Classe représentant l&#39;écran LCD. Pour l&#39;instant la classe se base</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment"> * sur le brochage définit dans le fichier SK32MX795F512L.h</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment"> * Pour l&#39;instant, la classe gère uniquement des écrans de 4 lignes</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_text_display.html">   48</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_text_display.html">TextDisplay</a>{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_text_display.html#aa82f048ee8430b61f40cd741f0895f33">TextDisplay</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> RS[], <span class="keyword">const</span> <span class="keywordtype">char</span> RW[], <span class="keyword">const</span> <span class="keywordtype">char</span> E[],</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span> BL[], <span class="keyword">const</span> <span class="keywordtype">char</span> DB4[], <span class="keyword">const</span> <span class="keywordtype">char</span> DB5[],</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                <span class="keyword">const</span> <span class="keywordtype">char</span> DB6[], <span class="keyword">const</span> <span class="keywordtype">char</span> DB7[]);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">     * print permet d&#39;afficher une chaine de caractère à l&#39;écran</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">     * Aucun formatage n&#39;est effectué      */
+    void print(const char *ptr_char);
+    void print(const int32_t number);
+    void print(const convert_s data );
+    void print(enum stream_symbol symbol);
+
+    /*
+     *  write écrit un caractère sur l&#39;écran
+     */
+    void write(const uint8_t c);
+
+    /*
+     * Déplace le curseur en position 1,1
+     */
+    void home(void);
+
+    /*
+     * Déplace le curseur à la position donné en paramètre
+     * - x : N° de ligne de 1 à 4
+     * - y : N° de colonne de 1 à 24
+     */
+    int8_t set_cursor(uint8_t x, uint8_t y);
+
+    /*
+     * Active le rétroéclairage de l&#39;écran
+     */
+    void enable_backlight(void);
+
+    /*
+     * Désactive le rétroéclairage de l&#39;écran
+     */
+    void disable_backlight(void);
+
+    /*
+     * Efface le contenu de l&#39;écran
+     */
+    void clear( void );
+
+    /*
+     * Désactive l&#39;affichage sans effacer son contenu
+     */
+    void disable_display(void);
+
+    /*
+     * Active l&#39;affichage (réaffiche son contenu)
+     */
+    void enable_display(void);
+
+    /*
+     * Active l&#39;affichage du curseur &quot;clignotant&quot;
+     */
+    void enable_blinking_cursor( void );
+
+    /*
+     * Désactive l&#39;affichage du curseur &quot;clignotant&quot;
+     */
+    void disable_blinking_cursor( void );
+
+    /*
+     * Active l&#39;affichage du curseur &quot;souligné"
+     */
+    void disable_underline_cursor(void);
+
+    /*
+     * Désactive l&#39;affichage du curseur &quot;souligné"
+     */
+    void enable_underline_cursor(void);
+
+
+    void enable_autoscroll(void);
+    void disable_autoscroll(void);
+
+    /*
+     * Décalage à droite de l&#39;affichage
+     */
+    void scroll_right(void);
+
+    /*
+     * Décalage à gauche de l&#39;affichage
+     */
+    void scroll_left(void);
+
+    /*
+     * Destructeur
+     */
+    virtual ~TextDisplay();
+private:
+    /*
+     * Lecture d&#39;un caractère
+     */
+    char read( uint8_t x, uint8_t y);
+
+    /*
+     * Envoi d&#39;un caractère
+     */
+    void send_byte(uint8_t address, uint8_t n);
+    void send_nibble(uint8_t n);
+    uint8_t read_byte( void );
+
+    /*
+     * Envoi d&#39;une commande
+     */
+    void command(uint8_t value);
+
+    /*
+     * Stockage des broches utilisée
+     */
+    char M_RS[4]; // Utilisation de 4 caractère, exemple &quot;A12\0&quot;
+    char M_RW[4];
+    char M_EN[4];
+    char M_BL[4];
+
+
+    char M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;
+    int M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;
+
+    char M_DB4[4];
+    char M_DB5[4];
+    char M_DB6[4];
+    char M_DB7[4];
+
+    char M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;
+    int M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;
+
+    /*
+     * Tableau contenant les adresses de ligne
+     */
+    uint8_t M_LINES_ADRESS[5];
+
+    /*
+     * Taille de l&#39;écran
+     */
+    uint8_t M_NUMBER_OF_LINE;
+    uint8_t M_NUMBER_OF_COLUMN;
+
+    /*
+     * Paramètres de control actuel
+     */
+    uint8_t m_display_control;
+
+    /*
+     * Mode d&#39;affichage actuel
+     */
+    uint8_t m_display_mode;
+
+    /*
+     * Colonne actuelle
+     */
+    uint8_t m_column;
+
+    /*
+     * Ligne actuelle
+     */
+    uint8_t m_line;
+
+};
+
+/******************************************************************************
+ * STREAM SUPPORT
+ ******************************************************************************/
+
+/* Template générique, redirige l&#39;opérateur lcd &lt;&lt; vers lcd.print pour tous les
+ * type
+ */
+template&lt;class T&gt;
+inline TextDisplay &amp;operator &lt;&lt;(TextDisplay &amp;stream, const T data)
+{ stream.print(data); return stream; }
+
+/******************************************************************************
+ * GESTION DES CONVERSIONS
+ ******************************************************************************/
+
+namespace convert {
+    convert_s to_dec(int32_t number);
+    convert_s to_hex(int32_t number);
+}
+/******************************************************************************
+ * LICENSE
+ ******************************************************************************/
+
+/*
+ * Copyright (c) 2014, Samuel Dolt &lt;samuel@dolt.ch&gt;
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#endif  /* TEXTDISPLAY_H */</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">print</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *ptr_char);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">print</a>(<span class="keyword">const</span> int32_t number);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">print</a>(<span class="keyword">const</span> <a class="code" href="structconvert__s.html">convert_s</a> data );</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">print</a>(<span class="keyword">enum</span> <a class="code" href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408">stream_symbol</a> symbol);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">     *  write écrit un caractère sur l&#39;écran</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a18cc6da3a17dcb57498e0c6c0edf091d">write</a>(<span class="keyword">const</span> uint8_t c);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">     * Déplace le curseur en position 1,1</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a0a0424b830c795241c52cde3148e29cd">home</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">     * Déplace le curseur à la position donné en paramètre</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">     * - x : N° de ligne de 1 à 4</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">     * - y : N° de colonne de 1 à 24</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    int8_t <a class="code" href="class_text_display.html#ad35285161ff8c86d1d0982d70707f9a5">set_cursor</a>(uint8_t x, uint8_t y);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">     * Active le rétroéclairage de l&#39;écran</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a5f77f80b5bf7ff44941f6c446432e2f6">enable_backlight</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">     * Désactive le rétroéclairage de l&#39;écran</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a499793df217191851836363ccde2d9b6">disable_backlight</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">     * Efface le contenu de l&#39;écran</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a8a6dc692a336cec63d4a4d377a95fded">clear</a>( <span class="keywordtype">void</span> );</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">     * Désactive l&#39;affichage sans effacer son contenu</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#aa0fc9d68dd350b100364b35c7b555c6c">disable_display</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">     * Active l&#39;affichage (réaffiche son contenu)</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a6c1597211b0818782d792495f0591d2b">enable_display</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">     * Active l&#39;affichage du curseur &quot;clignotant&quot;</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a5d1ebb26dcc65a1dfed0ffa2b6713c20">enable_blinking_cursor</a>( <span class="keywordtype">void</span> );</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">     * Désactive l&#39;affichage du curseur &quot;clignotant&quot;</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a8d75c86d6d79daa3cc2ff463267d839e">disable_blinking_cursor</a>( <span class="keywordtype">void</span> );</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="comment">     * Active l&#39;affichage du curseur &quot;souligné"      */
+    void disable_underline_cursor(void);
+
+    /*
+     * Désactive l&#39;affichage du curseur &quot;souligné"
+     */
+    void enable_underline_cursor(void);
+
+
+    void enable_autoscroll(void);
+    void disable_autoscroll(void);
+
+    /*
+     * Décalage à droite de l&#39;affichage
+     */
+    void scroll_right(void);
+
+    /*
+     * Décalage à gauche de l&#39;affichage
+     */
+    void scroll_left(void);
+
+    /*
+     * Destructeur
+     */
+    virtual ~TextDisplay();
+private:
+    /*
+     * Lecture d&#39;un caractère
+     */
+    char read( uint8_t x, uint8_t y);
+
+    /*
+     * Envoi d&#39;un caractère
+     */
+    void send_byte(uint8_t address, uint8_t n);
+    void send_nibble(uint8_t n);
+    uint8_t read_byte( void );
+
+    /*
+     * Envoi d&#39;une commande
+     */
+    void command(uint8_t value);
+
+    /*
+     * Stockage des broches utilisée
+     */
+    char M_RS[4]; // Utilisation de 4 caractère, exemple &quot;A12\0&quot;
+    char M_RW[4];
+    char M_EN[4];
+    char M_BL[4];
+
+
+    char M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;
+    int M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;
+
+    char M_DB4[4];
+    char M_DB5[4];
+    char M_DB6[4];
+    char M_DB7[4];
+
+    char M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;
+    int M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;
+
+    /*
+     * Tableau contenant les adresses de ligne
+     */
+    uint8_t M_LINES_ADRESS[5];
+
+    /*
+     * Taille de l&#39;écran
+     */
+    uint8_t M_NUMBER_OF_LINE;
+    uint8_t M_NUMBER_OF_COLUMN;
+
+    /*
+     * Paramètres de control actuel
+     */
+    uint8_t m_display_control;
+
+    /*
+     * Mode d&#39;affichage actuel
+     */
+    uint8_t m_display_mode;
+
+    /*
+     * Colonne actuelle
+     */
+    uint8_t m_column;
+
+    /*
+     * Ligne actuelle
+     */
+    uint8_t m_line;
+
+};
+
+/******************************************************************************
+ * STREAM SUPPORT
+ ******************************************************************************/
+
+/* Template générique, redirige l&#39;opérateur lcd &lt;&lt; vers lcd.print pour tous les
+ * type
+ */
+template&lt;class T&gt;
+inline TextDisplay &amp;operator &lt;&lt;(TextDisplay &amp;stream, const T data)
+{ stream.print(data); return stream; }
+
+/******************************************************************************
+ * GESTION DES CONVERSIONS
+ ******************************************************************************/
+
+namespace convert {
+    convert_s to_dec(int32_t number);
+    convert_s to_hex(int32_t number);
+}
+/******************************************************************************
+ * LICENSE
+ ******************************************************************************/
+
+/*
+ * Copyright (c) 2014, Samuel Dolt &lt;samuel@dolt.ch&gt;
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#endif  /* TEXTDISPLAY_H */</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#adfdb348afe4b49681d1b847bfd780794">disable_underline_cursor</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">     * Désactive l&#39;affichage du curseur &quot;souligné"      */
+    void enable_underline_cursor(void);
+
+
+    void enable_autoscroll(void);
+    void disable_autoscroll(void);
+
+    /*
+     * Décalage à droite de l&#39;affichage
+     */
+    void scroll_right(void);
+
+    /*
+     * Décalage à gauche de l&#39;affichage
+     */
+    void scroll_left(void);
+
+    /*
+     * Destructeur
+     */
+    virtual ~TextDisplay();
+private:
+    /*
+     * Lecture d&#39;un caractère
+     */
+    char read( uint8_t x, uint8_t y);
+
+    /*
+     * Envoi d&#39;un caractère
+     */
+    void send_byte(uint8_t address, uint8_t n);
+    void send_nibble(uint8_t n);
+    uint8_t read_byte( void );
+
+    /*
+     * Envoi d&#39;une commande
+     */
+    void command(uint8_t value);
+
+    /*
+     * Stockage des broches utilisée
+     */
+    char M_RS[4]; // Utilisation de 4 caractère, exemple &quot;A12\0&quot;
+    char M_RW[4];
+    char M_EN[4];
+    char M_BL[4];
+
+
+    char M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;
+    int M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;
+
+    char M_DB4[4];
+    char M_DB5[4];
+    char M_DB6[4];
+    char M_DB7[4];
+
+    char M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;
+    int M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;
+
+    /*
+     * Tableau contenant les adresses de ligne
+     */
+    uint8_t M_LINES_ADRESS[5];
+
+    /*
+     * Taille de l&#39;écran
+     */
+    uint8_t M_NUMBER_OF_LINE;
+    uint8_t M_NUMBER_OF_COLUMN;
+
+    /*
+     * Paramètres de control actuel
+     */
+    uint8_t m_display_control;
+
+    /*
+     * Mode d&#39;affichage actuel
+     */
+    uint8_t m_display_mode;
+
+    /*
+     * Colonne actuelle
+     */
+    uint8_t m_column;
+
+    /*
+     * Ligne actuelle
+     */
+    uint8_t m_line;
+
+};
+
+/******************************************************************************
+ * STREAM SUPPORT
+ ******************************************************************************/
+
+/* Template générique, redirige l&#39;opérateur lcd &lt;&lt; vers lcd.print pour tous les
+ * type
+ */
+template&lt;class T&gt;
+inline TextDisplay &amp;operator &lt;&lt;(TextDisplay &amp;stream, const T data)
+{ stream.print(data); return stream; }
+
+/******************************************************************************
+ * GESTION DES CONVERSIONS
+ ******************************************************************************/
+
+namespace convert {
+    convert_s to_dec(int32_t number);
+    convert_s to_hex(int32_t number);
+}
+/******************************************************************************
+ * LICENSE
+ ******************************************************************************/
+
+/*
+ * Copyright (c) 2014, Samuel Dolt &lt;samuel@dolt.ch&gt;
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#endif  /* TEXTDISPLAY_H */</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#af3fb1b376cbbed031a2f2a250a72413f">enable_underline_cursor</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a10765a25117b1c9f1ab5f626dd2a9b43">enable_autoscroll</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#af100fed528bcc73d8c31a76cdefd8a39">disable_autoscroll</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">     * Décalage à droite de l&#39;affichage</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a527dcdb48fabdf008290431309b9cdae">scroll_right</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">     * Décalage à gauche de l&#39;affichage</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_text_display.html#a80835e0518758ac66fd87822af22e087">scroll_left</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">     * Destructeur</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_text_display.html#afeafd95e233de83db3ec68380651a7c0">~TextDisplay</a>();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">     * Lecture d&#39;un caractère</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">char</span> read( uint8_t x, uint8_t y);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">     * Envoi d&#39;un caractère</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordtype">void</span> send_byte(uint8_t address, uint8_t n);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">void</span> send_nibble(uint8_t n);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    uint8_t read_byte( <span class="keywordtype">void</span> );</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">     * Envoi d&#39;une commande</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordtype">void</span> command(uint8_t value);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">     * Stockage des broches utilisée      */
+    char M_RS[4]; // Utilisation de 4 caractère, exemple &quot;A12\0&quot;
+    char M_RW[4];
+    char M_EN[4];
+    char M_BL[4];
+
+
+    char M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;
+    int M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;
+
+    char M_DB4[4];
+    char M_DB5[4];
+    char M_DB6[4];
+    char M_DB7[4];
+
+    char M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;
+    int M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;
+
+    /*
+     * Tableau contenant les adresses de ligne
+     */
+    uint8_t M_LINES_ADRESS[5];
+
+    /*
+     * Taille de l&#39;écran
+     */
+    uint8_t M_NUMBER_OF_LINE;
+    uint8_t M_NUMBER_OF_COLUMN;
+
+    /*
+     * Paramètres de control actuel
+     */
+    uint8_t m_display_control;
+
+    /*
+     * Mode d&#39;affichage actuel
+     */
+    uint8_t m_display_mode;
+
+    /*
+     * Colonne actuelle
+     */
+    uint8_t m_column;
+
+    /*
+     * Ligne actuelle
+     */
+    uint8_t m_line;
+
+};
+
+/******************************************************************************
+ * STREAM SUPPORT
+ ******************************************************************************/
+
+/* Template générique, redirige l&#39;opérateur lcd &lt;&lt; vers lcd.print pour tous les
+ * type
+ */
+template&lt;class T&gt;
+inline TextDisplay &amp;operator &lt;&lt;(TextDisplay &amp;stream, const T data)
+{ stream.print(data); return stream; }
+
+/******************************************************************************
+ * GESTION DES CONVERSIONS
+ ******************************************************************************/
+
+namespace convert {
+    convert_s to_dec(int32_t number);
+    convert_s to_hex(int32_t number);
+}
+/******************************************************************************
+ * LICENSE
+ ******************************************************************************/
+
+/*
+ * Copyright (c) 2014, Samuel Dolt &lt;samuel@dolt.ch&gt;
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 3. Neither the name of the copyright holder nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#endif  /* TEXTDISPLAY_H */</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keywordtype">char</span> M_RS[4]; <span class="comment">// Utilisation de 4 caractère, exemple &quot;A12\0&quot;</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keywordtype">char</span> M_RW[4];</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keywordtype">char</span> M_EN[4];</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keywordtype">char</span> M_BL[4];</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordtype">char</span> M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keywordtype">int</span> M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordtype">char</span> M_DB4[4];</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keywordtype">char</span> M_DB5[4];</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="keywordtype">char</span> M_DB6[4];</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">char</span> M_DB7[4];</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordtype">char</span> M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">int</span> M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">     * Tableau contenant les adresses de ligne</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    uint8_t M_LINES_ADRESS[5];</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">     * Taille de l&#39;écran</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    uint8_t M_NUMBER_OF_LINE;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    uint8_t M_NUMBER_OF_COLUMN;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">     * Paramètres de control actuel</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    uint8_t m_display_control;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">     * Mode d&#39;affichage actuel</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    uint8_t m_display_mode;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">     * Colonne actuelle</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    uint8_t m_column;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="comment">/*</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">     * Ligne actuelle</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    uint8_t m_line;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;};</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment"> * STREAM SUPPORT</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment"> ******************************************************************************/</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">/* Template générique, redirige l&#39;opérateur lcd &lt;&lt; vers lcd.print pour tous les</span></div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="comment"> * type</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="_text_display_8h.html#a1a40987df65bab8d61423b8358c82f78">  235</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="class_text_display.html">TextDisplay</a> &amp;<a class="code" href="_text_display_8h.html#a1a40987df65bab8d61423b8358c82f78">operator &lt;&lt;</a>(<a class="code" href="class_text_display.html">TextDisplay</a> &amp;stream, <span class="keyword">const</span> T data)</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{ stream.<a class="code" href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">print</a>(data); <span class="keywordflow">return</span> stream; }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment"> * GESTION DES CONVERSIONS</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment"> ******************************************************************************/</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="namespaceconvert.html">  242</a></span>&#160;<span class="keyword">namespace </span>convert {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <a class="code" href="structconvert__s.html">convert_s</a> <a class="code" href="namespaceconvert.html#ac0a310b72881a0a333b9d00522df2263">to_dec</a>(int32_t number);</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <a class="code" href="structconvert__s.html">convert_s</a> <a class="code" href="namespaceconvert.html#a5315eb87685d46237d82de5fbb760a17">to_hex</a>(int32_t number);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">/******************************************************************************</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment"> * LICENSE</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="comment"> ******************************************************************************/</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;<span class="comment"> * Copyright (c) 2014, Samuel Dolt &lt;samuel@dolt.ch&gt;</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="comment"> * All rights reserved.</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment"> * Redistribution and use in source and binary forms, with or without</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;<span class="comment"> * modification, are permitted provided that the following conditions are met:</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="comment"> * 1. Redistributions of source code must retain the above copyright notice,</span></div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment"> *    this list of conditions and the following disclaimer.</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment"> * 2. Redistributions in binary form must reproduce the above copyright notice,</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment"> *    this list of conditions and the following disclaimer in the documentation</span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;<span class="comment"> *    and/or other materials provided with the distribution.</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment"> * 3. Neither the name of the copyright holder nor the names of its contributors</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment"> *    may be used to endorse or promote products derived from this software</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="comment"> *    without specific prior written permission.</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="comment"> * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="comment"> * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment"> * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment"> * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment"> * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment"> * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment"> * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="comment"> * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN</span></div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="comment"> * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="comment"> * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment"> * POSSIBILITY OF SUCH DAMAGE.</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* TEXTDISPLAY_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_text_display_html_adfdb348afe4b49681d1b847bfd780794"><div class="ttname"><a href="class_text_display.html#adfdb348afe4b49681d1b847bfd780794">TextDisplay::disable_underline_cursor</a></div><div class="ttdeci">void disable_underline_cursor(void)</div></div>
+<div class="ttc" id="class_text_display_html_a527dcdb48fabdf008290431309b9cdae"><div class="ttname"><a href="class_text_display.html#a527dcdb48fabdf008290431309b9cdae">TextDisplay::scroll_right</a></div><div class="ttdeci">void scroll_right(void)</div></div>
+<div class="ttc" id="class_text_display_html_afdaa96053a8f6feb20ced3a6a18289cf"><div class="ttname"><a href="class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf">TextDisplay::print</a></div><div class="ttdeci">void print(const char *ptr_char)</div></div>
+<div class="ttc" id="structconvert__s_html_adc46ad587327f85c838aa146f51f57af"><div class="ttname"><a href="structconvert__s.html#adc46ad587327f85c838aa146f51f57af">convert_s::number</a></div><div class="ttdeci">int32_t number</div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00025">TextDisplay.h:25</a></div></div>
+<div class="ttc" id="class_text_display_html_a5d1ebb26dcc65a1dfed0ffa2b6713c20"><div class="ttname"><a href="class_text_display.html#a5d1ebb26dcc65a1dfed0ffa2b6713c20">TextDisplay::enable_blinking_cursor</a></div><div class="ttdeci">void enable_blinking_cursor(void)</div></div>
+<div class="ttc" id="class_text_display_html_a6c1597211b0818782d792495f0591d2b"><div class="ttname"><a href="class_text_display.html#a6c1597211b0818782d792495f0591d2b">TextDisplay::enable_display</a></div><div class="ttdeci">void enable_display(void)</div></div>
+<div class="ttc" id="structconvert__s_html"><div class="ttname"><a href="structconvert__s.html">convert_s</a></div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00023">TextDisplay.h:23</a></div></div>
+<div class="ttc" id="class_text_display_html"><div class="ttname"><a href="class_text_display.html">TextDisplay</a></div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00048">TextDisplay.h:48</a></div></div>
+<div class="ttc" id="class_text_display_html_a8d75c86d6d79daa3cc2ff463267d839e"><div class="ttname"><a href="class_text_display.html#a8d75c86d6d79daa3cc2ff463267d839e">TextDisplay::disable_blinking_cursor</a></div><div class="ttdeci">void disable_blinking_cursor(void)</div></div>
+<div class="ttc" id="_text_display_8h_html_a2952a6fc04b36ecdfc29742b6f0b2a21acc501562cdab7106413f5043a8c1da43"><div class="ttname"><a href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21acc501562cdab7106413f5043a8c1da43">LCD4X20</a></div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00038">TextDisplay.h:38</a></div></div>
+<div class="ttc" id="class_text_display_html_af100fed528bcc73d8c31a76cdefd8a39"><div class="ttname"><a href="class_text_display.html#af100fed528bcc73d8c31a76cdefd8a39">TextDisplay::disable_autoscroll</a></div><div class="ttdeci">void disable_autoscroll(void)</div></div>
+<div class="ttc" id="_text_display_8h_html_a2952a6fc04b36ecdfc29742b6f0b2a21a9acd837e846bc135ac78f2274408f3a2"><div class="ttname"><a href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21a9acd837e846bc135ac78f2274408f3a2">LCD2X16</a></div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00037">TextDisplay.h:37</a></div></div>
+<div class="ttc" id="class_text_display_html_aa82f048ee8430b61f40cd741f0895f33"><div class="ttname"><a href="class_text_display.html#aa82f048ee8430b61f40cd741f0895f33">TextDisplay::TextDisplay</a></div><div class="ttdeci">TextDisplay(const char RS[], const char RW[], const char E[], const char BL[], const char DB4[], const char DB5[], const char DB6[], const char DB7[])</div><div class="ttdoc">Constructeur de TextDisplay. </div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8cpp_source.html#l00074">TextDisplay.cpp:74</a></div></div>
+<div class="ttc" id="class_text_display_html_af3fb1b376cbbed031a2f2a250a72413f"><div class="ttname"><a href="class_text_display.html#af3fb1b376cbbed031a2f2a250a72413f">TextDisplay::enable_underline_cursor</a></div><div class="ttdeci">void enable_underline_cursor(void)</div></div>
+<div class="ttc" id="class_text_display_html_aa0fc9d68dd350b100364b35c7b555c6c"><div class="ttname"><a href="class_text_display.html#aa0fc9d68dd350b100364b35c7b555c6c">TextDisplay::disable_display</a></div><div class="ttdeci">void disable_display(void)</div></div>
+<div class="ttc" id="_text_display_8h_html_a1a40987df65bab8d61423b8358c82f78"><div class="ttname"><a href="_text_display_8h.html#a1a40987df65bab8d61423b8358c82f78">operator&lt;&lt;</a></div><div class="ttdeci">TextDisplay &amp; operator&lt;&lt;(TextDisplay &amp;stream, const T data)</div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00235">TextDisplay.h:235</a></div></div>
+<div class="ttc" id="structconvert__s_html_a797911c41f04c5f14435ae8b6ade5010"><div class="ttname"><a href="structconvert__s.html#a797911c41f04c5f14435ae8b6ade5010">convert_s::base</a></div><div class="ttdeci">uint8_t base</div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00024">TextDisplay.h:24</a></div></div>
+<div class="ttc" id="class_text_display_html_a499793df217191851836363ccde2d9b6"><div class="ttname"><a href="class_text_display.html#a499793df217191851836363ccde2d9b6">TextDisplay::disable_backlight</a></div><div class="ttdeci">void disable_backlight(void)</div></div>
+<div class="ttc" id="_text_display_8h_html_afd898824c73184af801a2e7fc9081408"><div class="ttname"><a href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408">stream_symbol</a></div><div class="ttdeci">stream_symbol</div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00031">TextDisplay.h:31</a></div></div>
+<div class="ttc" id="_text_display_8h_html_a2952a6fc04b36ecdfc29742b6f0b2a21"><div class="ttname"><a href="_text_display_8h.html#a2952a6fc04b36ecdfc29742b6f0b2a21">lcd_type_e</a></div><div class="ttdeci">lcd_type_e</div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00035">TextDisplay.h:35</a></div></div>
+<div class="ttc" id="namespaceconvert_html_ac0a310b72881a0a333b9d00522df2263"><div class="ttname"><a href="namespaceconvert.html#ac0a310b72881a0a333b9d00522df2263">convert::to_dec</a></div><div class="ttdeci">convert_s to_dec(int32_t number)</div></div>
+<div class="ttc" id="class_text_display_html_a80835e0518758ac66fd87822af22e087"><div class="ttname"><a href="class_text_display.html#a80835e0518758ac66fd87822af22e087">TextDisplay::scroll_left</a></div><div class="ttdeci">void scroll_left(void)</div></div>
+<div class="ttc" id="class_text_display_html_ad35285161ff8c86d1d0982d70707f9a5"><div class="ttname"><a href="class_text_display.html#ad35285161ff8c86d1d0982d70707f9a5">TextDisplay::set_cursor</a></div><div class="ttdeci">int8_t set_cursor(uint8_t x, uint8_t y)</div></div>
+<div class="ttc" id="class_text_display_html_a5f77f80b5bf7ff44941f6c446432e2f6"><div class="ttname"><a href="class_text_display.html#a5f77f80b5bf7ff44941f6c446432e2f6">TextDisplay::enable_backlight</a></div><div class="ttdeci">void enable_backlight(void)</div></div>
+<div class="ttc" id="namespaceconvert_html_a5315eb87685d46237d82de5fbb760a17"><div class="ttname"><a href="namespaceconvert.html#a5315eb87685d46237d82de5fbb760a17">convert::to_hex</a></div><div class="ttdeci">convert_s to_hex(int32_t number)</div></div>
+<div class="ttc" id="_text_display_8h_html_afd898824c73184af801a2e7fc9081408a5cbad4ad24fd9b8c066cdad096cd2f18"><div class="ttname"><a href="_text_display_8h.html#afd898824c73184af801a2e7fc9081408a5cbad4ad24fd9b8c066cdad096cd2f18">endl</a></div><div class="ttdef"><b>Definition:</b> <a href="_text_display_8h_source.html#l00032">TextDisplay.h:32</a></div></div>
+<div class="ttc" id="class_text_display_html_a0a0424b830c795241c52cde3148e29cd"><div class="ttname"><a href="class_text_display.html#a0a0424b830c795241c52cde3148e29cd">TextDisplay::home</a></div><div class="ttdeci">void home(void)</div></div>
+<div class="ttc" id="class_text_display_html_afeafd95e233de83db3ec68380651a7c0"><div class="ttname"><a href="class_text_display.html#afeafd95e233de83db3ec68380651a7c0">TextDisplay::~TextDisplay</a></div><div class="ttdeci">virtual ~TextDisplay()</div></div>
+<div class="ttc" id="class_text_display_html_a10765a25117b1c9f1ab5f626dd2a9b43"><div class="ttname"><a href="class_text_display.html#a10765a25117b1c9f1ab5f626dd2a9b43">TextDisplay::enable_autoscroll</a></div><div class="ttdeci">void enable_autoscroll(void)</div></div>
+<div class="ttc" id="class_text_display_html_a8a6dc692a336cec63d4a4d377a95fded"><div class="ttname"><a href="class_text_display.html#a8a6dc692a336cec63d4a4d377a95fded">TextDisplay::clear</a></div><div class="ttdeci">void clear(void)</div></div>
+<div class="ttc" id="class_text_display_html_a18cc6da3a17dcb57498e0c6c0edf091d"><div class="ttname"><a href="class_text_display.html#a18cc6da3a17dcb57498e0c6c0edf091d">TextDisplay::write</a></div><div class="ttdeci">void write(const uint8_t c)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="_text_display_8h.html">TextDisplay.h</a></li>
+    <li class="footer">GÃ©nÃ©rÃ© le Mardi 11 Mars 2014 15:30:36 pour PIC32 C++ par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
+  </ul>
+</div>
+</body>
+</html>

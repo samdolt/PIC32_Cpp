@@ -1,0 +1,5 @@
+<map id="pin::write" name="pin::write">
+<area shape="rect" id="node2" href="$namespacepin.html#a27ccd17a378d0e3075b8ac557a9c9e72" title="pin::set" alt="" coords="153,5,218,32"/>
+<area shape="rect" id="node3" href="$namespacepin.html#ad27a9724d6db584cd97db7ebad15a87c" title="pin::get_number" alt="" coords="128,56,243,83"/>
+<area shape="rect" id="node4" href="$namespacepin.html#abbf56f967b6bed1e73f01ea6b47f29b6" title="pin::clear" alt="" coords="148,107,223,133"/>
+</map>

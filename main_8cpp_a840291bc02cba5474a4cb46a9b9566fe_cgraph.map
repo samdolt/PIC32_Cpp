@@ -1,0 +1,11 @@
+<map id="main" name="main">
+<area shape="rect" id="node2" href="$class_text_display.html#ad35285161ff8c86d1d0982d70707f9a5" title="TextDisplay::set_cursor" alt="" coords="105,31,263,57"/>
+<area shape="rect" id="node3" href="$namespacepin.html#a94099c1d076adab96257c472471025f4" title="pin::direction" alt="" coords="136,81,232,108"/>
+<area shape="rect" id="node7" href="$class_key.html#a911d530b3351dbef8dc8b38eea266cc4" title="Key::update" alt="" coords="138,132,230,159"/>
+<area shape="rect" id="node9" href="$class_key.html#a8c24da73952d9d8bde68441d9c86c6f2" title="Key::has_a_new_state" alt="" coords="107,183,261,209"/>
+<area shape="rect" id="node10" href="$class_text_display.html#afdaa96053a8f6feb20ced3a6a18289cf" title="TextDisplay::print" alt="" coords="123,233,245,260"/>
+<area shape="rect" id="node4" href="$namespacepin.html#a4a87600a16e23892713890116276de1b" title="pin::set_input" alt="" coords="319,5,419,32"/>
+<area shape="rect" id="node5" href="$namespacepin.html#ad27a9724d6db584cd97db7ebad15a87c" title="pin::get_number" alt="" coords="312,56,427,83"/>
+<area shape="rect" id="node6" href="$namespacepin.html#a1b6ac2efd7a9479e7e7ed5d6e2cbfc0c" title="pin::set_output" alt="" coords="315,107,423,133"/>
+<area shape="rect" id="node8" href="$namespacepin.html#a752ae3a7ff2f744139fc0e95d1747af8" title="pin::get" alt="" coords="337,157,402,184"/>
+</map>

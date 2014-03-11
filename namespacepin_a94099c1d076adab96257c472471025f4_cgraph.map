@@ -1,0 +1,5 @@
+<map id="pin::direction" name="pin::direction">
+<area shape="rect" id="node2" href="$namespacepin.html#a4a87600a16e23892713890116276de1b" title="pin::set_input" alt="" coords="157,5,257,32"/>
+<area shape="rect" id="node3" href="$namespacepin.html#ad27a9724d6db584cd97db7ebad15a87c" title="pin::get_number" alt="" coords="149,56,264,83"/>
+<area shape="rect" id="node4" href="$namespacepin.html#a1b6ac2efd7a9479e7e7ed5d6e2cbfc0c" title="pin::set_output" alt="" coords="153,107,261,133"/>
+</map>
