@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../TextDisplay.cpp ../main.cpp ../Delay.cpp ../Port.cpp ../Key.cpp
+SOURCEFILES_QUOTED_IF_SPACED=../TextDisplay.cpp ../main.cpp ../Delay.cpp ../Port.cpp ../Key.cpp ../Task.cpp
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/TextDisplay.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1472/Delay.o ${OBJECTDIR}/_ext/1472/Port.o ${OBJECTDIR}/_ext/1472/Key.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/TextDisplay.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/_ext/1472/Delay.o.d ${OBJECTDIR}/_ext/1472/Port.o.d ${OBJECTDIR}/_ext/1472/Key.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/TextDisplay.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1472/Delay.o ${OBJECTDIR}/_ext/1472/Port.o ${OBJECTDIR}/_ext/1472/Key.o ${OBJECTDIR}/_ext/1472/Task.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/TextDisplay.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/_ext/1472/Delay.o.d ${OBJECTDIR}/_ext/1472/Port.o.d ${OBJECTDIR}/_ext/1472/Key.o.d ${OBJECTDIR}/_ext/1472/Task.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/TextDisplay.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1472/Delay.o ${OBJECTDIR}/_ext/1472/Port.o ${OBJECTDIR}/_ext/1472/Key.o
+OBJECTFILES=${OBJECTDIR}/_ext/1472/TextDisplay.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/_ext/1472/Delay.o ${OBJECTDIR}/_ext/1472/Port.o ${OBJECTDIR}/_ext/1472/Key.o ${OBJECTDIR}/_ext/1472/Task.o
 
 # Source Files
-SOURCEFILES=../TextDisplay.cpp ../main.cpp ../Delay.cpp ../Port.cpp ../Key.cpp
+SOURCEFILES=../TextDisplay.cpp ../main.cpp ../Delay.cpp ../Port.cpp ../Key.cpp ../Task.cpp
 
 
 CFLAGS=
@@ -127,6 +127,12 @@ ${OBJECTDIR}/_ext/1472/Key.o: ../Key.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/Key.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Key.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -MMD -MF "${OBJECTDIR}/_ext/1472/Key.o.d" -o ${OBJECTDIR}/_ext/1472/Key.o ../Key.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
+${OBJECTDIR}/_ext/1472/Task.o: ../Task.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1472 
+	@${RM} ${OBJECTDIR}/_ext/1472/Task.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/Task.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Task.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -MMD -MF "${OBJECTDIR}/_ext/1472/Task.o.d" -o ${OBJECTDIR}/_ext/1472/Task.o ../Task.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
 else
 ${OBJECTDIR}/_ext/1472/TextDisplay.o: ../TextDisplay.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
@@ -157,6 +163,12 @@ ${OBJECTDIR}/_ext/1472/Key.o: ../Key.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/Key.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/Key.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Key.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -MMD -MF "${OBJECTDIR}/_ext/1472/Key.o.d" -o ${OBJECTDIR}/_ext/1472/Key.o ../Key.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
+${OBJECTDIR}/_ext/1472/Task.o: ../Task.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/_ext/1472 
+	@${RM} ${OBJECTDIR}/_ext/1472/Task.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1472/Task.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/Task.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -MMD -MF "${OBJECTDIR}/_ext/1472/Task.o.d" -o ${OBJECTDIR}/_ext/1472/Task.o ../Task.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
 endif
 

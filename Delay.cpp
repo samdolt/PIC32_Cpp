@@ -3,8 +3,8 @@
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Gestion des temporisations à l'aide du CoreTime
- * Les délais s'adapte à la fréquence du processeur
+ * Gestion des temporisations Ã  l'aide du CoreTime
+ * Les dÃ©lais s'adapte Ã  la frÃ©quence du processeur
  */
 
 
@@ -28,9 +28,7 @@ namespace delay {
 
     void ms(uint32_t delay)
     {
-        uint32_t time_to_wait;
-        WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000.0 * delay;
+        uint32_t time_to_wait = ReadCoreTimer() + SYS_FREQ / 2000.0 * delay;
         while(ReadCoreTimer() < time_to_wait){
             // Waiting
         };
@@ -38,9 +36,7 @@ namespace delay {
 
     void us(uint32_t delay)
     {
-        uint32_t time_to_wait;
-        WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000000.0 * delay;
+        uint32_t time_to_wait = ReadCoreTimer() + SYS_FREQ / 2000000.0 * delay;
         while(ReadCoreTimer() < time_to_wait){
             // Waiting
         };

@@ -222,3 +222,7 @@ pip-log.txt
 
 # Doxygen
 doc/*
+html/*
+latex/*
+Subprocess.cpp
+Subprocess.h

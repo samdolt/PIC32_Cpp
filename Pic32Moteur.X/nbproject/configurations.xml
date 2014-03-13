@@ -28,6 +28,8 @@
     <itemPath>../README.md</itemPath>
     <itemPath>../Key.cpp</itemPath>
     <itemPath>../Key.h</itemPath>
+    <itemPath>../Task.cpp</itemPath>
+    <itemPath>../Task.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
