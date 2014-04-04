@@ -3,7 +3,7 @@
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Fonction d'abstraction pour le entrée/sortie générique
+ * Fonction d'abstraction pour le entrÃ©e/sortie gÃ©nÃ©rique
  */
 
 #include "Port.h"
@@ -78,7 +78,7 @@ namespace pin {
             }
             else if(i == 2)
             {
-                // Le numéro de pin est supérieur à 9:
+                // Le numÃ©ro de pin est supÃ©rieur Ã  9:
                 return_data *= 10;
                 return_data += PIN[i] - '0';
             }
@@ -242,6 +242,34 @@ namespace pin {
                 break;
             case 'G':
                 LATG &= ~(1<<PIN);
+                break;
+            default:
+                break;
+        }
+    }
+
+    void toggle(const char PORT, const uint8_t PIN) {
+                    switch(PORT) {
+            case 'A':
+                LATA ^= (1<<PIN);
+                break;
+            case 'B':
+                LATB ^= (1<<PIN);
+                break;
+            case 'C':
+                LATC ^= (1<<PIN);
+                break;
+            case 'D':
+                LATD ^= (1<<PIN);
+                break;
+            case 'E':
+                LATE ^= (1<<PIN);
+                break;
+            case 'F':
+                LATF ^= (1<<PIN);
+                break;
+            case 'G':
+                LATG ^= (1<<PIN);
                 break;
             default:
                 break;

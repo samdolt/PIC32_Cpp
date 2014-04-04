@@ -1,31 +1,50 @@
-/**
- * Fichier : Key.h
+ /**
+ * Fichier : Delay.cpp
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Fonction d'abstraction pour le entrée/sortie générique
+ * Gestion des temporisations Ã  l'aide du CoreTime
+ * Les dÃ©lais s'adapte Ã  la frÃ©quence du processeur
  */
 
-#ifndef KEY_H
-#define	KEY_H
 
-#include <cstdint>
+#include <p32xxxx.h>
+#include <plib.h>
+#include "Delay.h"
 
-class Key {
-public:
-    Key(const char PIN[]);
-    void update(void);
-    bool has_a_new_state(void);
-    virtual ~Key();
-private:
-    char M_KEY[4];
-    char M_KEY_PORT;
-    uint8_t M_KEY_PIN;
-    uint32_t m_counter;
-    bool m_last_state;
-    bool m_state;
-    bool m_flag;
-};
+#ifndef SYS_FREQ
+    #define SYS_FREQ (80000000L)    //80 MHz
+#endif
+
+namespace delay {
+
+    void s(uint32_t delay)
+    {
+        for(int i = 0; i < delay; i++) {
+            ms(1000);
+        }
+    }
+    
+    void ms(uint32_t delay)
+    {
+        uint32_t time_to_wait;
+        WriteCoreTimer(0);
+        time_to_wait = SYS_FREQ / 2000.0 * delay;
+        while(ReadCoreTimer() < time_to_wait){
+            // Waiting
+        };
+    }
+
+    void us(uint32_t delay)
+    {
+        uint32_t time_to_wait;
+        WriteCoreTimer(0);
+        time_to_wait = SYS_FREQ / 2000000.0 * delay;
+        while(ReadCoreTimer() < time_to_wait){
+            // Waiting
+        };
+    }
+}
 
 /******************************************************************************
  * LICENSE
@@ -59,6 +78,3 @@ private:
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
-#endif	/* KEY_H */
-

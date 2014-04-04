@@ -1,22 +1,52 @@
-/**
- * Fichier : Delay.h
+ /**
+ * Fichier : Port.h
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Gestion des temporisations ‡ l'aide du CoreTime
- * Les dÈlais s'adapte ‡ la frÈquence du processeur
+ * Fonction d'abstraction pour le entr√©e/sortie g√©n√©rique
  */
 
-#ifndef DELAY_H
-#define	DELAY_H
+#ifndef PORT_H
+#define	PORT_H
 
-#include <cstdint>
-#include <p32xxxx.h>
+#include <stdint.h>
+#include <string.h>
 
-namespace delay {
-    void s(uint32_t delay);
-    void ms(uint32_t delay);
-    void us(uint32_t delay);
+
+
+namespace port {
+    uint32_t read(const char PORT);
+
+    void write(const char PORT, const uint32_t value);
+}
+
+namespace pin {
+
+    const uint8_t LOW = 0;
+    const uint8_t HIGH = 1;
+    const uint8_t OUTPUT = 0;
+    const uint8_t INPUT = 1;
+
+    void set(const char PORT, const uint8_t PIN);
+
+    void clear(const char PORT, const uint8_t PIN);
+
+    void toggle(const char PORT, const uint8_t PIN);
+
+    uint8_t get(const char PORT, const uint8_t PIN);
+
+    uint8_t read(const char PIN[]);
+
+    void write(const char PIN[], uint8_t VALUE);
+
+    void direction(const char PIN[], uint8_t VALUE);
+
+    void set_input(const char PORT, const uint8_t PIN);
+
+    void set_output(const char PORT, const uint8_t PIN);
+
+    uint8_t get_number(const char PIN[]);
+    char get_port(const char PIN[]);
 }
 
 /******************************************************************************
@@ -51,6 +81,5 @@ namespace delay {
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
-#endif	/* DELAY_H */
+#endif	/* PORT_H */
 

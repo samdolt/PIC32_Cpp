@@ -1,70 +1,34 @@
-/**
- * Fichier : Key.c
+ /**
+ * Fichier : Key.h
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Fonction d'abstraction pour le entrée/sortie générique
+ * Fonction d'abstraction pour le entrÃ©e/sortie gÃ©nÃ©rique
  */
-#include <cstring>
-#include "Port.h"
 
-#include "Key.h"
+#ifndef KEY_H
+#define	KEY_H
 
+#include <cstdint>
 
-
-Key::Key(const char PIN[]) {
-    strcpy(M_KEY, PIN);
-    M_KEY_PORT = pin::get_port(PIN);
-    M_KEY_PIN = pin::get_number(PIN);
-    m_counter = 0;
-    m_flag = false;
-
-    pin::set_input(M_KEY_PORT, M_KEY_PIN);
-
-    m_last_state = pin::get(M_KEY_PORT, M_KEY_PIN);
-    m_state = pin::get(M_KEY_PORT, M_KEY_PIN);
-}
-
-void Key::update(void)
-{
-    uint8_t new_state = pin::get(M_KEY_PORT, M_KEY_PIN);
-
-    if(m_state == new_state )
-    {
-        // Ne rien faire
-    }
-    else if(m_last_state == new_state)
-    {
-        m_counter++;
-    }
-    else
-    {
-        m_counter = 0;
-    }
-
-    if(m_counter > 25)
-    {
-        m_counter = 0;
-        m_state = new_state;
-        m_flag = true;
-    }
-
-    m_last_state = new_state;
-}
-
-bool Key::has_a_new_state(void)
-{
-    if(m_flag == true)
-    {
-        m_flag = false;
-        return true;
-    }
-
-    return false;
-}
-
-Key::~Key() {
-}
+class Key {
+public:
+    Key(const char PIN[], uint8_t NUMBER = 5);
+    void update(void);
+    bool has_a_new_state(void);
+    bool is_pressed(void);
+    bool is_relached(void);
+    virtual ~Key();
+private:
+    char M_KEY[4];
+    char M_KEY_PORT;
+    uint8_t M_KEY_PIN;
+    uint8_t M_NUMBER;
+    uint32_t m_counter;
+    bool m_last_state;
+    bool m_state;
+    bool m_flag;
+};
 
 /******************************************************************************
  * LICENSE
@@ -98,3 +62,6 @@ Key::~Key() {
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+
+#endif	/* KEY_H */
+

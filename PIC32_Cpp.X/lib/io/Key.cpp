@@ -1,49 +1,78 @@
-/**
- * Fichier : Port.h
+ /**
+ * Fichier : Key.c
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Fonction d'abstraction pour le entrée/sortie générique
+ * Fonction d'abstraction pour le entrÃ©e/sortie gÃ©nÃ©rique
  */
+#include <cstring>
+#include "Port.h"
 
-#ifndef PORT_H
-#define	PORT_H
-
-#include <stdint.h>
-
+#include "Key.h"
 
 
-namespace port {
-    uint32_t read(const char PORT);
 
-    void write(const char PORT, const uint32_t value);
+Key::Key(const char PIN[], const uint8_t NUMBER) {
+    strcpy(M_KEY, PIN);
+    M_KEY_PORT = pin::get_port(PIN);
+    M_KEY_PIN = pin::get_number(PIN);
+    M_NUMBER = NUMBER;
+    m_counter = 0;
+    m_flag = false;
+
+    pin::set_input(M_KEY_PORT, M_KEY_PIN);
+
+    m_last_state = pin::get(M_KEY_PORT, M_KEY_PIN);
+    m_state = pin::get(M_KEY_PORT, M_KEY_PIN);
 }
 
-namespace pin {
+void Key::update(void)
+{
+    uint8_t new_state = pin::get(M_KEY_PORT, M_KEY_PIN);
 
-    const uint8_t LOW = 0;
-    const uint8_t HIGH = 1;
-    const uint8_t OUTPUT = 0;
-    const uint8_t INPUT = 1;
+    if(new_state == m_last_state) {
+        m_counter ++;
+    }
+    else {
+        m_counter = 0;
+    }
 
-    void set(const char PORT, const uint8_t PIN);
+    if(m_counter >= M_NUMBER)
+    {
+        m_counter = M_NUMBER;
+        if(m_state == new_state) {
+            // Do nothing
+        }
+        else {
+            m_state = new_state;
+            m_flag = true;
+        }
+    }
 
-    void clear(const char PORT, const uint8_t PIN);
+    m_last_state = new_state;
+}
 
-    uint8_t get(const char PORT, const uint8_t PIN);
+bool Key::has_a_new_state(void)
+{
+    if(m_flag == true)
+    {
+        m_flag = false;
+        return true;
+    }
 
-    uint8_t read(const char PIN[]);
+    return false;
+}
 
-    void write(const char PIN[], uint8_t VALUE);
-
-    void direction(const char PIN[], uint8_t VALUE);
-
-    void set_input(const char PORT, const uint8_t PIN);
-
-    void set_output(const char PORT, const uint8_t PIN);
-
-    uint8_t get_number(const char PIN[]);
-    char get_port(const char PIN[]);
+bool Key::is_pressed(void)
+{
+    return !m_state;
+};
+bool Key::is_relached(void)
+{
+    return m_state;
+};
+    
+Key::~Key() {
 }
 
 /******************************************************************************
@@ -78,5 +107,3 @@ namespace pin {
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#endif	/* PORT_H */
-

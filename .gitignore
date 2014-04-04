@@ -222,3 +222,5 @@ pip-log.txt
 
 # Doxygen
 doc/*
+latex/*
+html/*

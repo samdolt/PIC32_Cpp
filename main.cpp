@@ -5,51 +5,18 @@
  * Exemple de projet C++
  */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <plib.h>
 
+
+#include "core.h"
+#include "etml-es/SK-PIC32-B.h"
 #include "Port.h"
 #include "Delay.h"
 #include "TextDisplay.h"
 #include "Key.h"
 
 
-/*******************************************************************************
- * CONFIGURATION DES FUSIBLES
- ******************************************************************************/
 
 
-/* Configuration des oscillateurs
- * ------------------------------ */
-
-#pragma config POSCMOD = HS // Oscillateur primaire en mode "HIGH SPEED CRYSTAL"
-#pragma config FSOSCEN = OFF // Oscillateur secondaire désactivé
-#pragma config IESO = OFF // Internal External Switch Over bit Disable
-#pragma config FNOSC = PRIPLL // Oscillateur primaire avec PLL
-#pragma config OSCIOFNC = OFF // Désactivation de la sortie sur la pin CLKO
-#pragma config FCKSM = CSDCMD // Clock Switching Disabled, Clock Monitoring Disabled
-
-
-/* Configuration de la PLL avec un quartz externe de 8 MHz
- * ------------------------------------------------------- */
-#pragma config FPLLIDIV = DIV_2 // Division de l'oscillateur primaire par 2 ->4MHz
-#pragma config FPLLMUL = MUL_20 // Multiplication par 20 -> 80MHz en sortie de la PLL
-#pragma config FPLLODIV = DIV_1 // Division par 1 -> 80MHz pour l'horloge système
-#define SYS_FREQ (80000000L)    // Constante stockant la valeur de l'horloge système
-
-
-
-/* Configuration du chien de garde (WATCHDOG)
- * ------------------------------------------ */
-#pragma  config FWDTEN = OFF // Désactivé
-
-
-
-/* Configuration du programmeur et du débogueur
- * -------------------------------------------- */
-#pragma config ICESEL = ICS_PGx2 // Les pins ICE sont partagée avec PGC2 et PGD2
-#pragma config DEBUG = ON // Mode DEBUG enclenché
 
 
 
@@ -61,22 +28,13 @@
  * FONCTION PRINCIPALE
  ******************************************************************************/
 int main (void){
-    /*
-     * CONFIGURATION
-     * -------------- */
-    SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK = 80MHz
-    mJTAGPortEnable(0); // Désactivation du JTAG, libère RA0, RA1, RA4 et RA5
 
-    /*
-     * Initialisation des objets
-     * ------------------------- */
-
-    TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
-    Key OK_key = Key("G12");
+    init();
+    
     /*
      * Affichage initiale
      * ------------------------- */
-    lcd << "Exemple PIC32 C++" << endl << endl << endl;
+    lcd << "Exemple PIC32 C++" << endl ;
     lcd << "Starter Kit ETML-ES" << endl;
     lcd.set_cursor(2,1);
 
@@ -84,15 +42,69 @@ int main (void){
      * LED Clignottante
      * ------------------------- */
 
-    pin::direction("A0", pin::OUTPUT);
-    while(1){
 
-        OK_key.update();
-        if(OK_key.has_a_new_state()){
-            lcd.print("+");
+    while(1){
+        led1.toggle();
+        led2.toggle();
+        led3.toggle();
+        led4.toggle();
+        led5.toggle();
+        led6.toggle();
+        led7.toggle();
+        delay::ms(10);
+
+
+        lcd.set_cursor(4,1);
+        if(menu1.is_pressed())
+        {
+            lcd << "x";
+        }
+        else
+        {
+            lcd << " ";
         }
 
+        lcd.set_cursor(4,1);
+        if(menu1.is_pressed())
+        {
+            lcd << "x";
+        }
+        else
+        {
+            lcd << " ";
+        }
 
+        lcd.set_cursor(4,7);
+        if(menu2.is_pressed())
+        {
+            lcd << "x";
+        }
+        else
+        {
+            lcd << " ";
+        }
+
+        lcd.set_cursor(4,14);
+        if(menu3.is_pressed())
+        {
+            lcd << "x";
+        }
+        else
+        {
+            lcd << " ";
+        }
+
+        lcd.set_cursor(4,20);
+        if(menu4.is_pressed())
+        {
+            lcd << "x";
+        }
+        else
+        {
+            lcd << " ";
+        }
+
+        delay::ms(100);
     }
 
     return 0;
@@ -101,7 +113,12 @@ int main (void){
 /*******************************************************************************
  * VECTEURS D'INTERRUPTIONS
  ******************************************************************************/
+
+
+
 extern "C"
 {
-    // Les vecteurs d'interruption doivent être compilé en "mode" C
+    // Les vecteurs d'interruption doivent Ãªtre compilÃ© en "mode" C
+
+
 }

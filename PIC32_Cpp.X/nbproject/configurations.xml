@@ -4,9 +4,23 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>../TextDisplay.h</itemPath>
-      <itemPath>../Delay.h</itemPath>
-      <itemPath>../Port.h</itemPath>
+      <logicalFolder name="f1" displayName="boards" projectFiles="true">
+        <logicalFolder name="f1" displayName="etml-es" projectFiles="true">
+          <itemPath>lib/boards/etml-es/SK-PIC32-B.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="core" projectFiles="true">
+        <itemPath>lib/core/Delay.h</itemPath>
+        <itemPath>lib/core/core.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="hw" projectFiles="true">
+        <itemPath>lib/hw/Port.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="io" projectFiles="true">
+        <itemPath>lib/io/Key.h</itemPath>
+        <itemPath>lib/io/TextDisplay.h</itemPath>
+        <itemPath>lib/io/Led.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -15,10 +29,18 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>../TextDisplay.cpp</itemPath>
+      <logicalFolder name="f3" displayName="core" projectFiles="true">
+        <itemPath>lib/core/Delay.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="hw" projectFiles="true">
+        <itemPath>lib/hw/Port.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="io" projectFiles="true">
+        <itemPath>lib/io/Key.cpp</itemPath>
+        <itemPath>lib/io/TextDisplay.cpp</itemPath>
+        <itemPath>lib/io/Led.cpp</itemPath>
+      </logicalFolder>
       <itemPath>../main.cpp</itemPath>
-      <itemPath>../Delay.cpp</itemPath>
-      <itemPath>../Port.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -26,8 +48,6 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>../README.md</itemPath>
-    <itemPath>../Key.cpp</itemPath>
-    <itemPath>../Key.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
@@ -140,7 +160,8 @@
         <property key="enable-unroll-loops" value="false"/>
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="..\;lib\boards;lib\hw;lib\io;lib\core"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
@@ -206,7 +227,6 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

@@ -3,10 +3,10 @@
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Pilote orienté object pour affichage LCD basé sur un circuit
+ * Pilote orientÃ© object pour affichage LCD basÃ© sur un circuit
  * Hitachi HD44780 ou compatible
  *
- * Ce code est basé sur:
+ * Ce code est basÃ© sur:
  *     - Le fichier Mc32DriverLcd.c de Gomes Andres (ETML-ES)
  */
 
@@ -51,7 +51,7 @@ namespace LCD {
     const uint8_t BLINKON = 0x01;
     const uint8_t BLINKOFF = 0x00;
 
-    // Drapeau pour les déplacements d'écrane et de curseur
+    // Drapeau pour les dÃ©placements d'Ã©crane et de curseur
     const uint8_t DISPLAYMOVE = 0x08;
     const uint8_t CURSORMOVE = 0x00;
     const uint8_t MOVERIGHT = 0x04;
@@ -76,7 +76,7 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
                          const char DB6[], const char DB7[]) {
 
     /**************************************************************************
-     * Sauvegarde des paramètres
+     * Sauvegarde des paramÃ¨tres
      **************************************************************************/
 
     strcpy(M_RS, RS);
@@ -112,9 +112,9 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     M_DB7_PIN = pin::get_number(DB7);
     
     /*--------------------------------------------------------*/
-    /* Définition du tableau pour l'adresse des lignes
+    /* DÃ©finition du tableau pour l'adresse des lignes
     /*--------------------------------------------------------*/
-    M_LINES_ADRESS[0] = 0; // Non utilisé
+    M_LINES_ADRESS[0] = 0; // Non utilisÃ©
     M_LINES_ADRESS[1] = 0; // Adresse de la ligne 1
     M_LINES_ADRESS[2] = 64;
     M_LINES_ADRESS[3] = 20;
@@ -126,7 +126,7 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     /***************************************************************
      * GESTION DES PIN
      ***************************************************************/
-     // On met d'abord toutes les pattes du LCD à 1 sauf le backlight
+     // On met d'abord toutes les pattes du LCD Ã  1 sauf le backlight
     pin::set(M_RS_PORT, M_RS_PIN);
     pin::set(M_RW_PORT, M_RW_PIN);
     pin::set(M_EN_PORT, M_EN_PIN);
@@ -144,22 +144,22 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
      enable_backlight();
 
     // on va effectuer exactement ce que demande le ks0066
-    // on repositionne LCD_E tout pour un démarrage correct
+    // on repositionne LCD_E tout pour un dÃ©marrage correct
     pin::clear(M_EN_PORT, M_EN_PIN);
-    delay::us(1); // si LCD_E était à 1, on attend
+    delay::us(1); // si LCD_E Ã©tait Ã  1, on attend
     pin::clear(M_RS_PORT, M_RS_PIN);   
     pin::clear(M_RW_PORT, M_RW_PIN);
 
     
-    // suivant comment l'interfaçage avec le LCD s'est arrêté, il faut tout remettre à plat
+    // suivant comment l'interfaÃ§age avec le LCD s'est arrÃªtÃ©, il faut tout remettre Ã  plat
     // selon les notes d'applications, il faut envoyer 3 fois un nibble 0x3
     // pour lui faire croire que nous sommes en interface8 bits
-    // chaque envoi doit être séparé de 5ms!!
-    send_nibble(0x03); // correspond à 0x30, interface 8 bits
+    // chaque envoi doit Ãªtre sÃ©parÃ© de 5ms!!
+    send_nibble(0x03); // correspond Ã  0x30, interface 8 bits
     delay::ms(5);
-    send_nibble(0x03); // correspond à 0x30, interface 8 bits
+    send_nibble(0x03); // correspond Ã  0x30, interface 8 bits
     delay::ms(5);
-    send_nibble(0x03); // correspond à 0x30, interface 8 bits
+    send_nibble(0x03); // correspond Ã  0x30, interface 8 bits
     delay::ms(5);
     // maintenant, on peut configurer notre LCD en interface 4 bits
 
@@ -170,12 +170,12 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     command(LCD::DISPLAYCONTROL | LCD::LINE2 | LCD::DISPLAYOFF);
     delay::us(40); //ds0066 demande >39us
 
-    // Initilisation du mode par défaut:
+    // Initilisation du mode par dÃ©faut:
     m_display_control = LCD::DISPLAYON | LCD::CURSOROFF | LCD::BLINKOFF;
     command( LCD::DISPLAYCONTROL | m_display_control);
     delay::us(40); //ds0066 demande >39us
 
-    // Effacage de l'écran
+    // Effacage de l'Ã©cran
     clear();
     
     // Initilisation du sens du texte
@@ -234,7 +234,7 @@ void TextDisplay::write(const uint8_t c) {
             break;
         case '\t':
             if(( m_column <= (M_NUMBER_OF_COLUMN - 4) ) && (m_line <= (M_NUMBER_OF_LINE)) ){
-                // Caractère de tabulation -> quatre espace blanc
+                // CaractÃ¨re de tabulation -> quatre espace blanc
                 send_byte(1,' ');
                 send_byte(1,' ');
                 send_byte(1,' ');
@@ -397,7 +397,7 @@ void TextDisplay::send_byte(uint8_t address, uint8_t n) {
 
     pin::clear(M_RW_PORT, M_RW_PIN);
 
-    //LCD_E déjà à 0
+    //LCD_E dÃ©jÃ  Ã  0
     send_nibble(n >> 4);
     send_nibble(n & 0xf);
 }
@@ -414,7 +414,7 @@ void TextDisplay::send_nibble(uint8_t n) {
    pin::set(M_EN_PORT, M_EN_PIN);
    delay::us(1); // E pulse width min = 450ns pour le 1!
    pin::clear(M_EN_PORT, M_EN_PIN);
-   delay::us(1); // E pulse width min = 450ns également pour le 0!
+   delay::us(1); // E pulse width min = 450ns Ã©galement pour le 0!
 }
 
 /******************************************************************************
@@ -436,7 +436,7 @@ uint8_t TextDisplay::read_byte( void )
     lcd_read_byte.bits.b6 = pin::get(M_DB6_PORT, M_DB6_PIN);
     lcd_read_byte.bits.b5 = pin::get(M_DB5_PORT, M_DB5_PIN);
     lcd_read_byte.bits.b4 = pin::get(M_DB4_PORT, M_DB4_PIN);
-    pin::clear(M_EN_PORT, M_EN_PIN); // attention e pulse min = 500ns à 1 et autant à 0
+    pin::clear(M_EN_PORT, M_EN_PIN); // attention e pulse min = 500ns Ã  1 et autant Ã  0
     delay::us(1);
     pin::set(M_EN_PORT, M_EN_PIN);
     delay::us(1);

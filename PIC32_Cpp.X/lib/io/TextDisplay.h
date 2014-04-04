@@ -1,12 +1,12 @@
-/**
+ /**
  * Fichier : TextDisplay.h
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Pilote orienté object pour affichage LCD basé sur un circuit
+ * Pilote orientÃ© object pour affichage LCD basÃ© sur un circuit
  * Hitachi HD44780 ou compatible
  *
- * Ce code est basé sur:
+ * Ce code est basÃ© sur:
  *     - Le fichier t Mc32DriverLcd.c de Gomes Andres (ETML-ES)
  */
 
@@ -17,7 +17,7 @@
 #include <cstdio>
 
 /*
- * Structure permettant de définir un nombre et la base dans lequel on
+ * Structure permettant de dÃ©finir un nombre et la base dans lequel on
  * veut l'afficher
  */
 typedef struct{
@@ -39,10 +39,10 @@ enum lcd_type_e
 };
 
 /*
- * Classe représentant l'écran LCD. Pour l'instant la classe se base
- * sur le brochage définit dans le fichier SK32MX795F512L.h
+ * Classe reprÃ©sentant l'Ã©cran LCD. Pour l'instant la classe se base
+ * sur le brochage dÃ©finit dans le fichier SK32MX795F512L.h
  *
- * Pour l'instant, la classe gère uniquement des écrans de 4 lignes
+ * Pour l'instant, la classe gÃ¨re uniquement des Ã©crans de 4 lignes
  */
 
 class TextDisplay{
@@ -51,22 +51,22 @@ public:
     /**
      * @brief Constructeur de TextDisplay
      *
-     * @param RS Chaîne représentant une broche
-     * @param RW Chaîne représentant une broche
-     * @param E Chaîne représentant une broche
-     * @param BL Chaîne représentant une broche
-     * @param DB4 Chaîne représentant une broche
-     * @param DB5 Chaîne représentant une broche
-     * @param DB6 Chaîne représentant une broche
-     * @param DB7 Chaîne représentant une broche
+     * @param RS ChaÃ®ne reprÃ©sentant une broche
+     * @param RW ChaÃ®ne reprÃ©sentant une broche
+     * @param E ChaÃ®ne reprÃ©sentant une broche
+     * @param BL ChaÃ®ne reprÃ©sentant une broche
+     * @param DB4 ChaÃ®ne reprÃ©sentant une broche
+     * @param DB5 ChaÃ®ne reprÃ©sentant une broche
+     * @param DB6 ChaÃ®ne reprÃ©sentant une broche
+     * @param DB7 ChaÃ®ne reprÃ©sentant une broche
      */
     TextDisplay(const char RS[], const char RW[], const char E[],
                 const char BL[], const char DB4[], const char DB5[],
                 const char DB6[], const char DB7[]);
 
     /*
-     * print permet d'afficher une chaine de caractère à l'écran
-     * Aucun formatage n'est effectué
+     * print permet d'afficher une chaine de caractÃ¨re Ã  l'Ã©cran
+     * Aucun formatage n'est effectuÃ©
      */
     void print(const char *ptr_char);
     void print(const int32_t number);
@@ -74,44 +74,44 @@ public:
     void print(enum stream_symbol symbol);
 
     /*
-     *  write écrit un caractère sur l'écran
+     *  write Ã©crit un caractÃ¨re sur l'Ã©cran
      */
     void write(const uint8_t c);
 
     /*
-     * Déplace le curseur en position 1,1
+     * DÃ©place le curseur en position 1,1
      */
     void home(void);
 
     /*
-     * Déplace le curseur à la position donné en paramètre
-     * - x : N° de ligne de 1 à 4
-     * - y : N° de colonne de 1 à 24
+     * DÃ©place le curseur Ã  la position donnÃ© en paramÃ¨tre
+     * - x : NÂ° de ligne de 1 Ã  4
+     * - y : NÂ° de colonne de 1 Ã  24
      */
     int8_t set_cursor(uint8_t x, uint8_t y);
 
     /*
-     * Active le rétroéclairage de l'écran
+     * Active le rÃ©troÃ©clairage de l'Ã©cran
      */
     void enable_backlight(void);
 
     /*
-     * Désactive le rétroéclairage de l'écran
+     * DÃ©sactive le rÃ©troÃ©clairage de l'Ã©cran
      */
     void disable_backlight(void);
 
     /*
-     * Efface le contenu de l'écran
+     * Efface le contenu de l'Ã©cran
      */
     void clear( void );
 
     /*
-     * Désactive l'affichage sans effacer son contenu
+     * DÃ©sactive l'affichage sans effacer son contenu
      */
     void disable_display(void);
 
     /*
-     * Active l'affichage (réaffiche son contenu)
+     * Active l'affichage (rÃ©affiche son contenu)
      */
     void enable_display(void);
 
@@ -121,17 +121,17 @@ public:
     void enable_blinking_cursor( void );
 
     /*
-     * Désactive l'affichage du curseur "clignotant"
+     * DÃ©sactive l'affichage du curseur "clignotant"
      */
     void disable_blinking_cursor( void );
 
     /*
-     * Active l'affichage du curseur "souligné"
+     * Active l'affichage du curseur "soulignÃ©"
      */
     void disable_underline_cursor(void);
 
     /*
-     * Désactive l'affichage du curseur "souligné"
+     * DÃ©sactive l'affichage du curseur "soulignÃ©"
      */
     void enable_underline_cursor(void);
 
@@ -140,12 +140,12 @@ public:
     void disable_autoscroll(void);
 
     /*
-     * Décalage à droite de l'affichage
+     * DÃ©calage Ã  droite de l'affichage
      */
     void scroll_right(void);
 
     /*
-     * Décalage à gauche de l'affichage
+     * DÃ©calage Ã  gauche de l'affichage
      */
     void scroll_left(void);
 
@@ -155,12 +155,12 @@ public:
     virtual ~TextDisplay();
 private:
     /*
-     * Lecture d'un caractère
+     * Lecture d'un caractÃ¨re
      */
     char read( uint8_t x, uint8_t y);
 
     /*
-     * Envoi d'un caractère
+     * Envoi d'un caractÃ¨re
      */
     void send_byte(uint8_t address, uint8_t n);
     void send_nibble(uint8_t n);
@@ -172,9 +172,9 @@ private:
     void command(uint8_t value);
 
     /*
-     * Stockage des broches utilisée
+     * Stockage des broches utilisÃ©e
      */
-    char M_RS[4]; // Utilisation de 4 caractère, exemple "A12\0"
+    char M_RS[4]; // Utilisation de 4 caractÃ¨re, exemple "A12\0"
     char M_RW[4];
     char M_EN[4];
     char M_BL[4];
@@ -197,13 +197,13 @@ private:
     uint8_t M_LINES_ADRESS[5];
 
     /*
-     * Taille de l'écran
+     * Taille de l'Ã©cran
      */
     uint8_t M_NUMBER_OF_LINE;
     uint8_t M_NUMBER_OF_COLUMN;
 
     /*
-     * Paramètres de control actuel
+     * ParamÃ¨tres de control actuel
      */
     uint8_t m_display_control;
 
@@ -228,7 +228,7 @@ private:
  * STREAM SUPPORT
  ******************************************************************************/
 
-/* Template générique, redirige l'opérateur lcd << vers lcd.print pour tous les
+/* Template gÃ©nÃ©rique, redirige l'opÃ©rateur lcd << vers lcd.print pour tous les
  * type
  */
 template<class T>

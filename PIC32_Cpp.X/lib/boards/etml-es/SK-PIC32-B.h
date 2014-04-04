@@ -1,51 +1,42 @@
 /**
- * Fichier : Delay.cpp
+ * Fichier : board/etml-es/SK-PIC32-B.h
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Gestion des temporisations à l'aide du CoreTime
- * Les délais s'adapte à la fréquence du processeur
+ * DÃ©finition des broches d'entrÃ©e sortie du Starter Kit PIC32MX775F512L rev. B
+ * de l'ETML-ES
  */
 
+#ifndef SK_PIC32_B_H
+#define	SK_PIC32_B_H
 
-#include <p32xxxx.h>
-#include <plib.h>
 
-#include "Delay.h"
+/*******************************************************************************
+ * Affichage et Leds
+ ******************************************************************************/
 
-#ifndef SYS_FREQ
-    #define SYS_FREQ (80000000L)    //80 MHz
-#endif
+#include "TextDisplay.h"
+#include "Led.h"
 
-namespace delay {
+extern TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
+extern Led led0 = Led("A0");
+extern Led led1 = Led("A1");
+extern Led led2 = Led("A4");
+extern Led led3 = Led("A5");
+extern Led led4 = Led("A6");
+extern Led led5 = Led("A7");
+extern Led led6 = Led("A15");
+extern Led led7 = Led("B10");
 
-    void s(uint32_t delay)
-    {
-        for(int i = 0; i < delay; i++) {
-            ms(1000);
-        }
-    }
+/*******************************************************************************
+ * Touches
+ ******************************************************************************/
 
-    void ms(uint32_t delay)
-    {
-        uint32_t time_to_wait;
-        WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000.0 * delay;
-        while(ReadCoreTimer() < time_to_wait){
-            // Waiting
-        };
-    }
-
-    void us(uint32_t delay)
-    {
-        uint32_t time_to_wait;
-        WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000000.0 * delay;
-        while(ReadCoreTimer() < time_to_wait){
-            // Waiting
-        };
-    }
-}
+#include "Key.h"
+extern Key menu1 = Key("G13");
+extern Key menu2 = Key("G14");
+extern Key menu3 = Key("G15");
+extern Key menu4 = Key("G12");
 
 /******************************************************************************
  * LICENSE
@@ -79,3 +70,6 @@ namespace delay {
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+
+#endif	/* SK_PIC32_B_H */
+
