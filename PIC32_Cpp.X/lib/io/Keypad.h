@@ -15,9 +15,10 @@ class Keypad {
 public:
     Keypad(const char L1[], const char L2[], const char L3[], const char L4[],
            const char C1[], const char C2[], const char C3[], const char C4[],
-           const uint8_t NUMBER = 3);
+           const uint8_t NUMBER = 5);
     void update(void);
     uint16_t get_pressed_keys(void);
+    bool has_a_new_state(void);
     virtual ~Keypad();
 private:
     char M_LINE1[4];
@@ -53,7 +54,10 @@ private:
     uint8_t M_COLUMN4_PIN;
 
     uint16_t m_current_keys;
+    uint16_t m_last_keys;
+    uint8_t m_counter;
 
+    bool m_flag;
     uint8_t M_NUMBER;
 };
 

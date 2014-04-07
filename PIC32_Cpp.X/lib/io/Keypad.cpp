@@ -53,21 +53,20 @@ Keypad::Keypad( const char L1[], const char L2[], const char L3[], const char L4
     pin::set_input(M_COLUMN3_PORT, M_COLUMN3_PIN);
     pin::set_input(M_COLUMN4_PORT, M_COLUMN4_PIN);
 
-    pin::set_output(M_LINE1_PORT, M_LINE1_PIN);
-    pin::set_output(M_LINE2_PORT, M_LINE2_PIN);
-    pin::set_output(M_LINE3_PORT, M_LINE3_PIN);
-    pin::set_output(M_LINE4_PORT, M_LINE4_PIN);
-
     pin::clear(M_LINE1_PORT, M_LINE1_PIN);
     pin::clear(M_LINE2_PORT, M_LINE2_PIN);
     pin::clear(M_LINE3_PORT, M_LINE3_PIN);
     pin::clear(M_LINE4_PORT, M_LINE4_PIN);
+    
+    m_last_keys = 0;
+    m_counter = 0;
+    m_flag = false;
 }
 
 void Keypad::update(void)
 {
     bool K0, K1, K2, K3, K4, K5, K6, K7, K8, K9, K10, K11, K12, K13, K14, K15;
-
+    uint16_t new_keys;
 
     /* Lecture de la ligne 1*/
     pin::set_output(M_LINE1_PORT, M_LINE1_PIN);
@@ -102,23 +101,55 @@ void Keypad::update(void)
     pin::set_input(M_LINE4_PORT, M_LINE4_PIN);
 
 
-    m_current_keys = 0;
-    m_current_keys |= (K0 << 0);
-    m_current_keys |= (K1 << 1);
-    m_current_keys |= (K2 << 2);
-    m_current_keys |= (K3 << 3);
-    m_current_keys |= (K4 << 4);
-    m_current_keys |= (K5 << 5);
-    m_current_keys |= (K6 << 6);
-    m_current_keys |= (K7 << 7);
-    m_current_keys |= (K8 << 8);
-    m_current_keys |= (K9 << 9);
-    m_current_keys |= (K10 << 10);
-    m_current_keys |= (K11 << 11);
-    m_current_keys |= (K12 << 12);
-    m_current_keys |= (K13 << 13);
-    m_current_keys |= (K14 << 14);
-    m_current_keys |= (K15 << 15);
+    new_keys = 0;
+    new_keys |= (K0 << 0);
+    new_keys |= (K1 << 1);
+    new_keys |= (K2 << 2);
+    new_keys |= (K3 << 3);
+    new_keys |= (K4 << 4);
+    new_keys |= (K5 << 5);
+    new_keys |= (K6 << 6);
+    new_keys |= (K7 << 7);
+    new_keys |= (K8 << 8);
+    new_keys |= (K9 << 9);
+    new_keys |= (K10 << 10);
+    new_keys |= (K11 << 11);
+    new_keys |= (K12 << 12);
+    new_keys |= (K13 << 13);
+    new_keys |= (K14 << 14);
+    new_keys |= (K15 << 15);
+    
+    if(new_keys == m_last_keys) {
+        m_counter ++;
+    }
+    else {
+        m_counter = 0;
+    }
+
+    if(m_counter >= M_NUMBER)
+    {
+        m_counter = M_NUMBER;
+        if(m_current_keys == new_keys) {
+            // Do nothing
+        }
+        else {
+            m_current_keys = new_keys;
+            m_flag = true;
+        }
+    }
+
+    m_last_keys = new_keys;
+}
+
+bool Keypad::has_a_new_state(void)
+{
+    if(m_flag == true)
+    {
+        m_flag = false;
+        return true;
+    }
+
+    return false;
 }
 
 uint16_t Keypad::get_pressed_keys(void)

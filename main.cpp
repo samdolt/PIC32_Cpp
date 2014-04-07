@@ -19,12 +19,6 @@
 #include <p32xxxx.h>
 #include <peripheral/adc10.h>
 
-
-
-
-
-
-
 /*******************************************************************************
  * FONCTION PRINCIPALE
  ******************************************************************************/
@@ -43,7 +37,6 @@ int main (void){
      * LED Clignottante
      * ------------------------- */
 
-
     while(1){
         led1.toggle();
         led2.toggle();
@@ -54,10 +47,18 @@ int main (void){
         led7.toggle();
         delay::ms(10);
 
-        lcd.set_cursor(3,1);
-        lcd << "         ";
-        lcd.set_cursor(3,1);
-        lcd << keypad.get_pressed_keys();
+        if(keypad.has_a_new_state())
+        {
+            uint16_t temp = keypad.get_pressed_keys();
+            if(temp != 0)
+            {
+                lcd.set_cursor(3,1);
+                lcd << "         ";
+                lcd.set_cursor(3,1);
+                lcd << temp;
+            }
+        }
+        
 
         lcd.set_cursor(4,1);
         if(menu1.is_pressed())
@@ -118,8 +119,6 @@ int main (void){
 /*******************************************************************************
  * VECTEURS D'INTERRUPTIONS
  ******************************************************************************/
-
-
 
 extern "C"
 {
