@@ -15,8 +15,9 @@
 #include "Key.h"
 
 
-
-
+#include <plib.h>
+#include <p32xxxx.h>
+#include <peripheral/adc10.h>
 
 
 
@@ -53,6 +54,10 @@ int main (void){
         led7.toggle();
         delay::ms(10);
 
+        lcd.set_cursor(3,1);
+        lcd << "         ";
+        lcd.set_cursor(3,1);
+        lcd << keypad.get_pressed_keys();
 
         lcd.set_cursor(4,1);
         if(menu1.is_pressed())

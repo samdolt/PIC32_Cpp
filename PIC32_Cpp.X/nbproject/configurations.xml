@@ -20,6 +20,7 @@
         <itemPath>lib/io/Key.h</itemPath>
         <itemPath>lib/io/TextDisplay.h</itemPath>
         <itemPath>lib/io/Led.h</itemPath>
+        <itemPath>lib/io/Keypad.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -39,6 +40,7 @@
         <itemPath>lib/io/Key.cpp</itemPath>
         <itemPath>lib/io/TextDisplay.cpp</itemPath>
         <itemPath>lib/io/Led.cpp</itemPath>
+        <itemPath>lib/io/Keypad.cpp</itemPath>
       </logicalFolder>
       <itemPath>../main.cpp</itemPath>
     </logicalFolder>

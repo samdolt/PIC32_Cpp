@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp ../main.cpp
+SOURCEFILES_QUOTED_IF_SPACED=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp ../main.cpp
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/_ext/1472/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/lib/core/Delay.o.d ${OBJECTDIR}/lib/hw/Port.o.d ${OBJECTDIR}/lib/io/Key.o.d ${OBJECTDIR}/lib/io/TextDisplay.o.d ${OBJECTDIR}/lib/io/Led.o.d ${OBJECTDIR}/_ext/1472/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/_ext/1472/main.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lib/core/Delay.o.d ${OBJECTDIR}/lib/hw/Port.o.d ${OBJECTDIR}/lib/io/Key.o.d ${OBJECTDIR}/lib/io/TextDisplay.o.d ${OBJECTDIR}/lib/io/Led.o.d ${OBJECTDIR}/lib/io/Keypad.o.d ${OBJECTDIR}/_ext/1472/main.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/_ext/1472/main.o
+OBJECTFILES=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/_ext/1472/main.o
 
 # Source Files
-SOURCEFILES=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp ../main.cpp
+SOURCEFILES=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp ../main.cpp
 
 
 CFLAGS=
@@ -127,6 +127,12 @@ ${OBJECTDIR}/lib/io/Led.o: lib/io/Led.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/lib/io/Led.o 
 	@${FIXDEPS} "${OBJECTDIR}/lib/io/Led.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/Led.o.d" -o ${OBJECTDIR}/lib/io/Led.o lib/io/Led.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
+${OBJECTDIR}/lib/io/Keypad.o: lib/io/Keypad.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/io 
+	@${RM} ${OBJECTDIR}/lib/io/Keypad.o.d 
+	@${RM} ${OBJECTDIR}/lib/io/Keypad.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/io/Keypad.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/Keypad.o.d" -o ${OBJECTDIR}/lib/io/Keypad.o lib/io/Keypad.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
 ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
@@ -163,6 +169,12 @@ ${OBJECTDIR}/lib/io/Led.o: lib/io/Led.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/lib/io/Led.o.d 
 	@${RM} ${OBJECTDIR}/lib/io/Led.o 
 	@${FIXDEPS} "${OBJECTDIR}/lib/io/Led.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/Led.o.d" -o ${OBJECTDIR}/lib/io/Led.o lib/io/Led.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
+${OBJECTDIR}/lib/io/Keypad.o: lib/io/Keypad.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/io 
+	@${RM} ${OBJECTDIR}/lib/io/Keypad.o.d 
+	@${RM} ${OBJECTDIR}/lib/io/Keypad.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/io/Keypad.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/Keypad.o.d" -o ${OBJECTDIR}/lib/io/Keypad.o lib/io/Keypad.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
 ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 

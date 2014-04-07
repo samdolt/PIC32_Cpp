@@ -147,7 +147,7 @@ namespace pin {
                 TRISE |= (1<<PIN);
                 break;
             case 'F':
-                TRISG |= (1<<PIN);
+                TRISF |= (1<<PIN);
                 break;
             case 'G':
                 TRISG |= (1<<PIN);
@@ -280,19 +280,19 @@ namespace pin {
     {
         switch(PORT) {
             case 'A':
-                return (PORTA & (1<<PIN)) >> PIN;
+                return ((PORTA & (1<<PIN))) >> PIN;
             case 'B':
-                return (PORTB & (1<<PIN)) >> PIN;
+                return ((PORTB & (1<<PIN))) >> PIN;
             case 'C':
-                return (PORTC & (1<<PIN)) >> PIN;
+                return ((PORTC & (1<<PIN))) >> PIN;
             case 'D':
-                return (PORTD & (1<<PIN)) >> PIN;
+                return ((PORTD & (1<<PIN))) >> PIN;
             case 'E':
-                return (PORTE & (1<<PIN)) >> PIN;
+                return ((PORTE & (1<<PIN))) >> PIN;
             case 'F':
-                return (PORTF & (1<<PIN)) >> PIN;
+                return ((PORTF & (1<<PIN))) >> PIN;
             case 'G':
-                return (PORTG & (1<<PIN)) >> PIN;
+                return ((PORTG & (1<<PIN))) >> PIN;
         default:
             return 0;
         }

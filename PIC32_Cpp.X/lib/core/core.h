@@ -71,6 +71,8 @@ static inline void init(void) {
     ConfigIntTimer1(T1_INT_ON | T1_INT_PRIOR_4);
     INTEnableSystemMultiVectoredInt ();
 
+    AD1PCFG = 0xFFFF; // Disable ADC PIN
+
     
 }
 
@@ -83,6 +85,7 @@ extern "C" {
         menu2.update();
         menu3.update();
         menu4.update();
+        keypad.update();
     }
 }
 
