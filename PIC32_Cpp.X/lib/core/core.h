@@ -85,7 +85,9 @@ extern "C" {
         menu2.update();
         menu3.update();
         menu4.update();
+        menu5.update();
         keypad.update();
+        pec12.update();
     }
 }
 

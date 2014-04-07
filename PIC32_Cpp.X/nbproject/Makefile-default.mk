@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp ../main.cpp
+SOURCEFILES_QUOTED_IF_SPACED=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp ../main.cpp lib/io/IncrementalEncoder.cpp
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/_ext/1472/main.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/lib/core/Delay.o.d ${OBJECTDIR}/lib/hw/Port.o.d ${OBJECTDIR}/lib/io/Key.o.d ${OBJECTDIR}/lib/io/TextDisplay.o.d ${OBJECTDIR}/lib/io/Led.o.d ${OBJECTDIR}/lib/io/Keypad.o.d ${OBJECTDIR}/_ext/1472/main.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/lib/io/IncrementalEncoder.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lib/core/Delay.o.d ${OBJECTDIR}/lib/hw/Port.o.d ${OBJECTDIR}/lib/io/Key.o.d ${OBJECTDIR}/lib/io/TextDisplay.o.d ${OBJECTDIR}/lib/io/Led.o.d ${OBJECTDIR}/lib/io/Keypad.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/lib/io/IncrementalEncoder.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/_ext/1472/main.o
+OBJECTFILES=${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/lib/io/IncrementalEncoder.o
 
 # Source Files
-SOURCEFILES=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp ../main.cpp
+SOURCEFILES=lib/core/Delay.cpp lib/hw/Port.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp ../main.cpp lib/io/IncrementalEncoder.cpp
 
 
 CFLAGS=
@@ -139,6 +139,12 @@ ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d" -o ${OBJECTDIR}/_ext/1472/main.o ../main.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
+${OBJECTDIR}/lib/io/IncrementalEncoder.o: lib/io/IncrementalEncoder.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/io 
+	@${RM} ${OBJECTDIR}/lib/io/IncrementalEncoder.o.d 
+	@${RM} ${OBJECTDIR}/lib/io/IncrementalEncoder.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" -o ${OBJECTDIR}/lib/io/IncrementalEncoder.o lib/io/IncrementalEncoder.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
 else
 ${OBJECTDIR}/lib/core/Delay.o: lib/core/Delay.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/lib/core 
@@ -181,6 +187,12 @@ ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/main.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/_ext/1472/main.o.d" -o ${OBJECTDIR}/_ext/1472/main.o ../main.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
+${OBJECTDIR}/lib/io/IncrementalEncoder.o: lib/io/IncrementalEncoder.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/io 
+	@${RM} ${OBJECTDIR}/lib/io/IncrementalEncoder.o.d 
+	@${RM} ${OBJECTDIR}/lib/io/IncrementalEncoder.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" -o ${OBJECTDIR}/lib/io/IncrementalEncoder.o lib/io/IncrementalEncoder.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
 endif
 

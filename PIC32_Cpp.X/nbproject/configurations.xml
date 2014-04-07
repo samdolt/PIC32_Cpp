@@ -50,6 +50,8 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>../README.md</itemPath>
+    <itemPath>lib/io/IncrementalEncoder.cpp</itemPath>
+    <itemPath>lib/io/IncrementalEncoder.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
@@ -229,6 +231,7 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>

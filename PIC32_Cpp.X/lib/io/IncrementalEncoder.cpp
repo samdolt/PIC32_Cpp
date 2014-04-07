@@ -1,50 +1,74 @@
 /**
- * Fichier : board/etml-es/SK-PIC32-B.h
+ * Fichier : IncrementerEncoder.cpp
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Définition des broches d'entrée sortie du Starter Kit PIC32MX775F512L rev. B
- * de l'ETML-ES
+ * Driver pour encodeur rotatif "PEC12"
  */
-
-#ifndef SK_PIC32_B_H
-#define	SK_PIC32_B_H
-
-
-/*******************************************************************************
- * Affichage et Leds
- ******************************************************************************/
-
-#include "TextDisplay.h"
-#include "Led.h"
-
-extern TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
-extern Led led0 = Led("A0");
-extern Led led1 = Led("A1");
-extern Led led2 = Led("A4");
-extern Led led3 = Led("A5");
-extern Led led4 = Led("A6");
-extern Led led5 = Led("A7");
-extern Led led6 = Led("A15");
-extern Led led7 = Led("B10");
-
-/*******************************************************************************
- * Touches
- ******************************************************************************/
-
-#include "Key.h"
-extern Key menu1 = Key("G13");
-extern Key menu2 = Key("G14");
-extern Key menu3 = Key("G15");
-extern Key menu4 = Key("G12");
-extern Key menu5 = Key("D7");
 
 #include "IncrementalEncoder.h"
 
-extern IncrementalEncoder pec12 = IncrementalEncoder("E8","E9");
-#include "Keypad.h"
+IncrementalEncoder::IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[]) {
+    strcpy(M_SIGNAL_A, SIGNAL_A);
+    M_SIGNAL_A_PORT = pin::get_port(SIGNAL_A);
+    M_SIGNAL_A_PIN = pin::get_number(SIGNAL_A);
 
-extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
+    strcpy(M_SIGNAL_B, SIGNAL_B);
+    M_SIGNAL_B_PORT = pin::get_port(SIGNAL_B);
+    M_SIGNAL_B_PIN = pin::get_number(SIGNAL_B);
+
+    m_current_state = 0;
+    m_flag = false;
+
+    pin::set_input(M_SIGNAL_A_PORT, M_SIGNAL_A_PIN);
+    pin::set_input(M_SIGNAL_B_PORT, M_SIGNAL_B_PIN);
+}
+
+void IncrementalEncoder::update(void) {
+    bool new_signal_a, new_signal_b;
+
+    new_signal_a = pin::get(M_SIGNAL_A_PORT, M_SIGNAL_A_PIN);
+    new_signal_b = pin::get(M_SIGNAL_B_PORT, M_SIGNAL_B_PIN);
+
+    
+    
+    if(new_signal_a == 0 && m_old_signal_a == 1 && m_old_signal_b == 1)
+    {
+        // Flan déscendant sur A et B à 1
+        m_current_state = 1;
+        m_flag = true;
+    }
+    else if(new_signal_b == 0 && m_old_signal_b == 1 && m_old_signal_a == 1)
+    {
+        // Flan déscendant sur B et A à 1
+        m_current_state = -1;
+        m_flag = true;
+        
+    }
+
+    m_old_signal_a = new_signal_a;
+    m_old_signal_b = new_signal_b;
+}
+
+bool IncrementalEncoder::has_a_new_state(void)
+{
+    if(m_flag == true)
+    {
+        m_flag = false;
+        return true;
+    }
+
+    return false;
+}
+
+int8_t IncrementalEncoder::get_state(void)
+{
+    return m_current_state;
+}
+
+IncrementalEncoder::~IncrementalEncoder() {
+}
+
 
 /******************************************************************************
  * LICENSE
@@ -78,6 +102,3 @@ extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
-#endif	/* SK_PIC32_B_H */
-

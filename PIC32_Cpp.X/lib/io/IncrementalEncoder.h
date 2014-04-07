@@ -1,50 +1,40 @@
 /**
- * Fichier : board/etml-es/SK-PIC32-B.h
+ * Fichier : IncrementerEncoder.h
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Définition des broches d'entrée sortie du Starter Kit PIC32MX775F512L rev. B
- * de l'ETML-ES
+ * Driver pour encodeur rotatif "PEC12"
  */
 
-#ifndef SK_PIC32_B_H
-#define	SK_PIC32_B_H
+#ifndef INCREMENTALENCODER_H
+#define	INCREMENTALENCODER_H
 
+#include <stdint.h>
+#include "Port.h"
 
-/*******************************************************************************
- * Affichage et Leds
- ******************************************************************************/
+class IncrementalEncoder {
+public:
+    IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[]);
+    void update(void);
+    bool has_a_new_state(void);
+    int8_t get_state(void);
+    virtual ~IncrementalEncoder();
+private:
+    char M_SIGNAL_A[4];
+    char M_SIGNAL_A_PORT;
+    uint8_t M_SIGNAL_A_PIN;
+    
+    char M_SIGNAL_B[4];
+    char M_SIGNAL_B_PORT;
+    uint8_t M_SIGNAL_B_PIN;
 
-#include "TextDisplay.h"
-#include "Led.h"
+    bool m_flag;
+    int8_t m_current_state;
 
-extern TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
-extern Led led0 = Led("A0");
-extern Led led1 = Led("A1");
-extern Led led2 = Led("A4");
-extern Led led3 = Led("A5");
-extern Led led4 = Led("A6");
-extern Led led5 = Led("A7");
-extern Led led6 = Led("A15");
-extern Led led7 = Led("B10");
+    bool m_old_signal_a;
+    bool m_old_signal_b;
 
-/*******************************************************************************
- * Touches
- ******************************************************************************/
-
-#include "Key.h"
-extern Key menu1 = Key("G13");
-extern Key menu2 = Key("G14");
-extern Key menu3 = Key("G15");
-extern Key menu4 = Key("G12");
-extern Key menu5 = Key("D7");
-
-#include "IncrementalEncoder.h"
-
-extern IncrementalEncoder pec12 = IncrementalEncoder("E8","E9");
-#include "Keypad.h"
-
-extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
+};
 
 /******************************************************************************
  * LICENSE
@@ -79,5 +69,5 @@ extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#endif	/* SK_PIC32_B_H */
+#endif	/* INCREMENTALENCODER_H */
 
