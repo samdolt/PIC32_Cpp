@@ -1,78 +1,49 @@
 /**
- * Fichier : IncrementerEncoder.cpp
+ * Fichier : DigitalPin.h
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Driver pour encodeur rotatif "PEC12"
+ * Gestion d'une broche digitale
  */
 
-#include "IncrementalEncoder.h"
-#include "Port.h"
+#ifndef DIGITALPIN_H
+#define	DIGITALPIN_H
 
-IncrementalEncoder::IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[]) {
-    M_SIGNAL_A = new DigitalPin(SIGNAL_A);
-    M_SIGNAL_B = new DigitalPin(SIGNAL_B);
+#include <stdint.h>
+#include <p32xxxx.h>
 
-    m_current_state = 0;
-    m_flag = false;
+enum direction {
+    INPUT,
+    OUTPUT
+};
 
-    M_SIGNAL_A->set_input();
-    M_SIGNAL_B->set_input();
-}
+enum state {
+    HIGH = 1,
+    LOW = 0
+};
 
-void IncrementalEncoder::update(void) {
-    bool new_signal_a, new_signal_b;
-
-    new_signal_a = M_SIGNAL_A->read();
-    new_signal_b = M_SIGNAL_B->read();
-
-    
-    
-    if(new_signal_a == 0 && m_old_signal_a == 1 && m_old_signal_b == 1)
-    {
-        // Flan déscendant sur A et B à 1
-        m_current_state = 1;
-        m_flag = true;
-    }
-    else if(new_signal_b == 0 && m_old_signal_b == 1 && m_old_signal_a == 1)
-    {
-        // Flan déscendant sur B et A à 1
-        m_current_state = -1;
-        m_flag = true;
-        
-    }
-
-    m_old_signal_a = new_signal_a;
-    m_old_signal_b = new_signal_b;
-}
-
-bool IncrementalEncoder::has_a_new_state(void)
-{
-    if(m_flag == true)
-    {
-        m_flag = false;
-        return true;
-    }
-
-    return false;
-}
-
-int8_t IncrementalEncoder::get_state(void)
-{
-    return m_current_state;
-}
-
-IncrementalEncoder::~IncrementalEncoder() {
-    delete M_SIGNAL_A;
-    delete M_SIGNAL_B;
-}
-
+class DigitalPin {
+    public:
+        DigitalPin(const char PIN[]);
+        DigitalPin(const char PORT, uint16_t PIN_NUMBER);
+        void set_direction(enum direction);
+        void set_input(void);
+        void set_output(void);
+        void set_low(void);
+        void set_high(void);
+        void toggle(void);
+        bool read(void);
+        void write(const bool STATE);
+        virtual ~DigitalPin();
+    private:
+        char M_PORT;
+        uint8_t M_PIN_NUMBER;
+};
 
 /******************************************************************************
  * LICENSE
- ******************************************************************************/
-
-/*
+ ******************************************************************************
+ *
  * Copyright (c) 2014, Samuel Dolt <samuel@dolt.ch>
  * All rights reserved.
  *
@@ -100,3 +71,6 @@ IncrementalEncoder::~IncrementalEncoder() {
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+
+#endif	/* DIGITALPIN_H */
+

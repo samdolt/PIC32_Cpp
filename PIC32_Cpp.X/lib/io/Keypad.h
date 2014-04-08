@@ -10,6 +10,7 @@
 #define	KEYPAD_H
 
 #include <stdint.h>
+#include "DigitalPin.h"
 
 class Keypad {
 public:
@@ -21,37 +22,15 @@ public:
     bool has_a_new_state(void);
     virtual ~Keypad();
 private:
-    char M_LINE1[4];
-    char M_LINE1_PORT;
-    uint8_t M_LINE1_PIN;
+    DigitalPin * M_LINE1;
+    DigitalPin * M_LINE2;
+    DigitalPin * M_LINE3;
+    DigitalPin * M_LINE4;
 
-    char M_LINE2[4];
-    char M_LINE2_PORT;
-    uint8_t M_LINE2_PIN;
-
-    char M_LINE3[4];
-    char M_LINE3_PORT;
-    uint8_t M_LINE3_PIN;
-
-    char M_LINE4[4];
-    char M_LINE4_PORT;
-    uint8_t M_LINE4_PIN;
-
-    char M_COLUMN1[4];
-    char M_COLUMN1_PORT;
-    uint8_t M_COLUMN1_PIN;
-
-    char M_COLUMN2[4];
-    char M_COLUMN2_PORT;
-    uint8_t M_COLUMN2_PIN;
-
-    char M_COLUMN3[4];
-    char M_COLUMN3_PORT;
-    uint8_t M_COLUMN3_PIN;
-
-    char M_COLUMN4[4];
-    char M_COLUMN4_PORT;
-    uint8_t M_COLUMN4_PIN;
+    DigitalPin * M_COLUMN1;
+    DigitalPin * M_COLUMN2;
+    DigitalPin * M_COLUMN3;
+    DigitalPin * M_COLUMN4;
 
     uint16_t m_current_keys;
     uint16_t m_last_keys;

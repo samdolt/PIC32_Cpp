@@ -7,7 +7,6 @@
  */
 
 #include "Keypad.h"
-#include "Port.h"
 #include <string.h>
 #include "Delay.h"
 
@@ -16,48 +15,31 @@ Keypad::Keypad( const char L1[], const char L2[], const char L3[], const char L4
                 const uint8_t NUMBER) {
     M_NUMBER = NUMBER;
     
-    strcpy(M_LINE1, L1);
-    M_LINE1_PORT = pin::get_port(L1);
-    M_LINE1_PIN = pin::get_number(L1);
+    M_LINE1 = new DigitalPin(L1);
+    M_LINE2 = new DigitalPin(L2);
+    M_LINE3 = new DigitalPin(L3);
+    M_LINE4 = new DigitalPin(L4);
 
-    strcpy(M_LINE2, L2);
-    M_LINE2_PORT = pin::get_port(L2);
-    M_LINE2_PIN = pin::get_number(L2);
+    M_COLUMN1 = new DigitalPin(C1);
+    M_COLUMN2 = new DigitalPin(C2);
+    M_COLUMN3 = new DigitalPin(C3);
+    M_COLUMN4 = new DigitalPin(C4);
 
-    strcpy(M_LINE3, L3);
-    M_LINE3_PORT = pin::get_port(L3);
-    M_LINE3_PIN = pin::get_number(L3);
+    M_LINE1->set_input();
+    M_LINE2->set_input();
+    M_LINE3->set_input();
+    M_LINE4->set_input();
+    M_COLUMN1->set_input();
+    M_COLUMN2->set_input();
+    M_COLUMN3->set_input();
+    M_COLUMN4->set_input();
 
-    strcpy(M_LINE4, L4);
-    M_LINE4_PORT = pin::get_port(L4);
-    M_LINE4_PIN = pin::get_number(L4);
+    M_LINE1->set_low();
+    M_LINE2->set_low();
+    M_LINE3->set_low();
+    M_LINE4->set_low();
 
-    strcpy(M_COLUMN1, C1);
-    M_COLUMN1_PORT = pin::get_port(C1);
-    M_COLUMN1_PIN = pin::get_number(C1);
 
-    strcpy(M_COLUMN2, C2);
-    M_COLUMN2_PORT = pin::get_port(C2);
-    M_COLUMN2_PIN = pin::get_number(C2);
-
-    strcpy(M_COLUMN3, C3);
-    M_COLUMN3_PORT = pin::get_port(C3);
-    M_COLUMN3_PIN = pin::get_number(C3);
-
-    strcpy(M_COLUMN4, C4);
-    M_COLUMN4_PORT = pin::get_port(C4);
-    M_COLUMN4_PIN = pin::get_number(C4);
-
-    pin::set_input(M_COLUMN1_PORT, M_COLUMN1_PIN);
-    pin::set_input(M_COLUMN2_PORT, M_COLUMN2_PIN);
-    pin::set_input(M_COLUMN3_PORT, M_COLUMN3_PIN);
-    pin::set_input(M_COLUMN4_PORT, M_COLUMN4_PIN);
-
-    pin::clear(M_LINE1_PORT, M_LINE1_PIN);
-    pin::clear(M_LINE2_PORT, M_LINE2_PIN);
-    pin::clear(M_LINE3_PORT, M_LINE3_PIN);
-    pin::clear(M_LINE4_PORT, M_LINE4_PIN);
-    
     m_last_keys = 0;
     m_counter = 0;
     m_flag = false;
@@ -69,37 +51,36 @@ void Keypad::update(void)
     uint16_t new_keys;
 
     /* Lecture de la ligne 1*/
-    pin::set_output(M_LINE1_PORT, M_LINE1_PIN);
-    K0 = !(pin::get(M_COLUMN1_PORT, M_COLUMN1_PIN));
-    K1 = !(pin::get(M_COLUMN2_PORT, M_COLUMN2_PIN));
-    K2 = !(pin::get(M_COLUMN3_PORT, M_COLUMN3_PIN));
-    K3 = !(pin::get(M_COLUMN4_PORT, M_COLUMN4_PIN));
-    pin::set_input(M_LINE1_PORT, M_LINE1_PIN);
+    M_LINE1->set_output();
+    K0 = !(M_COLUMN1->read());
+    K1 = !(M_COLUMN2->read());
+    K2 = !(M_COLUMN3->read());
+    K3 = !(M_COLUMN4->read());
+    M_LINE1->set_input();
 
     /* Lecture de la ligne 2*/
-    pin::set_output(M_LINE2_PORT, M_LINE2_PIN);
-    K4 = !(pin::get(M_COLUMN1_PORT, M_COLUMN1_PIN));
-    K5 = !(pin::get(M_COLUMN2_PORT, M_COLUMN2_PIN));
-    K6 = !(pin::get(M_COLUMN3_PORT, M_COLUMN3_PIN));
-    K7 = !(pin::get(M_COLUMN4_PORT, M_COLUMN4_PIN));
-    pin::set_input(M_LINE2_PORT, M_LINE2_PIN);
+    M_LINE2->set_output();
+    K4 = !(M_COLUMN1->read());
+    K5 = !(M_COLUMN2->read());
+    K6 = !(M_COLUMN3->read());
+    K7 = !(M_COLUMN4->read());
+    M_LINE2->set_input();
 
     /* Lecture de la ligne 3*/
-    pin::set_output(M_LINE3_PORT, M_LINE3_PIN);
-    K8 = !(pin::get(M_COLUMN1_PORT, M_COLUMN1_PIN));
-    K9 = !(pin::get(M_COLUMN2_PORT, M_COLUMN2_PIN));
-    K10 = !(pin::get(M_COLUMN3_PORT, M_COLUMN3_PIN));
-    K11 = !(pin::get(M_COLUMN4_PORT, M_COLUMN4_PIN));
-    pin::set_input(M_LINE3_PORT, M_LINE3_PIN);
+    M_LINE3->set_output();
+    K8 = !(M_COLUMN1->read());
+    K9 = !(M_COLUMN2->read());
+    K10 = !(M_COLUMN3->read());
+    K11 = !(M_COLUMN4->read());
+    M_LINE3->set_input();
 
     /* Lecture de la ligne 4*/
-    pin::set_output(M_LINE4_PORT, M_LINE4_PIN);
-    K12 = !(pin::get(M_COLUMN1_PORT, M_COLUMN1_PIN));
-    K13 = !(pin::get(M_COLUMN2_PORT, M_COLUMN2_PIN));
-    K14 = !(pin::get(M_COLUMN3_PORT, M_COLUMN3_PIN));
-    K15 = !(pin::get(M_COLUMN4_PORT, M_COLUMN4_PIN));
-    pin::set_input(M_LINE4_PORT, M_LINE4_PIN);
-
+    M_LINE4->set_output();
+    K12 = !(M_COLUMN1->read());
+    K13 = !(M_COLUMN2->read());
+    K14 = !(M_COLUMN3->read());
+    K15 = !(M_COLUMN4->read());
+    M_LINE4->set_input();
 
     new_keys = 0;
     new_keys |= (K0 << 0);

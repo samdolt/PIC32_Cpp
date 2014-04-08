@@ -14,7 +14,7 @@
 class SerialPort {
 public:
     SerialPort(const uint8_t PORT_NUMBER);
-    config(uint32_t speed, const char * CONFIG=NULL  );
+//    config(uint32_t speed, const char * CONFIG=NULL  );
     void write(char data);
     char read();
 

@@ -6,29 +6,28 @@
  * Fonction d'abstraction pour le entrée/sortie générique
  */
 #include <cstring>
-#include "Port.h"
 
 #include "Key.h"
 
 
 
 Key::Key(const char PIN[], const uint8_t NUMBER) {
-    strcpy(M_KEY, PIN);
-    M_KEY_PORT = pin::get_port(PIN);
-    M_KEY_PIN = pin::get_number(PIN);
+
+    M_KEY = new DigitalPin(PIN);
+
     M_NUMBER = NUMBER;
     m_counter = 0;
     m_flag = false;
 
-    pin::set_input(M_KEY_PORT, M_KEY_PIN);
+    M_KEY->set_input();
 
-    m_last_state = pin::get(M_KEY_PORT, M_KEY_PIN);
-    m_state = pin::get(M_KEY_PORT, M_KEY_PIN);
+    m_last_state = M_KEY->read();
+    m_state = m_last_state;
 }
 
 void Key::update(void)
 {
-    uint8_t new_state = pin::get(M_KEY_PORT, M_KEY_PIN);
+    uint8_t new_state = M_KEY->read();
 
     if(new_state == m_last_state) {
         m_counter ++;
@@ -73,6 +72,7 @@ bool Key::is_relached(void)
 };
     
 Key::~Key() {
+    delete M_KEY;
 }
 
 /******************************************************************************

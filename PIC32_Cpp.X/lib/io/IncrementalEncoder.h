@@ -10,7 +10,7 @@
 #define	INCREMENTALENCODER_H
 
 #include <stdint.h>
-#include "Port.h"
+#include "DigitalPin.h"
 
 class IncrementalEncoder {
 public:
@@ -20,13 +20,9 @@ public:
     int8_t get_state(void);
     virtual ~IncrementalEncoder();
 private:
-    char M_SIGNAL_A[4];
-    char M_SIGNAL_A_PORT;
-    uint8_t M_SIGNAL_A_PIN;
-    
-    char M_SIGNAL_B[4];
-    char M_SIGNAL_B_PORT;
-    uint8_t M_SIGNAL_B_PIN;
+
+    DigitalPin * M_SIGNAL_A;
+    DigitalPin * M_SIGNAL_B;
 
     bool m_flag;
     int8_t m_current_state;

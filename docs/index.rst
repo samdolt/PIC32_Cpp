@@ -28,6 +28,7 @@ Table des matières:
    install
    boards/ETML-ES-SK-PIC32-B.rst
    core/delay
+   hw/DigitalPin
 
 
 

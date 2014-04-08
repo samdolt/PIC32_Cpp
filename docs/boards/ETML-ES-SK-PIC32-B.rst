@@ -1,6 +1,13 @@
-﻿Définition du fichier SK-PIC32-B.h
-************************************
+﻿Utilisation avec le starter kit PIC32 de l'ETML-ES
+**************************************************
 
+Il faut tout d'abord importer les définitions  concernant la carte :
+
+.. code-block:: cpp
+
+    #include "ETML-ES/SK-PIC32-B.h"
+    
+SK-PIC32-B.h
 Le fichier SK-PIC32-B.h initialise l'ensemble des périphériques
 supportés afin de permettre la création rapide de programme en C++.
 

@@ -9,6 +9,8 @@
 #ifndef LED_H
 #define	LED_H
 
+#include "DigitalPin.h"
+
 class Led {
 public:
     Led(const char LED[], const bool INVERTED = false);
@@ -17,9 +19,7 @@ public:
     void toggle(void);
     virtual ~Led();
 private:
-    int M_LED_PIN;
-    char M_LED_PORT;
-    char M_LED[5];
+    DigitalPin * M_IO;
     bool M_INVERTED;
 
 };

@@ -15,6 +15,7 @@
 
 #include <cstdint>
 #include <cstdio>
+#include "DigitalPin.h"
 
 /*
  * Structure permettant de définir un nombre et la base dans lequel on
@@ -174,22 +175,14 @@ private:
     /*
      * Stockage des broches utilisée
      */
-    char M_RS[4]; // Utilisation de 4 caractère, exemple "A12\0"
-    char M_RW[4];
-    char M_EN[4];
-    char M_BL[4];
-
-
-    char M_RS_PORT, M_RW_PORT, M_EN_PORT, M_BL_PORT;
-    int M_RS_PIN, M_RW_PIN, M_EN_PIN, M_BL_PIN;
-
-    char M_DB4[4];
-    char M_DB5[4];
-    char M_DB6[4];
-    char M_DB7[4];
-
-    char M_DB4_PORT, M_DB5_PORT, M_DB6_PORT, M_DB7_PORT;
-    int M_DB4_PIN, M_DB5_PIN, M_DB6_PIN, M_DB7_PIN;
+    DigitalPin * M_RS;
+    DigitalPin * M_RW;
+    DigitalPin * M_EN;
+    DigitalPin * M_BL;
+    DigitalPin * M_DB4;
+    DigitalPin * M_DB5;
+    DigitalPin * M_DB6;
+    DigitalPin * M_DB7;
 
     /*
      * Tableau contenant les adresses de ligne

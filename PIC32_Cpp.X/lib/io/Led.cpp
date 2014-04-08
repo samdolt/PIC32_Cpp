@@ -10,36 +10,35 @@
 #include "Port.h"
 
 Led::Led(const char LED[],  const bool INVERTED) {
-    strcpy(M_LED, LED);
-    M_LED_PORT = pin::get_port(LED);
-    M_LED_PIN = pin::get_number(LED);
+    M_IO = new DigitalPin(LED);
     M_INVERTED = INVERTED;
     set_off();
-    pin::set_output(M_LED_PORT, M_LED_PIN);
+    M_IO->set_output();
 }
 
 void Led::set_off(void) {
     if(M_INVERTED == false) {
-        pin::clear(M_LED_PORT, M_LED_PIN);
+        M_IO->set_low();
     }
     else {
-        pin::set(M_LED_PORT, M_LED_PIN);
+        M_IO->set_high();
     }
 }
 
 void Led::set_on(void) {
     if(M_INVERTED == false) {
-        pin::set(M_LED_PORT, M_LED_PIN);
+        M_IO->set_high();
     }
     else {
-        pin::clear(M_LED_PORT, M_LED_PIN);
+        M_IO->set_low();
     }
 }
 
 void Led::toggle(void) {
-        pin::toggle(M_LED_PORT, M_LED_PIN);
+        M_IO->toggle();
 }
 
 Led::~Led() {
+    delete M_IO;
 }
 

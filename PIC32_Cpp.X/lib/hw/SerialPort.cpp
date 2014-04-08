@@ -13,10 +13,10 @@ SerialPort::SerialPort(const uint8_t PORT_NUMBER)
 }
 
 
-void SerialPort::config(uint32_t speed, const char * CONFIG=NULL  )
+/*void SerialPort::config(uint32_t speed, const char * CONFIG=NULL  )
 {
 
-}
+}*/
 void SerialPort::write(char data)
 {
 

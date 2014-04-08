@@ -10,6 +10,7 @@
 #define	KEY_H
 
 #include <cstdint>
+#include "DigitalPin.h"
 
 class Key {
 public:
@@ -20,9 +21,7 @@ public:
     bool is_relached(void);
     virtual ~Key();
 private:
-    char M_KEY[4];
-    char M_KEY_PORT;
-    uint8_t M_KEY_PIN;
+    DigitalPin * M_KEY;
     uint8_t M_NUMBER;
     uint32_t m_counter;
     bool m_last_state;
