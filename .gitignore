@@ -225,3 +225,6 @@ doc/*
 latex/*
 html/*
 *.disasm
+
+# Sphinx
+documentation/_build

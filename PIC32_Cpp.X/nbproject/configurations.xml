@@ -52,6 +52,8 @@
     <itemPath>../README.md</itemPath>
     <itemPath>lib/io/IncrementalEncoder.cpp</itemPath>
     <itemPath>lib/io/IncrementalEncoder.h</itemPath>
+    <itemPath>lib/hw/SerialPort.cpp</itemPath>
+    <itemPath>lib/hw/SerialPort.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
