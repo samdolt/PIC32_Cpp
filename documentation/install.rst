@@ -4,11 +4,17 @@
 Installation des dépendances
 =============================
 
+Pour les utilisateurs
+---------------------
+
 Pour programmer en C++ sur un kit PIC32, vous devez installer les
 logiciels suivants:
 
 * Mplab X, version 2 au minimum
 * Le compilateur XC32, dans sa dernière version
+
+Complément pour les contributeurs
+---------------------------------
 
 Pour l'édition de la documentation, il faut installer:
 
@@ -18,6 +24,8 @@ Pour l'édition de la documentation, il faut installer:
 * Puis, après l'installation de Python, entrer la commande suivante
   pour installer l'outils de documentation
 
-.. code-block:: bash
+.. code-block:: sh
 
 	pip install sphinx
+    pip install sphinx_rtd_theme
+	
