@@ -16,5 +16,6 @@ Ce projet est conçut pour fonctionner sur le start kit "PIC32" de
 l'Ecole Supérieur de l'ETML à Lausanne www.etml-es.ch
 
 ### Documentation
+
 La documentation est disponible à l'adresse suivante:
 https://github.com/samdolt/PIC32_Cpp/wiki
