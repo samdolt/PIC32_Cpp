@@ -22,4 +22,4 @@ Documentation
 ==============
 
 La documentation est disponible à l'adresse suivante:
-http://pic32-cpp.readthedocs.org/fr/latest/boards/ETML-ES-SK-PIC32-B.html
+http://pic32-cpp.readthedocs.org/fr/latest/index.html
