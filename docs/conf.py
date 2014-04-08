@@ -101,16 +101,16 @@ pygments_style = 'sphinx'
 
 # -- Options for HTML output ----------------------------------------------
 
-import sphinx_rtd_theme
+if not on_rtd:
+    import sphinx_rtd_theme
+
 
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default'
+html_theme = 'default'
 
-if on_rtd:
-    html_theme = 'default'
-else:
+if not on_rtd:
     html_theme = "sphinx_rtd_theme"
 
 
@@ -121,9 +121,7 @@ else:
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
-if on_rtd:
-    pass
-else:
+if not on_rtd:
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
