@@ -1,5 +1,5 @@
-﻿Guide de prise en main rapide
-*****************************
+﻿Introduction
+*************
 
 Utilisation d'une entrée sortie digitale avec DigitalPin
 =========================================================
@@ -89,5 +89,19 @@ Pour inverser l'état logique de la broche:
  
  .. code-block:: cpp
 
-   broche_b2.toggle();    
+   broche_b2.toggle();  
+
+Gestion des temporisations
+---------------------------
+
+On peut introduire des temps de délais en secondes, millisecondes ou
+microsecondes à l'aide des fonctions du namespace delai. L'exemple 
+suivant montre trois manières d'effectuer une temporisation d'une
+seconde:
+
+.. code-block:: cpp
+
+    delai::s(1);
+    delai::ms(1000);
+    delai::us(1000000);
  
