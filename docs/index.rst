@@ -1,9 +1,6 @@
-﻿
+﻿****************************************
 Documentation de la librairie PIC32_Cpp
 ****************************************
-
-
-
 .. toctree::
    :maxdepth: 2
    
@@ -15,7 +12,7 @@ Documentation de la librairie PIC32_Cpp
    core/delay
    hw/DigitalPin
    
-
+*****************
 Listes et tables
 *****************
 
