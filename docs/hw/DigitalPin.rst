@@ -1,4 +1,5 @@
-﻿Gestion des entrées/sorties digitales
+﻿**************************************
+Gestion des entrées/sorties digitales
 **************************************
 
 Les entrées/sorties numériques sont implémenté dans le fichier 

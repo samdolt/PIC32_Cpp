@@ -1,4 +1,5 @@
-﻿Fichier Delay.h
+﻿****************
+Fichier Delay.h
 ****************
 
 La bibliothèque Delay permet d'utiliser des temporisations et des 

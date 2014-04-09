@@ -1,4 +1,5 @@
-﻿Utilisation des fonctions basiques
+﻿***********************************
+Utilisation des fonctions basiques
 ***********************************
 
 Utilisation d'une entrée sortie digitale avec DigitalPin

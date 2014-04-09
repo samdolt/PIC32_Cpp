@@ -1,4 +1,5 @@
-﻿Définition pour le starter kit PIC32 de l'ETML-ES
+﻿**************************************************
+Définition pour le starter kit PIC32 de l'ETML-ES
 **************************************************
 
 Le fichier "ETML-ES/SK-PIC32-B.h" contient des instances globales

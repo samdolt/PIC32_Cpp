@@ -1,8 +1,8 @@
-﻿Documentation de la librairie PIC32_Cpp
-########################################
+﻿
+Documentation de la librairie PIC32_Cpp
+****************************************
 
-Table des matières:
-*******************
+
 
 .. toctree::
    :maxdepth: 2
@@ -14,6 +14,7 @@ Table des matières:
    boards/ETML-ES-SK-PIC32-B-TUTO
    core/delay
    hw/DigitalPin
+   
 
 Listes et tables
 *****************
