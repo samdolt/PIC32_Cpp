@@ -1,8 +1,8 @@
 ﻿Documentation de la librairie PIC32_Cpp
-***************************************
+########################################
 
 Table des matières:
-====================
+*******************
 
 .. toctree::
    :maxdepth: 2
@@ -16,7 +16,7 @@ Table des matières:
    hw/DigitalPin
 
 Listes et tables
-=================
+*****************
 
 * :ref:`genindex`
 * :ref:`modindex`
