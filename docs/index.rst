@@ -7,6 +7,7 @@ Table des matières:
 .. toctree::
    :maxdepth: 2
    
+   intro
    install
    tutoriel
    boards/ETML-ES-SK-PIC32-B
