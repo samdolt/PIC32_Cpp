@@ -16,7 +16,7 @@ Emplacement
 La figure suivante montre la relation entre les noms des instances et
 les éléments hardware qui s'y rapporte.
 
-.. figure:: ../_static/ETML-ES-SK-PIC32-B.svg
+.. figure:: ../_static/ETML-ES-SK-PIC32-B.png
 
 Ainsi, on peut écrir sur le LCD avec le code suivant:
 
