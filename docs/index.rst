@@ -26,7 +26,9 @@ Table des matières:
    :maxdepth: 2
    
    install
-   boards/ETML-ES-SK-PIC32-B.rst
+   tutoriel
+   boards/ETML-ES-SK-PIC32-B
+   boards/ETML-ES-SK-PIC32-B-TUTO
    core/delay
    hw/DigitalPin
 

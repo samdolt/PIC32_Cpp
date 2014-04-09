@@ -1,8 +1,8 @@
 ﻿Installation et guide pour la contribution
 *******************************************
 
-Installation des dépendances
-=============================
+Installation
+============
 
 Pour les utilisateurs
 ---------------------
@@ -26,6 +26,6 @@ Pour l'édition de la documentation, il faut installer:
 
 .. code-block:: sh
 
-	pip install sphinx
-    pip install sphinx_rtd_theme
+   pip install sphinx
+   pip install sphinx_rtd_theme
 	
