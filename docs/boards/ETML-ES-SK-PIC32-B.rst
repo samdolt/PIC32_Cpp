@@ -1,15 +1,14 @@
 ﻿Utilisation avec le starter kit PIC32 de l'ETML-ES
 **************************************************
 
-Il faut tout d'abord importer les définitions  concernant la carte :
+Le fichier "ETML-ES/SK-PIC32-B.h" contient des instances globales
+permettant d'accélerer le prototypage. Pour les utiliser, il faut tout 
+d'abord importer les définitions  concernant la carte :
 
 .. code-block:: cpp
 
     #include "ETML-ES/SK-PIC32-B.h"
-    
-SK-PIC32-B.h
-Le fichier SK-PIC32-B.h initialise l'ensemble des périphériques
-supportés afin de permettre la création rapide de programme en C++.
+  
 
 Emplacement
 ============
@@ -18,6 +17,14 @@ La figure suivante montre la relation entre les noms des instances et
 les éléments hardware qui s'y rapporte.
 
 .. figure:: ../_static/ETML-ES-SK-PIC32-B.svg
+
+Ainsi, on peut écrir sur le LCD avec le code suivant:
+
+.. code-block:: cpp
+
+    lcd << "Bonjour";
+    
+Et ceci, sans avoir à initialiser une instance de la classe TextDisplay.
 
 Définitions
 ============
