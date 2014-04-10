@@ -55,6 +55,8 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>lib/core/CircularBuffer.cpp</itemPath>
+    <itemPath>lib/core/CircularBuffer.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>

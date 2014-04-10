@@ -9,14 +9,25 @@
 #define	SERIALPORT_H
 
 #include <stdint.h>
-#include <queue>
+#include <CircularBuffer.h>
+#include <string>
+
+enum handshaking {
+    SOFTWARE,
+    HARDWARE,
+    DISABLED
+};
 
 class SerialPort {
 public:
     SerialPort(const uint8_t PORT_NUMBER);
 //    config(uint32_t speed, const char * CONFIG=NULL  );
+
     void write(char data);
-    char read();
+    void print(const char data[]);
+    char get(void);
+    void update(void);
+    void read(char buf[], int buf_size);
 
     virtual ~SerialPort();
 private:
@@ -25,9 +36,20 @@ private:
     bool M_9_BITS_SERIAL;
     char M_PARITY_TYPE;
     uint8_t M_STOP_BITS;
+    CircularBuffer * M_TX_BUFFER;
+    CircularBuffer * M_RX_BUFFER;
 };
 
+/******************************************************************************
+ * STREAM SUPPORT
+ ******************************************************************************/
 
+/* Template générique, redirige l'opérateur serial << vers serial.print pour
+ * tous les type
+ */
+template<class T>
+inline SerialPort &operator <<(SerialPort &stream, const T data)
+{ stream.print(data); return stream; }
 
 
 /******************************************************************************

@@ -42,9 +42,17 @@ extern Key menu5 = Key("D7");
 #include "IncrementalEncoder.h"
 
 extern IncrementalEncoder pec12 = IncrementalEncoder("E8","E9");
+
 #include "Keypad.h"
 
 extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
+
+/*******************************************************************************
+ * Port seriel
+ ******************************************************************************/
+
+#include "SerialPort.h"
+extern SerialPort serial = SerialPort(1);
 
 /******************************************************************************
  * LICENSE

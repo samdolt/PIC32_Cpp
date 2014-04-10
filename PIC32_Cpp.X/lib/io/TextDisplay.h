@@ -138,7 +138,7 @@ public:
 
 
     void enable_autoscroll(void);
-    void disable_autoscroll(void);
+    void disable_autoscroll(void );
 
     /*
      * Décalage à droite de l'affichage
