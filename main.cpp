@@ -106,11 +106,16 @@ int main (void){
             }
         }
         
-        
+        lcd.set_cursor(3,1);
         char buf[40];
         serial.read(buf, 38);
         lcd <<  buf;
-
+        lcd.set_cursor(3,1);
+        lcd << "                        ";
+        lcd.set_cursor(3,1);
+        lcd << adc.read_input(0);
+        lcd.set_cursor(3,10);
+        lcd << adc.read_input(1);
     }
 
     return 0;

@@ -57,6 +57,8 @@
     </logicalFolder>
     <itemPath>lib/core/CircularBuffer.cpp</itemPath>
     <itemPath>lib/core/CircularBuffer.h</itemPath>
+    <itemPath>lib/hw/ADC.cpp</itemPath>
+    <itemPath>lib/hw/ADC.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
