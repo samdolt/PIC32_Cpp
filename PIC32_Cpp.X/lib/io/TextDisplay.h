@@ -17,28 +17,30 @@
 #include <cstdio>
 #include "DigitalPin.h"
 
-/*
- * Structure permettant de définir un nombre et la base dans lequel on
- * veut l'afficher
- */
-typedef struct{
-    uint8_t base;
-    int32_t number;
-}convert_s;
 
 typedef struct{
     uint8_t width;
+    uint8_t base;
+    bool sign_plus;
     char update; // 'w' pour width, permettra d'ajouter d'autre configuration
 }lcd_config_s;
 
-lcd_config_s setw(uint8_t width);
+typedef struct {
+    uint8_t line;
+    uint8_t column;
+}cursor_s;
+
 
 
 /*
  * Permet l'utilisation du code endl
  */
 enum stream_symbol {
-    endl
+    endl,
+    dec,
+    hex,
+    with_sign_plus,
+    without_sign_plus
 };
 
 enum lcd_type_e
@@ -47,10 +49,10 @@ enum lcd_type_e
     LCD4X20
 };
 
-typedef struct {
-    uint8_t line;
-    uint8_t column;
-}cursor_s;
+
+lcd_config_s setw(uint8_t width);
+cursor_s cursor(uint8_t y, uint8_t x);
+
 
 /*
  * Classe représentant l'écran LCD. Pour l'instant la classe se base
@@ -84,9 +86,9 @@ public:
      */
     void print(const char *ptr_char);
     void print(const int32_t number);
-    void print(const convert_s data );
     void print(enum stream_symbol symbol);
     void print(lcd_config_s config);
+    void print(cursor_s cursor);
 
     /*
      *  write écrit un caractère sur l'écran
@@ -249,14 +251,7 @@ template<class T>
 inline TextDisplay &operator <<(TextDisplay &stream, const T data)
 { stream.print(data); return stream; }
 
-/******************************************************************************
- * GESTION DES CONVERSIONS
- ******************************************************************************/
 
-namespace convert {
-    convert_s to_dec(int32_t number);
-    convert_s to_hex(int32_t number);
-}
 /******************************************************************************
  * LICENSE
  ******************************************************************************/

@@ -48,7 +48,7 @@ Pour la position (1,1), le raccourcis suivant est disponible:
 
    lcd.home();
    
-
+   
 Pour écrire à partir du cinquième caractère de la ligne deux, il
 faut écrire:
 
@@ -56,6 +56,12 @@ faut écrire:
 
    lcd.set_cursor(2,5);
    lcd << "world";
+   
+Une syntaxe allégée est aussi disponible:
+
+.. code-block:: cpp
+
+   lcd << cursor(2,5) << "world";
    
 Mot clef et conversion
 -----------------------
@@ -71,8 +77,22 @@ Pour afficher un nombre en héxadécimal, il faut entrer:
 
 .. code-block:: cpp
 
-   lcd << convert::to_hex(125);
+   lcd << hex << 125;
    
+On peut revenir au mode décimale avec:
+
+.. code-block:: cpp
+
+   lcd << dec;
+
+Pour afficher les chiffres positifs avec un signe plus en mode décimale
+
+.. code-block:: cpp
+
+   lcd << with_sign_plus << 10; // Affiche +10
+   lcd << without_sign_plus; // Désactive l'affichage du signe
+
+
 Pour fixer la longueur du prochain paramètre, on utilise setwritemode
 
 .. code-block:: cpp

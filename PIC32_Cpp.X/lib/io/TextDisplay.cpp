@@ -102,6 +102,8 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     M_NUMBER_OF_COLUMN = 20;
 
     m_config.width = 0;
+    m_config.base = 10;
+    m_config.sign_plus = false;
 
     /***************************************************************
      * GESTION DES PIN
@@ -187,24 +189,30 @@ void TextDisplay::print(const char *ptr_char) {
 
 void TextDisplay::print(const int32_t number)
 {
-    print(convert::to_dec(number));
+    char str[20];
+    switch (m_config.base) {
+        case 16:
+            sprintf(str, "%X", number);
+            break;
+        default:
+            // Base 10
+            if(m_config.sign_plus)
+            {
+                sprintf(str, "%+d", number);
+            }
+            else
+            {
+                sprintf(str, "%d", number);
+            }
+            break;
+    }
+    print(str);
+    
 }
 
-void TextDisplay::print(const convert_s data )
+void TextDisplay::print(cursor_s cursor)
 {
-        char str[15];
-        switch(data.base){
-            case 10:
-                sprintf(str, "%d", data.number);
-                break;
-            case 16:
-                sprintf(str, "%X", data.number);
-                break;
-            default:
-                str[0] = '\0';
-                break;
-        }
-        print(str);
+    set_cursor(cursor);
 }
 
 void TextDisplay::print(enum stream_symbol symbol)
@@ -213,6 +221,17 @@ void TextDisplay::print(enum stream_symbol symbol)
         case endl:
             write('\n');
             break;
+        case dec:
+            m_config.base = 10;
+            break;
+        case hex:
+            m_config.base = 16;
+            break;
+        case with_sign_plus:
+            m_config.sign_plus = true;
+            break;
+        case without_sign_plus:
+            m_config.sign_plus = false;
         default:
             break;
     }
@@ -516,25 +535,9 @@ char TextDisplay::read( cursor_s cursor)
 
 
 /******************************************************************************
- * GESTION DES CONVERSIONS
+ * Fonctions spéciales
  ******************************************************************************/
-namespace convert {
-    convert_s  to_dec(int32_t number)
-    {
-        convert_s data;
-        data.base = 10;
-        data.number = number;
-        return data;
-    }
 
-    convert_s  to_hex(int32_t number)
-    {
-        convert_s data;
-        data.base = 16;
-        data.number = number;
-        return data;
-    }
-}
 
 lcd_config_s setw(uint8_t width)
 {
@@ -543,6 +546,14 @@ lcd_config_s setw(uint8_t width)
     config.width = width;
     config.update = 'w';
     return config;
+}
+
+cursor_s cursor(uint8_t y, uint8_t x)
+{
+    cursor_s cursor;
+    cursor.line = y;
+    cursor.column = x;
+    return cursor;
 }
 /******************************************************************************
  * LICENSE

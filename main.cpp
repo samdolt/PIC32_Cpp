@@ -106,24 +106,17 @@ int main (void){
             }
         }
         
-        lcd.set_cursor(3,1);
+        lcd.set_cursor(4,1);
         char buf[40];
         serial.read(buf, 38);
         lcd <<  buf;
-        lcd.set_cursor(3,1);
 
-        lcd << setw(4) << adc.read_input(0);
-        lcd.set_cursor(3,10);
-        lcd << setw(4) << adc.read_input(1);
 
-        char tmp = lcd.read(1,1);
-        lcd.set_cursor(4,1);
-        lcd.write(tmp);
+        lcd << cursor(3,1) << setw(4) << dec << adc.read_input(0);
+        lcd << cursor(3,5) << setw(4) << hex << adc.read_input(1);
+        lcd << cursor(3,10) << setw(4) << dec << with_sign_plus << 4;
 
-        if(tmp == 'E')
-        {
-            lcd << "VRAI";
-        }
+
     }
 
     return 0;

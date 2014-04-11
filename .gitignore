@@ -228,3 +228,6 @@ html/*
 
 # Sphinx
 docs/_build
+*.mk
+PIC32_Cpp.X/nbproject/Makefile-variables.mk
+*.bash
