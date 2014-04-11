@@ -12,6 +12,8 @@
 #include <CircularBuffer.h>
 #include <string>
 
+#include <plib.h>
+
 enum handshaking {
     SOFTWARE,
     HARDWARE,
@@ -20,7 +22,7 @@ enum handshaking {
 
 class SerialPort {
 public:
-    SerialPort(const uint8_t PORT_NUMBER);
+    SerialPort(UART_MODULE UART);
 //    config(uint32_t speed, const char * CONFIG=NULL  );
 
     void write(char data);
@@ -31,11 +33,11 @@ public:
 
     virtual ~SerialPort();
 private:
-    uint8_t M_PORT_NUMBER;
     uint32_t M_SPEED;
     bool M_9_BITS_SERIAL;
     char M_PARITY_TYPE;
     uint8_t M_STOP_BITS;
+    UART_MODULE M_UART;
     CircularBuffer * M_TX_BUFFER;
     CircularBuffer * M_RX_BUFFER;
 };

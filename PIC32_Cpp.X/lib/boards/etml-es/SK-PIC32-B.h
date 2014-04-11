@@ -52,7 +52,7 @@ extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
  ******************************************************************************/
 
 #include "SerialPort.h"
-extern SerialPort serial = SerialPort(1);
+extern SerialPort serial = SerialPort(UART1);
 
 /******************************************************************************
  * LICENSE
