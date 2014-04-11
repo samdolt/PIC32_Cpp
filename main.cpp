@@ -111,11 +111,19 @@ int main (void){
         serial.read(buf, 38);
         lcd <<  buf;
         lcd.set_cursor(3,1);
-        lcd << "                        ";
-        lcd.set_cursor(3,1);
-        lcd << adc.read_input(0);
+
+        lcd << setw(4) << adc.read_input(0);
         lcd.set_cursor(3,10);
-        lcd << adc.read_input(1);
+        lcd << setw(4) << adc.read_input(1);
+
+        char tmp = lcd.read(1,1);
+        lcd.set_cursor(4,1);
+        lcd.write(tmp);
+
+        if(tmp == 'E')
+        {
+            lcd << "VRAI";
+        }
     }
 
     return 0;

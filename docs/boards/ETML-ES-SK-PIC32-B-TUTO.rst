@@ -27,6 +27,10 @@ Et pour inverser son état:
 Utilisation du LCD
 ===================
 
+Remarque: Afin d'éviter le clignottement de l'écran, les caractères sont écrit à l'écran
+uniquement s'il n'y était pas déjà. Il est ainsi plus nécessaire de le faire manuellement.
+ 
+
 Écriture
 ---------
 
@@ -68,6 +72,12 @@ Pour afficher un nombre en héxadécimal, il faut entrer:
 .. code-block:: cpp
 
    lcd << convert::to_hex(125);
+   
+Pour fixer la longueur du prochain paramètre, on utilise setwritemode
+
+.. code-block:: cpp
+
+   lcd << setw(4) << "ABC"; // Avec setw(4), un espace est rajouté après le 'C'
    
 Éffaçage de l'écran
 -------------------

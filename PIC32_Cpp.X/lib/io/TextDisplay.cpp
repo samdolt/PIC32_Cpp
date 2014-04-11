@@ -19,6 +19,7 @@
 
 #include "TextDisplay.h"
 #include "Delay.h"
+#include "SerialPort.h"
 
 
 
@@ -100,6 +101,8 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     M_NUMBER_OF_LINE = 4;
     M_NUMBER_OF_COLUMN = 20;
 
+    m_config.width = 0;
+
     /***************************************************************
      * GESTION DES PIN
      ***************************************************************/
@@ -163,10 +166,22 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
 }
 
 void TextDisplay::print(const char *ptr_char) {
-    while (*ptr_char != 0)
+    int i;
+
+    for(i = 0; ptr_char[i] != '\0' ; i++)
     {
-        write(*ptr_char);
-    	ptr_char++;
+        write(ptr_char[i]);
+    }
+
+    if(m_config.width != 0)
+    {
+        while(i < m_config.width)
+        {
+            write(' ');
+            i++;
+        }
+
+        m_config.width == 0;
     }
 }
 
@@ -203,6 +218,18 @@ void TextDisplay::print(enum stream_symbol symbol)
     }
 }
 
+void TextDisplay::print(lcd_config_s config)
+{
+    switch(config.update)
+    {
+        case 'w':
+            m_config.width = config.width;
+            break;
+        default:
+            break;
+    }
+}
+
 void TextDisplay::write(const uint8_t c) {
     switch (c) {
         case '\n':
@@ -220,7 +247,11 @@ void TextDisplay::write(const uint8_t c) {
             break;
         default:
             if( (m_column <= (M_NUMBER_OF_COLUMN) ) && (m_line <= (M_NUMBER_OF_LINE)) ){
-                send_byte(1,c);
+                // On écrit uniquement si la mise à jour est nécessaire
+                if( (uint8_t) read(m_line, m_column) != c)
+                {
+                    send_byte(1,c);
+                }
                 m_column++;
             }
             break;
@@ -283,6 +314,20 @@ int8_t TextDisplay::set_cursor(uint8_t y, uint8_t x) {
 
 }
 
+int8_t TextDisplay::set_cursor(cursor_s cursor)
+{
+    set_cursor(cursor.line, cursor.column);
+};
+
+cursor_s TextDisplay::get_cursor(void)
+{
+    cursor_s cursor;
+    cursor.column = m_column;
+    cursor.line = m_line;
+
+    return cursor;
+};
+
 void TextDisplay::enable_backlight(void) {
     M_BL->set_high();
 }
@@ -295,6 +340,15 @@ void TextDisplay::clear( void )
 {
     command(LCD::CLEARDISPLAY);
     delay::ms(2);
+}
+
+void TextDisplay::clear_line(void)
+{
+    cursor_s cursor = get_cursor();
+
+    set_cursor(cursor.line, 1);
+    print("                    ");
+    set_cursor(cursor);
 }
 
 void TextDisplay::disable_display(void) {
@@ -439,16 +493,25 @@ uint8_t TextDisplay::read_byte( void )
     return(lcd_read_byte.Val);
 }
 
-char TextDisplay::read( uint8_t x, uint8_t y)
+char TextDisplay::read( uint8_t y, uint8_t x)
 {
     uint8_t value;
-    set_cursor(x,y);
+    cursor_s cursor = get_cursor();
+    set_cursor(y,x);
+
     while ( read_byte() & 0x80 ){
     }; // wait until busy flag is low
     M_RS->set_high();
     value = read_byte();
     M_RS->set_low();
+
+    set_cursor(cursor);
     return(value);
+}
+
+char TextDisplay::read( cursor_s cursor)
+{
+    return read(cursor.line, cursor.column);
 }
 
 
@@ -473,6 +536,14 @@ namespace convert {
     }
 }
 
+lcd_config_s setw(uint8_t width)
+{
+    lcd_config_s config;
+
+    config.width = width;
+    config.update = 'w';
+    return config;
+}
 /******************************************************************************
  * LICENSE
  ******************************************************************************/

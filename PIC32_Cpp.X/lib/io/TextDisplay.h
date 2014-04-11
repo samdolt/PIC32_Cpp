@@ -26,6 +26,14 @@ typedef struct{
     int32_t number;
 }convert_s;
 
+typedef struct{
+    uint8_t width;
+    char update; // 'w' pour width, permettra d'ajouter d'autre configuration
+}lcd_config_s;
+
+lcd_config_s setw(uint8_t width);
+
+
 /*
  * Permet l'utilisation du code endl
  */
@@ -38,6 +46,11 @@ enum lcd_type_e
     LCD2X16,
     LCD4X20
 };
+
+typedef struct {
+    uint8_t line;
+    uint8_t column;
+}cursor_s;
 
 /*
  * Classe représentant l'écran LCD. Pour l'instant la classe se base
@@ -73,6 +86,7 @@ public:
     void print(const int32_t number);
     void print(const convert_s data );
     void print(enum stream_symbol symbol);
+    void print(lcd_config_s config);
 
     /*
      *  write écrit un caractère sur l'écran
@@ -90,7 +104,8 @@ public:
      * - y : N° de colonne de 1 à 24
      */
     int8_t set_cursor(uint8_t x, uint8_t y);
-
+    int8_t set_cursor(cursor_s cursor);
+    cursor_s get_cursor(void);
     /*
      * Active le rétroéclairage de l'écran
      */
@@ -105,6 +120,7 @@ public:
      * Efface le contenu de l'écran
      */
     void clear( void );
+    void clear_line(void);
 
     /*
      * Désactive l'affichage sans effacer son contenu
@@ -154,11 +170,14 @@ public:
      * Destructeur
      */
     virtual ~TextDisplay();
-private:
+
     /*
      * Lecture d'un caractère
      */
-    char read( uint8_t x, uint8_t y);
+    char read( uint8_t y, uint8_t x);
+    char read( cursor_s cursor);
+private:
+    
 
     /*
      * Envoi d'un caractère
@@ -214,6 +233,8 @@ private:
      * Ligne actuelle
      */
     uint8_t m_line;
+
+    lcd_config_s m_config;
 
 };
 
