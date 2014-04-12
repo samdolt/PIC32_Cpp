@@ -12,6 +12,7 @@
       <logicalFolder name="f4" displayName="core" projectFiles="true">
         <itemPath>lib/core/Delay.h</itemPath>
         <itemPath>lib/core/core.h</itemPath>
+        <itemPath>lib/core/CircularBuffer.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="hw" projectFiles="true">
         <itemPath>lib/hw/Port.h</itemPath>
@@ -25,6 +26,8 @@
         <itemPath>lib/io/Keypad.h</itemPath>
         <itemPath>lib/io/IncrementalEncoder.h</itemPath>
       </logicalFolder>
+      <itemPath>lib/hw/AnalogPin.cpp</itemPath>
+      <itemPath>lib/hw/AnalogPin.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -35,6 +38,7 @@
                    projectFiles="true">
       <logicalFolder name="f3" displayName="core" projectFiles="true">
         <itemPath>lib/core/Delay.cpp</itemPath>
+        <itemPath>lib/core/CircularBuffer.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="hw" projectFiles="true">
         <itemPath>lib/hw/Port.cpp</itemPath>
@@ -55,10 +59,6 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>lib/core/CircularBuffer.cpp</itemPath>
-    <itemPath>lib/core/CircularBuffer.h</itemPath>
-    <itemPath>lib/hw/ADC.cpp</itemPath>
-    <itemPath>lib/hw/ADC.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>

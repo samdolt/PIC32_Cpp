@@ -1,67 +1,59 @@
 /**
- * Fichier : board/etml-es/SK-PIC32-B.h
+ * Fichier : AnalogPin.cpp
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
- * Définition des broches d'entrée sortie du Starter Kit PIC32MX775F512L rev. B
- * de l'ETML-ES
+ * Fonction d'abstraction pour le entrée analogique
  */
-
-#ifndef SK_PIC32_B_H
-#define	SK_PIC32_B_H
-
-
-/*******************************************************************************
- * Affichage et Leds
- ******************************************************************************/
-
-#include "TextDisplay.h"
-#include "Led.h"
-
-extern TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
-extern Led led0 = Led("A0");
-extern Led led1 = Led("A1");
-extern Led led2 = Led("A4");
-extern Led led3 = Led("A5");
-extern Led led4 = Led("A6");
-extern Led led5 = Led("A7");
-extern Led led6 = Led("A15");
-extern Led led7 = Led("B10");
-
-/*******************************************************************************
- * Touches
- ******************************************************************************/
-
-#include "Key.h"
-extern Key menu1 = Key("G13");
-extern Key menu2 = Key("G14");
-extern Key menu3 = Key("G15");
-extern Key menu4 = Key("G12");
-extern Key menu5 = Key("D7");
-
-#include "IncrementalEncoder.h"
-
-extern IncrementalEncoder pec12 = IncrementalEncoder("E8","E9");
-
-#include "Keypad.h"
-
-extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
-
-/*******************************************************************************
- * Port seriel
- ******************************************************************************/
-
-#include "SerialPort.h"
-extern SerialPort serial = SerialPort(UART1);
-
-/*******************************************************************************
- * Entrée analogique
- ******************************************************************************/
 
 #include "AnalogPin.h"
 
-extern AnalogPin pot1 = AnalogPin(0);
-extern AnalogPin pot2 = AnalogPin(1);
+#include <plib.h>
+
+/*****************************************************************
+ * REMARQUE : L'adc est configuré dans la fonction init de core.h
+ ****************************************************************/
+
+AnalogPin::AnalogPin(const uint8_t AN_NUMBER ) {
+    M_ADC_NUMBER = AN_NUMBER;
+
+    // Configure la broche en entrée digitale
+    TRISB |= (1<<M_ADC_NUMBER); // Configure la broche en entrée
+   
+    //Active le mode analogique sur la broche
+    AD1PCFG &= ~(1 << M_ADC_NUMBER); 
+}
+
+uint16_t AnalogPin::read_raw(void)
+{
+    // Désactivation du module ADC
+    AD1CON1bits.ADON = 0;
+
+    // Séléction de la broche sur l'entrée ADC A positive
+    AD1CHS = M_ADC_NUMBER << 16;
+
+    // Réactivation du module ADC
+    AD1CON1bits.ADON = 1;
+
+    // Démarrage de la conversion
+    AD1CON1bits.SAMP = 1;
+
+    while(!AD1CON1bits.DONE)
+    {
+        // Wait for ADC to complete
+    }
+    return ( ADC1BUF0 +(8 *(AD1CON2bits.BUFS & 0x01)) );
+
+}
+float AnalogPin::read(void)
+{
+    return read_raw() / 1023.0;
+}
+
+AnalogPin::~AnalogPin(){
+    // Désactivation du mode analogique de la broche
+    AD1PCFG |= (1 << M_ADC_NUMBER);
+}
 
 /******************************************************************************
  * LICENSE
@@ -94,6 +86,3 @@ extern AnalogPin pot2 = AnalogPin(1);
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-
-#endif	/* SK_PIC32_B_H */
-
