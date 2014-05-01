@@ -59,6 +59,10 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>lib/io/I2CMaster.cpp</itemPath>
+    <itemPath>lib/io/I2CMaster.h</itemPath>
+    <itemPath>lib/core/settings.cpp</itemPath>
+    <itemPath>lib/core/settings.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>

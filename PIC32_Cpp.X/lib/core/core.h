@@ -17,6 +17,8 @@
 #include <plib.h>
 #include "etml-es/SK-PIC32-B.h"
 
+//#include "settings.h"
+
 
 /*******************************************************************************
  * CONFIGURATION DES FUSIBLES
@@ -64,7 +66,11 @@ static inline void init(void) {
     /*
      * CONFIGURATION
      * -------------- */
-    SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK = 80MHz
+    SYSTEMConfigPerformance(SYS_FREQ);
+    //clock_configure(SYS_FREQ);
+
+
+
     mJTAGPortEnable(0); // Désactivation du JTAG, libère RA0, RA1, RA4 et RA5
 
     OpenTimer1( T1_ON | T1_SOURCE_INT | T1_PS_1_8, TIMER1_1MS_PS_8 );
