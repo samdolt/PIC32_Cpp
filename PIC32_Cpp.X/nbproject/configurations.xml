@@ -63,6 +63,10 @@
     <itemPath>lib/io/I2CMaster.h</itemPath>
     <itemPath>lib/core/settings.cpp</itemPath>
     <itemPath>lib/core/settings.h</itemPath>
+    <itemPath>lib/io/SPI.cpp</itemPath>
+    <itemPath>lib/io/SPI.h</itemPath>
+    <itemPath>lib/hw/LTC2604.cpp</itemPath>
+    <itemPath>lib/hw/LTC2604.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>

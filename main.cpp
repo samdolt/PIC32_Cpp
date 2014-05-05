@@ -44,6 +44,7 @@ int main (void){
         signed_value = pot2.read() * 200 - 100;
         lcd << cursor(2,1) << " Vitesse : " << setw(4) << with_sign_plus << signed_value;
         lcd << cursor(3,1) << " Angle   :  " << setw(3) << without_sign_plus << unsigned_value;
+        lcd << cursor(4,1) << get_peripheral_clock() / 20000000;
     }
 
     return 0;

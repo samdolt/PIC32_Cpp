@@ -11,10 +11,8 @@
 #include <p32xxxx.h>
 #include <plib.h>
 #include "Delay.h"
+#include "settings.h"
 
-#ifndef SYS_FREQ
-    #define SYS_FREQ (80000000L)    //80 MHz
-#endif
 
 namespace delay {
 
@@ -29,7 +27,7 @@ namespace delay {
     {
         uint32_t time_to_wait;
         WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000.0 * delay;
+        time_to_wait = get_system_clock() / 2000.0 * delay;
         while(ReadCoreTimer() < time_to_wait){
             // Waiting
         };
@@ -39,7 +37,7 @@ namespace delay {
     {
         uint32_t time_to_wait;
         WriteCoreTimer(0);
-        time_to_wait = SYS_FREQ / 2000000.0 * delay;
+        time_to_wait = get_system_clock() / 2000000.0 * delay;
         while(ReadCoreTimer() < time_to_wait){
             // Waiting
         };

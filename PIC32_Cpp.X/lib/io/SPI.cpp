@@ -7,6 +7,8 @@
 
 #include "SPI.h"
 
+#include "settings.h"
+
 SPI::SPI(SpiChannel channel, const char CS[]) {
 
     M_CHANNEL = channel;
@@ -19,11 +21,13 @@ SPI::SPI(SpiChannel channel, const char CS[]) {
 
 void SPI::configure(void)
 {
+    uint32_t frequency = get_peripheral_clock() / 20000000; // 20MHz
     SpiOpenFlags config = (SpiOpenFlags) (SPI_OPEN_MODE8 | SPI_OPEN_ON | SPI_OPEN_CKP_HIGH |
                     SPI_OPEN_MSTEN) ;
 
-    SpiChnOpen(M_CHANNEL, config, 4); // 20MHz
+    SpiChnOpen(M_CHANNEL, config, frequency); // 20MHz
 }
+
 void SPI::write(uint8_t data)
 {
 

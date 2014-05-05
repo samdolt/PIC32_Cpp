@@ -10,10 +10,10 @@
 uint32_t SYS_CLOCK;
 uint32_t PB_CLOCK;
 
-void clock_configure(uint32_t SYS_FREQ)
+void clock_init(uint32_t SYS_FREQ)
 {
     SYS_CLOCK = SYS_FREQ;
-    //PB_CLOCK = SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK = 80MHz
+    PB_CLOCK = SYSTEMConfigPerformance(SYS_FREQ); // Cette fonction retourne PB_CLK = 80MHz
 }
 
 uint32_t get_system_clock(void)

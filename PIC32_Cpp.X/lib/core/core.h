@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include <p32xxxx.h>
 #include <plib.h>
+#include "settings.h"
 #include "etml-es/SK-PIC32-B.h"
 
 //#include "settings.h"
@@ -66,10 +67,7 @@ static inline void init(void) {
     /*
      * CONFIGURATION
      * -------------- */
-    SYSTEMConfigPerformance(SYS_FREQ);
-    //clock_configure(SYS_FREQ);
-
-
+    clock_init(SYS_FREQ);
 
     mJTAGPortEnable(0); // Désactivation du JTAG, libère RA0, RA1, RA4 et RA5
 
