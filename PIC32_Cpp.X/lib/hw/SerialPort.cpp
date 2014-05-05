@@ -98,8 +98,17 @@ void SerialPort::print(const char data[])
     } 
 }
 
+void SerialPort::send(const uint8_t data[], size_t size)
+{
+    int i = 0;
 
-void SerialPort::write(char data)
+    while(data[i] < size) {
+        write( data[i] );
+        i++;
+    }
+}
+
+void SerialPort::write(uint8_t data)
 {
     tx_buffer1.put(data);
    
@@ -108,6 +117,7 @@ void SerialPort::write(char data)
         INTEnable(INT_U1TX, INT_ENABLED);
     }
 };
+
 
 
 char SerialPort::get(void)
@@ -120,7 +130,7 @@ void SerialPort::read(char buf[], int buf_size)
 
     update();
     int i = 0;
-    while( (rx_buffer1.get_free_size() > 0) && (i < (buf_size - 1)) ) // On laisse une place pour \0
+    while( (rx_buffer1.get_number_of_item() > 0) && (i < (buf_size - 1)) ) // On laisse une place pour \0
     {
         buf[i] = rx_buffer1.get();
         i++;
@@ -128,6 +138,17 @@ void SerialPort::read(char buf[], int buf_size)
     buf[i] = '\0';
 }
 
+bool SerialPort::has_receive_data(void)
+{
+    if(rx_buffer1.get_number_of_item() > 0)
+    {
+        return true;
+    }
+    else
+    {
+        false;
+    }
+}
 void SerialPort::update(void)
 {
     while(UARTReceivedDataIsAvailable(M_UART))

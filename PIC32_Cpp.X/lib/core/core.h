@@ -80,7 +80,7 @@ static inline void init(void) {
     AD1PCFG = 0xFFFF; // Disable analog mode on PORTB
 
     /* AD1CON:
-     *  - Valeur décimale codée sur 16 bits non singé
+     *  - Valeur décimale codée sur 16 bits non signé
      *  - Auto-convert
      */
     AD1CON1 = 0x00F0;

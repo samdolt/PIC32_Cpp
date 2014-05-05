@@ -25,9 +25,11 @@ public:
     SerialPort(UART_MODULE UART);
 //    config(uint32_t speed, const char * CONFIG=NULL  );
 
-    void write(char data);
+    void write(uint8_t data);
+    void send(const uint8_t data[], size_t size);
     void print(const char data[]);
     char get(void);
+    bool has_receive_data(void);
     void update(void);
     void read(char buf[], int buf_size);
 
