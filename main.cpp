@@ -14,36 +14,44 @@
 #include <CircularBuffer.h>
 
 
-
 /*******************************************************************************
  * FONCTION PRINCIPALE
  ******************************************************************************/
 int main (void){
 
-    uint8_t unsigned_value = 90;
-    int8_t signed_value = -90;
+    float output;
 
     init();
     
     /*
      * Affichage initiale
      * ------------------------- */
-    lcd << "Local Settings" << endl ;
-    lcd << "TP2A PWM 2013-2014" << endl;
+    lcd << "Reglage TP6" << endl ;
+    lcd << "Moteur PIC32" << endl;
     lcd << "DOLT Samuel" << endl;
-    lcd << "Mailard France" << endl;
+    lcd << "PALMARI Claudio" << endl;
 
     delay::s(5);
 
     lcd.clear();
 
     
-
+    //
+    //DigitalPin pin = DigitalPin("D10");
+    //pin.set_output();
+    
     while(1){
-        unsigned_value = pot1.read() * 100;
-        signed_value = pot2.read() * 200 - 100;
-        lcd << cursor(2,1) << " Vitesse : " << setw(4) << with_sign_plus << signed_value;
-        lcd << cursor(3,1) << " Angle   :  " << setw(3) << without_sign_plus << unsigned_value;
+             output = pot2.read() * 2 - 1;
+
+        lcd << cursor(2,1) << "Tension : " << setw(4) << with_sign_plus << output * 10 ;
+        dac << channel(0) << output;
+
+       // pin.set_high();
+        //delay::ms(1);
+        //pin.set_low();
+        //delay::ms(1);
+
+        
     }
 
     return 0;

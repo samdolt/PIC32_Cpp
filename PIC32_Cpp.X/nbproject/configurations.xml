@@ -25,6 +25,7 @@
         <itemPath>lib/io/Led.h</itemPath>
         <itemPath>lib/io/Keypad.h</itemPath>
         <itemPath>lib/io/IncrementalEncoder.h</itemPath>
+        <itemPath>lib/io/SPI.h</itemPath>
       </logicalFolder>
       <itemPath>lib/hw/AnalogPin.cpp</itemPath>
       <itemPath>lib/hw/AnalogPin.h</itemPath>
@@ -51,6 +52,7 @@
         <itemPath>lib/io/Led.cpp</itemPath>
         <itemPath>lib/io/Keypad.cpp</itemPath>
         <itemPath>lib/io/IncrementalEncoder.cpp</itemPath>
+        <itemPath>lib/io/SPI.cpp</itemPath>
       </logicalFolder>
       <itemPath>../main.cpp</itemPath>
     </logicalFolder>
@@ -63,6 +65,8 @@
     <itemPath>lib/io/I2CMaster.h</itemPath>
     <itemPath>lib/core/settings.cpp</itemPath>
     <itemPath>lib/core/settings.h</itemPath>
+    <itemPath>lib/hw/LTC2604.cpp</itemPath>
+    <itemPath>lib/hw/LTC2604.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>

@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=lib/hw/AnalogPin.cpp lib/core/Delay.cpp lib/core/CircularBuffer.cpp lib/hw/Port.cpp lib/hw/SerialPort.cpp lib/hw/DigitalPin.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp lib/io/IncrementalEncoder.cpp ../main.cpp lib/io/I2CMaster.cpp lib/core/settings.cpp
+SOURCEFILES_QUOTED_IF_SPACED=lib/hw/AnalogPin.cpp lib/core/Delay.cpp lib/core/CircularBuffer.cpp lib/hw/Port.cpp lib/hw/SerialPort.cpp lib/hw/DigitalPin.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp lib/io/IncrementalEncoder.cpp lib/io/SPI.cpp ../main.cpp lib/io/I2CMaster.cpp lib/core/settings.cpp lib/hw/LTC2604.cpp
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lib/hw/AnalogPin.o ${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/core/CircularBuffer.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/hw/SerialPort.o ${OBJECTDIR}/lib/hw/DigitalPin.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/lib/io/IncrementalEncoder.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/lib/io/I2CMaster.o ${OBJECTDIR}/lib/core/settings.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/lib/hw/AnalogPin.o.d ${OBJECTDIR}/lib/core/Delay.o.d ${OBJECTDIR}/lib/core/CircularBuffer.o.d ${OBJECTDIR}/lib/hw/Port.o.d ${OBJECTDIR}/lib/hw/SerialPort.o.d ${OBJECTDIR}/lib/hw/DigitalPin.o.d ${OBJECTDIR}/lib/io/Key.o.d ${OBJECTDIR}/lib/io/TextDisplay.o.d ${OBJECTDIR}/lib/io/Led.o.d ${OBJECTDIR}/lib/io/Keypad.o.d ${OBJECTDIR}/lib/io/IncrementalEncoder.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/lib/io/I2CMaster.o.d ${OBJECTDIR}/lib/core/settings.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/lib/hw/AnalogPin.o ${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/core/CircularBuffer.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/hw/SerialPort.o ${OBJECTDIR}/lib/hw/DigitalPin.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/lib/io/IncrementalEncoder.o ${OBJECTDIR}/lib/io/SPI.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/lib/io/I2CMaster.o ${OBJECTDIR}/lib/core/settings.o ${OBJECTDIR}/lib/hw/LTC2604.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/lib/hw/AnalogPin.o.d ${OBJECTDIR}/lib/core/Delay.o.d ${OBJECTDIR}/lib/core/CircularBuffer.o.d ${OBJECTDIR}/lib/hw/Port.o.d ${OBJECTDIR}/lib/hw/SerialPort.o.d ${OBJECTDIR}/lib/hw/DigitalPin.o.d ${OBJECTDIR}/lib/io/Key.o.d ${OBJECTDIR}/lib/io/TextDisplay.o.d ${OBJECTDIR}/lib/io/Led.o.d ${OBJECTDIR}/lib/io/Keypad.o.d ${OBJECTDIR}/lib/io/IncrementalEncoder.o.d ${OBJECTDIR}/lib/io/SPI.o.d ${OBJECTDIR}/_ext/1472/main.o.d ${OBJECTDIR}/lib/io/I2CMaster.o.d ${OBJECTDIR}/lib/core/settings.o.d ${OBJECTDIR}/lib/hw/LTC2604.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/lib/hw/AnalogPin.o ${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/core/CircularBuffer.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/hw/SerialPort.o ${OBJECTDIR}/lib/hw/DigitalPin.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/lib/io/IncrementalEncoder.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/lib/io/I2CMaster.o ${OBJECTDIR}/lib/core/settings.o
+OBJECTFILES=${OBJECTDIR}/lib/hw/AnalogPin.o ${OBJECTDIR}/lib/core/Delay.o ${OBJECTDIR}/lib/core/CircularBuffer.o ${OBJECTDIR}/lib/hw/Port.o ${OBJECTDIR}/lib/hw/SerialPort.o ${OBJECTDIR}/lib/hw/DigitalPin.o ${OBJECTDIR}/lib/io/Key.o ${OBJECTDIR}/lib/io/TextDisplay.o ${OBJECTDIR}/lib/io/Led.o ${OBJECTDIR}/lib/io/Keypad.o ${OBJECTDIR}/lib/io/IncrementalEncoder.o ${OBJECTDIR}/lib/io/SPI.o ${OBJECTDIR}/_ext/1472/main.o ${OBJECTDIR}/lib/io/I2CMaster.o ${OBJECTDIR}/lib/core/settings.o ${OBJECTDIR}/lib/hw/LTC2604.o
 
 # Source Files
-SOURCEFILES=lib/hw/AnalogPin.cpp lib/core/Delay.cpp lib/core/CircularBuffer.cpp lib/hw/Port.cpp lib/hw/SerialPort.cpp lib/hw/DigitalPin.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp lib/io/IncrementalEncoder.cpp ../main.cpp lib/io/I2CMaster.cpp lib/core/settings.cpp
+SOURCEFILES=lib/hw/AnalogPin.cpp lib/core/Delay.cpp lib/core/CircularBuffer.cpp lib/hw/Port.cpp lib/hw/SerialPort.cpp lib/hw/DigitalPin.cpp lib/io/Key.cpp lib/io/TextDisplay.cpp lib/io/Led.cpp lib/io/Keypad.cpp lib/io/IncrementalEncoder.cpp lib/io/SPI.cpp ../main.cpp lib/io/I2CMaster.cpp lib/core/settings.cpp lib/hw/LTC2604.cpp
 
 
 CFLAGS=
@@ -163,6 +163,12 @@ ${OBJECTDIR}/lib/io/IncrementalEncoder.o: lib/io/IncrementalEncoder.cpp  nbproje
 	@${RM} ${OBJECTDIR}/lib/io/IncrementalEncoder.o 
 	@${FIXDEPS} "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" -o ${OBJECTDIR}/lib/io/IncrementalEncoder.o lib/io/IncrementalEncoder.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
+${OBJECTDIR}/lib/io/SPI.o: lib/io/SPI.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/io 
+	@${RM} ${OBJECTDIR}/lib/io/SPI.o.d 
+	@${RM} ${OBJECTDIR}/lib/io/SPI.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/io/SPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/SPI.o.d" -o ${OBJECTDIR}/lib/io/SPI.o lib/io/SPI.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
 ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
@@ -180,6 +186,12 @@ ${OBJECTDIR}/lib/core/settings.o: lib/core/settings.cpp  nbproject/Makefile-${CN
 	@${RM} ${OBJECTDIR}/lib/core/settings.o.d 
 	@${RM} ${OBJECTDIR}/lib/core/settings.o 
 	@${FIXDEPS} "${OBJECTDIR}/lib/core/settings.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/core/settings.o.d" -o ${OBJECTDIR}/lib/core/settings.o lib/core/settings.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
+${OBJECTDIR}/lib/hw/LTC2604.o: lib/hw/LTC2604.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/hw 
+	@${RM} ${OBJECTDIR}/lib/hw/LTC2604.o.d 
+	@${RM} ${OBJECTDIR}/lib/hw/LTC2604.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/hw/LTC2604.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE) -g -D__DEBUG -D__MPLAB_DEBUGGER_ICD3=1 -fframe-base-loclist  -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/hw/LTC2604.o.d" -o ${OBJECTDIR}/lib/hw/LTC2604.o lib/hw/LTC2604.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
 else
 ${OBJECTDIR}/lib/hw/AnalogPin.o: lib/hw/AnalogPin.cpp  nbproject/Makefile-${CND_CONF}.mk
@@ -248,6 +260,12 @@ ${OBJECTDIR}/lib/io/IncrementalEncoder.o: lib/io/IncrementalEncoder.cpp  nbproje
 	@${RM} ${OBJECTDIR}/lib/io/IncrementalEncoder.o 
 	@${FIXDEPS} "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/IncrementalEncoder.o.d" -o ${OBJECTDIR}/lib/io/IncrementalEncoder.o lib/io/IncrementalEncoder.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
+${OBJECTDIR}/lib/io/SPI.o: lib/io/SPI.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/io 
+	@${RM} ${OBJECTDIR}/lib/io/SPI.o.d 
+	@${RM} ${OBJECTDIR}/lib/io/SPI.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/io/SPI.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/io/SPI.o.d" -o ${OBJECTDIR}/lib/io/SPI.o lib/io/SPI.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
 ${OBJECTDIR}/_ext/1472/main.o: ../main.cpp  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/_ext/1472 
 	@${RM} ${OBJECTDIR}/_ext/1472/main.o.d 
@@ -265,6 +283,12 @@ ${OBJECTDIR}/lib/core/settings.o: lib/core/settings.cpp  nbproject/Makefile-${CN
 	@${RM} ${OBJECTDIR}/lib/core/settings.o.d 
 	@${RM} ${OBJECTDIR}/lib/core/settings.o 
 	@${FIXDEPS} "${OBJECTDIR}/lib/core/settings.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/core/settings.o.d" -o ${OBJECTDIR}/lib/core/settings.o lib/core/settings.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
+	
+${OBJECTDIR}/lib/hw/LTC2604.o: lib/hw/LTC2604.cpp  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/lib/hw 
+	@${RM} ${OBJECTDIR}/lib/hw/LTC2604.o.d 
+	@${RM} ${OBJECTDIR}/lib/hw/LTC2604.o 
+	@${FIXDEPS} "${OBJECTDIR}/lib/hw/LTC2604.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC} $(MP_EXTRA_CC_PRE)  -g -x c++ -c -mprocessor=$(MP_PROCESSOR_OPTION)  -frtti -fexceptions -fno-check-new -fenforce-eh-specs -O1 -I"../" -I"lib/boards" -I"lib/hw" -I"lib/io" -I"lib/core" -MMD -MF "${OBJECTDIR}/lib/hw/LTC2604.o.d" -o ${OBJECTDIR}/lib/hw/LTC2604.o lib/hw/LTC2604.cpp   -fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            
 	
 endif
 
