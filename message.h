@@ -54,8 +54,9 @@ public:
     uint8_t get_angle(void);
     void set_speed(uint8_t speed);
     uint8_t get_speed(void);
-    uint8_t * get_raw(void);
+    void get_raw(uint8_t data[]);
     size_t get_raw_size(void);
+    void write(uint8_t data[]);
     virtual ~Message();
 private:
     union message m_message;

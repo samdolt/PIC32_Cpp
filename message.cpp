@@ -33,6 +33,7 @@ bool Message::validator(void)
     return no_error;
 }
 
+
 void Message::generate(void)
 {
     m_message.start = 0xAA;
@@ -65,9 +66,23 @@ uint8_t Message::get_speed(void)
     return m_message.data.speed;
 }
 
-uint8_t * Message::get_raw(void)
+void Message::get_raw(uint8_t data[])
 {
-    return (uint8_t *) m_message.raw;
+    data[0] = m_message.start;
+    data[1] = m_message.data.speed;
+    data[2] = m_message.data.angle;
+    data[3] = m_message.crc.low;
+    data[4] = m_message.crc.high;
+}
+
+
+void Message::write(uint8_t data[])
+{
+    m_message.start = data[0];
+    m_message.data.speed = data[1];
+    m_message.data.angle = data[2];
+    m_message.crc.low = data[3];
+    m_message.crc.high = data[4];
 }
 
 size_t Message::get_raw_size(void)

@@ -28,8 +28,9 @@ public:
     void write(uint8_t data);
     void send(const uint8_t data[], size_t size);
     void print(const char data[]);
-    char get(void);
+    uint8_t get(void);
     bool has_receive_data(void);
+    uint8_t number_of_bytes(void);
     void update(void);
     void read(char buf[], int buf_size);
 

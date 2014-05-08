@@ -29,17 +29,6 @@ bool tx_interrupt_handler(UART_MODULE UART);
 CircularBuffer tx_buffer1 = CircularBuffer(20);
 CircularBuffer rx_buffer1 = CircularBuffer(20);
 
-CircularBuffer tx_buffer2 = CircularBuffer(20);
-CircularBuffer rx_buffer2 = CircularBuffer(20);
-
-CircularBuffer tx_buffer3 = CircularBuffer(20);
-CircularBuffer rx_buffer3 = CircularBuffer(20);
-
-CircularBuffer tx_buffer4 = CircularBuffer(20);
-CircularBuffer rx_buffer4 = CircularBuffer(20);
-
-CircularBuffer tx_buffer5 = CircularBuffer(20);
-CircularBuffer rx_buffer5 = CircularBuffer(20);
 
 
 SerialPort::SerialPort(UART_MODULE UART)
@@ -108,6 +97,11 @@ void SerialPort::send(const uint8_t data[], size_t size)
     }
 }
 
+uint8_t SerialPort::number_of_bytes(void)
+{
+    return rx_buffer1.get_number_of_item();
+}
+
 void SerialPort::write(uint8_t data)
 {
     tx_buffer1.put(data);
@@ -119,11 +113,12 @@ void SerialPort::write(uint8_t data)
 };
 
 
-
-char SerialPort::get(void)
+uint8_t SerialPort::get(void)
 {
      return rx_buffer1.get();
 }
+
+
 
 void SerialPort::read(char buf[], int buf_size)
 {

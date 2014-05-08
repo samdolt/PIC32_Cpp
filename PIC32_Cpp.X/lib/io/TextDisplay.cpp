@@ -358,6 +358,7 @@ void TextDisplay::disable_backlight(void) {
 void TextDisplay::clear( void )
 {
     command(LCD::CLEARDISPLAY);
+    set_cursor(1,1);
     delay::ms(2);
 }
 
@@ -367,7 +368,7 @@ void TextDisplay::clear_line(void)
 
     set_cursor(cursor.line, 1);
     print("                    ");
-    set_cursor(cursor);
+    set_cursor(cursor.line, 1);
 }
 
 void TextDisplay::disable_display(void) {

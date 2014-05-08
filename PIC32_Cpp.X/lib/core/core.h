@@ -17,6 +17,7 @@
 #include <plib.h>
 #include "etml-es/SK-PIC32-B.h"
 
+
 //#include "settings.h"
 
 
@@ -61,6 +62,17 @@
 #define TIMER1_TICK_PS_8 ((1.0/ (SYS_FREQ / 8)))
 #define TIMER1_1MS_PS_8 (0.001 / TIMER1_TICK_PS_8 )
 
+//Timer3
+#define PRESCALE_3 64
+#define T3_TICK ((1000000.0 * PRESCALE_3)/80000000) // en us
+ //7 ms => 7'000 us
+#define VAL_PR3 (7000 / T3_TICK)
+
+#define VAL_PR2 (25 * (80))
+
+uint8_t Compt_4ms;
+
+
 
 static inline void init(void) {
     /*
@@ -75,7 +87,7 @@ static inline void init(void) {
 
     OpenTimer1( T1_ON | T1_SOURCE_INT | T1_PS_1_8, TIMER1_1MS_PS_8 );
     ConfigIntTimer1(T1_INT_ON | T1_INT_PRIOR_4);
-    INTEnableSystemMultiVectoredInt ();
+    
 
     AD1PCFG = 0xFFFF; // Disable analog mode on PORTB
 
@@ -103,12 +115,43 @@ static inline void init(void) {
     AD1CON1bits.ADON = 1;
 
 
+
+    /**************************************************************************
+     * TIMER PWM
+     **************************************************************************/
+
+    OpenTimer2(T2_ON | T2_PS_1_1, VAL_PR2);
+    OpenOC2(OC_ON | OC_TIMER_MODE16 | OC_TIMER2_SRC | OC_PWM_FAULT_PIN_DISABLE, VAL_PR2/2, VAL_PR2/2);
+
+    OpenTimer3(T3_ON | T3_SOURCE_INT |T3_PS_1_64, VAL_PR3);
+    OpenOC3(OC_ON | OC_TIMER_MODE16 | OC_TIMER3_SRC | OC_CONTINUE_PULSE, 2000.0 / T3_TICK , 0);
+
+
+
+
+
+
+    INTEnableSystemMultiVectoredInt ();
 }
+
 
 
 
 extern "C" {
     void __ISR(_TIMER_1_VECTOR, IPL4AUTO) Timer1Handler(void) {
+        static uint32_t counter_25ms;
+
+        counter_25ms ++;
+
+        if(counter_25ms > 24)
+        {
+            counter_25ms = 0;
+            timer_flag = true;
+        }
+        else
+        {
+            // do nothing
+        }
         mT1ClearIntFlag();
         menu1.update();
         menu2.update();
@@ -118,6 +161,7 @@ extern "C" {
         keypad.update();
         pec12.update();
     }
+
 }
 
 
