@@ -38,13 +38,20 @@ int main (void){
     lcd.clear();
 
     
-
+    I2CBUS.configure();
+    
     while(1){
         unsigned_value = pot1.read() * 100;
         signed_value = pot2.read() * 200 - 100;
         lcd << cursor(2,1) << " Vitesse : " << setw(4) << with_sign_plus << signed_value;
         lcd << cursor(3,1) << " Angle   :  " << setw(3) << without_sign_plus << unsigned_value;
         lcd << cursor(4,1) << get_peripheral_clock() / 20000000;
+
+        if(I2CBUS.write(0x55) == I2C_SUCCESS)
+        {
+            lcd << cursor(4,3) << "i2c ok";
+        }
+        
     }
 
     return 0;

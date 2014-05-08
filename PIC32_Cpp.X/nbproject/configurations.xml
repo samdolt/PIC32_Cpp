@@ -67,6 +67,8 @@
     <itemPath>lib/io/SPI.h</itemPath>
     <itemPath>lib/hw/LTC2604.cpp</itemPath>
     <itemPath>lib/hw/LTC2604.h</itemPath>
+    <itemPath>lib/io/I2C.cpp</itemPath>
+    <itemPath>lib/io/I2C.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
