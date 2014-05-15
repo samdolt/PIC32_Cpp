@@ -183,7 +183,7 @@ void TextDisplay::print(const char *ptr_char) {
             i++;
         }
 
-        m_config.width == 0;
+        m_config.width = 0;
     }
 }
 

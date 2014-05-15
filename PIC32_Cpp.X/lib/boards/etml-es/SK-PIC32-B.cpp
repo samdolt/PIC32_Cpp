@@ -1,5 +1,5 @@
 /**
- * Fichier : board/etml-es/SK-PIC32-B.h
+ * Fichier : board/etml-es/SK-PIC32-B.cpp
  * Auteur  : Samuel Dolt
  * License : BSD 3 clauses
  *
@@ -7,8 +7,7 @@
  * de l'ETML-ES
  */
 
-#ifndef SK_PIC32_B_H
-#define	SK_PIC32_B_H
+
 
 
 /*******************************************************************************
@@ -18,41 +17,41 @@
 #include "TextDisplay.h"
 #include "Led.h"
 
-extern TextDisplay lcd;
-extern Led led0;
-extern Led led1;
-extern Led led2;
-extern Led led3;
-extern Led led4;
-extern Led led5;
-extern Led led6;
-extern Led led7;
+ TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
+ Led led0 = Led("A0");
+ Led led1 = Led("A1");
+ Led led2 = Led("A4");
+ Led led3 = Led("A5");
+ Led led4 = Led("A6");
+ Led led5 = Led("A7");
+ Led led6 = Led("A15");
+ Led led7 = Led("B10");
 
 /*******************************************************************************
  * Touches
  ******************************************************************************/
 
 #include "Key.h"
-extern Key menu1;
-extern Key menu2;
-extern Key menu3;
-extern Key menu4;
-extern Key menu5;
+ Key menu1 = Key("G13");
+ Key menu2 = Key("G14");
+ Key menu3 = Key("G15");
+ Key menu4 = Key("G12");
+ Key menu5 = Key("D7");
 
 #include "IncrementalEncoder.h"
 
-extern IncrementalEncoder pec12;
+ IncrementalEncoder pec12 = IncrementalEncoder("E8","E9");
 
 #include "Keypad.h"
 
-extern Keypad keypad;
+ Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
 
 /*******************************************************************************
  * Port seriel
  ******************************************************************************/
 
 #include "SerialPort.h"
-extern SerialPort serial;
+ SerialPort serial = SerialPort(UART1);
 
 /*******************************************************************************
  * Entrée analogique
@@ -60,8 +59,8 @@ extern SerialPort serial;
 
 #include "AnalogPin.h"
 
-extern AnalogPin pot1;
-extern AnalogPin pot2;
+ AnalogPin pot1 = AnalogPin(0);
+ AnalogPin pot2 = AnalogPin(1);
 
 
 /*******************************************************************************
@@ -69,14 +68,14 @@ extern AnalogPin pot2;
  ******************************************************************************/
 
 #include "LTC2604.h"
-extern LTC2604 dac;
+ LTC2604 dac = LTC2604(SPI_CHANNEL1, "D4", "D9" );
 
 /*******************************************************************************
  * Bus I2C
  ******************************************************************************/
 
 #include "I2C.h"
-extern I2C I2CBUS;
+ I2C I2CBUS = I2C(I2C2);
 /******************************************************************************
  * LICENSE
  ******************************************************************************
@@ -109,5 +108,5 @@ extern I2C I2CBUS;
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#endif	/* SK_PIC32_B_H */
+
 

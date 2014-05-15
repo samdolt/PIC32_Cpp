@@ -13,11 +13,15 @@
         <itemPath>lib/core/Delay.h</itemPath>
         <itemPath>lib/core/core.h</itemPath>
         <itemPath>lib/core/CircularBuffer.h</itemPath>
+        <itemPath>lib/core/settings.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="hw" projectFiles="true">
         <itemPath>lib/hw/Port.h</itemPath>
         <itemPath>lib/hw/SerialPort.h</itemPath>
         <itemPath>lib/hw/DigitalPin.h</itemPath>
+        <itemPath>lib/io/SPI.h</itemPath>
+        <itemPath>lib/io/I2C.h</itemPath>
+        <itemPath>lib/hw/AnalogPin.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="io" projectFiles="true">
         <itemPath>lib/io/Key.h</itemPath>
@@ -25,9 +29,9 @@
         <itemPath>lib/io/Led.h</itemPath>
         <itemPath>lib/io/Keypad.h</itemPath>
         <itemPath>lib/io/IncrementalEncoder.h</itemPath>
+        <itemPath>lib/hw/LTC2604.h</itemPath>
       </logicalFolder>
-      <itemPath>lib/hw/AnalogPin.cpp</itemPath>
-      <itemPath>lib/hw/AnalogPin.h</itemPath>
+      <itemPath>../Menu.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -39,11 +43,15 @@
       <logicalFolder name="f3" displayName="core" projectFiles="true">
         <itemPath>lib/core/Delay.cpp</itemPath>
         <itemPath>lib/core/CircularBuffer.cpp</itemPath>
+        <itemPath>lib/core/settings.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="hw" projectFiles="true">
         <itemPath>lib/hw/Port.cpp</itemPath>
         <itemPath>lib/hw/SerialPort.cpp</itemPath>
         <itemPath>lib/hw/DigitalPin.cpp</itemPath>
+        <itemPath>lib/io/SPI.cpp</itemPath>
+        <itemPath>lib/io/I2C.cpp</itemPath>
+        <itemPath>lib/hw/AnalogPin.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="io" projectFiles="true">
         <itemPath>lib/io/Key.cpp</itemPath>
@@ -51,24 +59,19 @@
         <itemPath>lib/io/Led.cpp</itemPath>
         <itemPath>lib/io/Keypad.cpp</itemPath>
         <itemPath>lib/io/IncrementalEncoder.cpp</itemPath>
+        <itemPath>lib/hw/LTC2604.cpp</itemPath>
       </logicalFolder>
       <itemPath>../main.cpp</itemPath>
+      <itemPath>../Menu.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>lib/io/I2CMaster.cpp</itemPath>
-    <itemPath>lib/io/I2CMaster.h</itemPath>
-    <itemPath>lib/core/settings.cpp</itemPath>
-    <itemPath>lib/core/settings.h</itemPath>
-    <itemPath>lib/io/SPI.cpp</itemPath>
-    <itemPath>lib/io/SPI.h</itemPath>
-    <itemPath>lib/hw/LTC2604.cpp</itemPath>
-    <itemPath>lib/hw/LTC2604.h</itemPath>
-    <itemPath>lib/io/I2C.cpp</itemPath>
-    <itemPath>lib/io/I2C.h</itemPath>
+    <itemPath>lib/boards/etml-es/SK-PIC32-B.cpp</itemPath>
+    <itemPath>../Generator.cpp</itemPath>
+    <itemPath>../Generator.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
