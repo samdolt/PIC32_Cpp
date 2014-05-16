@@ -40,6 +40,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f4" displayName="boards" projectFiles="true">
+        <logicalFolder name="f1" displayName="ETML-ES" projectFiles="true">
+          <itemPath>lib/boards/etml-es/SK-PIC32-B.cpp</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="core" projectFiles="true">
         <itemPath>lib/core/Delay.cpp</itemPath>
         <itemPath>lib/core/CircularBuffer.cpp</itemPath>
@@ -69,7 +74,6 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>lib/boards/etml-es/SK-PIC32-B.cpp</itemPath>
     <itemPath>../Generator.cpp</itemPath>
     <itemPath>../Generator.h</itemPath>
   </logicalFolder>

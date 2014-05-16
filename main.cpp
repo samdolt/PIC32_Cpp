@@ -108,11 +108,11 @@ void key_management(void)
 
                 if(local_flag == 0)
                 {
-                SendGenerator = generator;
+                    SendGenerator = generator;
                 }
                 else
                 {
-                gen_sig.update(&generator);
+                    gen_sig.update(&generator);
                 }
             }
          }
@@ -120,16 +120,12 @@ void key_management(void)
 
     if(menu4.has_a_new_state())
     {
-        if(menu4.is_pressed())
-        {
-            if(menu.is_locked())
-        {
-            // Do nothing
-        }
-        else
-        {
-            menu.set_lock(&generator,  1);
-        }
+        if (menu4.is_pressed()) {
+            if (menu.is_locked()) {
+                // Do nothing
+            } else {
+                menu.set_lock(&generator, 1);
+            }
 
         }
     }
@@ -205,27 +201,12 @@ extern "C"
 
         // traitement d'un échantillon
         // ---------------------------
-
-        // Test du dac (a remplacer par la suite)
-        // 1394 * 47 = 65518 poroche du max (65535)
-        //WriteDac(1394 * EchNb, 0);      // sur canal 0
-        dac.set_channel(0);
-        //dac.write_raw(m_data[EchNb]); // sur canal 0
-        dac << channel(0) << data;
+        dac.write_raw(m_data[EchNb]); // sur canal 0
         EchNb++;
         EchNb = EchNb % 48;
 
-        data += 0.1;
-
-        if(data > 1.1)
-        {
-            data == -1.0;
-        }
-
         led0.set_on();
-
-        //output_low(LIGNE3); // marque fin
-    } // sampling_isr
+    }
 
 
 }

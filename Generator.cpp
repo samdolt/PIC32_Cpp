@@ -63,16 +63,16 @@ void Generator::update(S_ParamGen * data) {
 
         // Appel des fonctions de calcul des échantillons propre à la forme demandée
         switch (data->Forme) {
-            case SignalCarre:
+            case SignalSinus:
                 sinus_init(data);
                 break;
-            case SignalTriangle:
+            case SignalCarre:
                 carre_init(data);
                 break;
-            case SignalSinus:
+            case SignalDentDeScie:
                 dds_init(data);
                 break;
-            case SignalDentDeScie:
+            case SignalTriangle:
                 trian_init(data);
                 break;
             default:

@@ -71,6 +71,7 @@ void LTC2604::write(struct dac_channel data)
 
 void LTC2604::write_raw( uint16_t data)
 {
+    M_SPI->configure();
     M_SPI->enable();
     M_SPI->write((uint8_t) (m_channel + 0x30));
     M_SPI->write(data);

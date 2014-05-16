@@ -30,7 +30,6 @@ void SPI::configure(void)
 
 void SPI::write(uint8_t data)
 {
-
     SpiChnPutC(M_CHANNEL, data);
     bool SpiBusy;
     do {
