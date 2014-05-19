@@ -11,14 +11,21 @@
 
 #include <stdint.h>
 #include "DigitalPin.h"
+#include "Key.h"
 
 class IncrementalEncoder {
 public:
-    IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[]);
+    IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[], const char KEY[]);
     void update(void);
     bool has_a_new_state(void);
     int8_t get_state(void);
+
+    bool has_been_turned_clockwise(void);
+    bool has_been_turned_cw(void);
+    bool has_been_turned_counterclockwise(void);
+    bool has_been_turned_ccw(void);
     virtual ~IncrementalEncoder();
+    Key key;
 private:
 
     DigitalPin * M_SIGNAL_A;

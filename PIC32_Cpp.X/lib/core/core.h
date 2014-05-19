@@ -108,11 +108,10 @@ static inline void init(void) {
 extern "C" {
     void __ISR(_TIMER_1_VECTOR, IPL4AUTO) Timer1Handler(void) {
         mT1ClearIntFlag();
-        menu1.update();
-        menu2.update();
-        menu3.update();
-        menu4.update();
-        menu5.update();
+        key1.update();
+        key2.update();
+        key3.update();
+        key4.update();
         keypad.update();
         pec12.update();
     }

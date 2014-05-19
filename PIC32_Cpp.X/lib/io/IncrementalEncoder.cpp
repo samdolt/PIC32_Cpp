@@ -9,7 +9,7 @@
 #include "IncrementalEncoder.h"
 #include "Port.h"
 
-IncrementalEncoder::IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[]) {
+IncrementalEncoder::IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_B[], const char KEY[]) : key(KEY) {
     M_SIGNAL_A = new DigitalPin(SIGNAL_A);
     M_SIGNAL_B = new DigitalPin(SIGNAL_B);
 
@@ -18,6 +18,43 @@ IncrementalEncoder::IncrementalEncoder(const char SIGNAL_A[], const char SIGNAL_
 
     M_SIGNAL_A->set_input();
     M_SIGNAL_B->set_input();
+
+
+}
+
+bool IncrementalEncoder::has_been_turned_clockwise(void)
+{
+    return has_been_turned_cw();
+}
+bool IncrementalEncoder::has_been_turned_cw(void)
+{
+    if(m_flag == true)
+    {
+        if(m_current_state == 1)
+        {
+            m_flag = false;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool IncrementalEncoder::has_been_turned_counterclockwise(void)
+{
+    return has_been_turned_ccw();
+}
+
+bool IncrementalEncoder::has_been_turned_ccw(void)
+{
+    if(m_flag == true)
+    {
+        if(m_current_state == -1)
+        {
+            m_flag = false;
+            return true;
+        }
+    }
+    return false;
 }
 
 void IncrementalEncoder::update(void) {
@@ -44,6 +81,8 @@ void IncrementalEncoder::update(void) {
 
     m_old_signal_a = new_signal_a;
     m_old_signal_b = new_signal_b;
+
+    key.update();
 }
 
 bool IncrementalEncoder::has_a_new_state(void)

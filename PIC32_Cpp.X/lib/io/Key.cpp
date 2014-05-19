@@ -23,6 +23,9 @@ Key::Key(const char PIN[], const uint8_t NUMBER) {
 
     m_last_state = M_KEY->read();
     m_state = m_last_state;
+
+    m_pressed_time = 0;
+    m_relached_time = 0;
 }
 
 void Key::update(void)
@@ -40,15 +43,69 @@ void Key::update(void)
     {
         m_counter = M_NUMBER;
         if(m_state == new_state) {
-            // Do nothing
+            if(is_relached())
+            {
+                m_relached_time++;
+            }
+            else
+            {
+                m_pressed_time++;
+            }
         }
         else {
             m_state = new_state;
             m_flag = true;
+
+            if(is_relached())
+            {
+                m_relached_time = 0;
+            }
+            else
+            {
+                m_pressed_time = 0;
+            }
         }
     }
 
     m_last_state = new_state;
+}
+
+bool Key::has_been_pressed(void)
+{
+    if(m_flag == true)
+    {
+        if(is_pressed())
+        {
+            m_flag = false;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool Key::has_been_relached(void)
+{
+    if(m_flag == true)
+    {
+        if(is_relached())
+        {
+            m_flag = false;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+uint32_t Key::get_pressed_time(void)
+{
+    return m_pressed_time;
+}
+
+uint32_t Key::get_relached_time(void)
+{
+    return m_relached_time;
 }
 
 bool Key::has_a_new_state(void)

@@ -19,6 +19,10 @@ public:
     bool has_a_new_state(void);
     bool is_pressed(void);
     bool is_relached(void);
+    bool has_been_pressed(void);
+    bool has_been_relached(void);
+    uint32_t get_pressed_time(void);
+    uint32_t get_relached_time(void);
     virtual ~Key();
 private:
     DigitalPin * M_KEY;
@@ -27,6 +31,8 @@ private:
     bool m_last_state;
     bool m_state;
     bool m_flag;
+    uint32_t m_pressed_time;
+    uint32_t m_relached_time;
 };
 
 /******************************************************************************

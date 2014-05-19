@@ -38,29 +38,25 @@ Les objets définits sont les suivants:
    
 
    
-.. cpp:member:: Key menu1
+.. cpp:member:: Key key1
    
    Bouton "SEscMenu"
 
-.. cpp:member:: Key menu2
+.. cpp:member:: Key key2
    
    Bouton "S+"
 
-.. cpp:member:: Key menu3
+.. cpp:member:: Key key3
    
    Bouton "S-"
 
-.. cpp:member:: Key menu4
+.. cpp:member:: Key key4
 
    Bouton "S_Ok"
-
-.. cpp:member:: Key menu5
-   
-   Bouton du PEC12 (PEC12_PB)
   
 .. cpp:member:: IncrementalEncoder pec12
 
-   Gestion des rotations du PEC12
+   Gestion des rotations et de l'appuis du PEC12
    
 .. cpp:member:: Led led0
 

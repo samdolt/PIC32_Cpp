@@ -162,7 +162,7 @@ Pour vérifier si une touche est appuyée:
 
 .. code-block:: cpp
 
-   if(menu1.is_pressed())
+   if(key1.is_pressed())
    {
        lcd << "Touche appuyée";
    }
@@ -171,7 +171,7 @@ Pour vérifier si une touche est relachée:
 
 .. code-block:: cpp
 
-   if(menu1.is_relached())
+   if(key1.is_relached())
    {
        lcd << "Touche relachée";
    }
@@ -180,7 +180,7 @@ Pour vérifier si une touche a un nouvel état:
 
 .. code-block:: cpp
 
-   if(menu1.has_a_new_state())
+   if(key1.has_a_new_state())
    {
        lcd << "L'état a changé";
    }
@@ -191,14 +191,12 @@ Utilisation du PEC12
 Pour obtenir la direction de la dernière rotation:
 
 .. code-block:: cpp
-
-   int8_t dir = pec12.get_state();
    
-   if(dir == +1)
+   if(pec12.has_been_turned_cw())
    {
         lcd << "Rotation de le sens horaire";
    }
-   else if(dir == -1)
+   else if(pec12.has_been_turned_ccw())
    {
         lcd << "Rotation de le sens anti-horaire";
    }
@@ -216,8 +214,7 @@ Pour vérifier si le PEC a un nouvel état:
        lcd << "Le PEC a bougé";
    }
 
-Utilisation du clavier matriciel
-=================================
+
 
 
 

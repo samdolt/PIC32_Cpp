@@ -32,15 +32,14 @@
  ******************************************************************************/
 
 #include "Key.h"
- Key menu1 = Key("G13");
- Key menu2 = Key("G14");
- Key menu3 = Key("G15");
- Key menu4 = Key("G12");
- Key menu5 = Key("D7");
+ Key key1 = Key("G13");
+ Key key2 = Key("G14");
+ Key key3 = Key("G15");
+ Key key4 = Key("G12");
 
 #include "IncrementalEncoder.h"
 
- IncrementalEncoder pec12 = IncrementalEncoder("E8","E9");
+ IncrementalEncoder pec12 = IncrementalEncoder("E8","E9","D7");
 
 #include "Keypad.h"
 

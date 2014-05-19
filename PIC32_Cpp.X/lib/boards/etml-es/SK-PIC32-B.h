@@ -33,11 +33,10 @@ extern Led led7;
  ******************************************************************************/
 
 #include "Key.h"
-extern Key menu1;
-extern Key menu2;
-extern Key menu3;
-extern Key menu4;
-extern Key menu5;
+extern Key key1;
+extern Key key2;
+extern Key key3;
+extern Key key4;
 
 #include "IncrementalEncoder.h"
 
