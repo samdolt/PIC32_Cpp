@@ -33,7 +33,8 @@ class DigitalPin {
         void set_high(void);
         void toggle(void);
         bool read(void);
-        void write(const bool STATE);
+        void write(enum state STATE);
+        void write(bool STATE);
         virtual ~DigitalPin();
     private:
         char M_PORT;

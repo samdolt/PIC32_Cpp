@@ -103,6 +103,12 @@ uint32_t Key::get_pressed_time(void)
     return m_pressed_time;
 }
 
+uint32_t Key::reset_timer(void)
+{
+    m_pressed_time = 0;
+    m_relached_time = 0;
+}
+
 uint32_t Key::get_relached_time(void)
 {
     return m_relached_time;

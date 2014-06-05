@@ -23,6 +23,7 @@ public:
     bool has_been_relached(void);
     uint32_t get_pressed_time(void);
     uint32_t get_relached_time(void);
+    uint32_t reset_timer(void);
     virtual ~Key();
 private:
     DigitalPin * M_KEY;

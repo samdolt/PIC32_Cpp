@@ -204,8 +204,19 @@ bool DigitalPin::read(void) {
 
 }
 
-void DigitalPin::write(const bool STATE) {
+void DigitalPin::write(enum state STATE) {
     if(STATE == LOW)
+    {
+        set_low();
+    }
+    else
+    {
+        set_high();
+    }
+}
+
+void DigitalPin::write(bool STATE) {
+    if(STATE == 0)
     {
         set_low();
     }

@@ -184,7 +184,36 @@ Pour vérifier si une touche a un nouvel état:
    {
        lcd << "L'état a changé";
    }
-  
+   
+   if(key1.has_been_pressed())
+   {
+       lcd << "La touche a été préssée";
+   }
+   
+   if(key1.has_been_relached())
+   {
+       lcd << "La touche a été relachée";
+   }
+
+Pour vérifier les temps de pression et de relâche:
+
+.. code-block:: cpp
+
+   if(key1.has_been_relchaed())
+   {
+       if(key1.get_pressed_time() < 500)
+       {
+            lcd << "Pression de moins de 500ms";
+       }
+       else
+       {
+            lcd << "Pression longue";
+       }
+   }
+   
+
+   
+   
 Utilisation du PEC12
 =====================
 

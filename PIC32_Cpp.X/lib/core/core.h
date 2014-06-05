@@ -17,6 +17,7 @@
 #include <plib.h>
 #include "settings.h"
 #include "etml-es/SK-PIC32-B.h"
+#include "AnalogPin.h"
 
 //#include "settings.h"
 
@@ -75,30 +76,9 @@ static inline void init(void) {
     ConfigIntTimer1(T1_INT_ON | T1_INT_PRIOR_4);
     INTEnableSystemMultiVectoredInt ();
 
-    AD1PCFG = 0xFFFF; // Disable analog mode on PORTB
+    AnalogPin_init();
 
-    /* AD1CON:
-     *  - Valeur décimale codée sur 16 bits non singé
-     *  - Auto-convert
-     */
-    AD1CON1 = 0x00F0;
-
-    /*  - Désactivation du réglage d'offset
-     *  - Utilisation du buffer 0x0 à 0x7
-     * - Buffer en mode 16 bits
-     * - Utilisation du multiplexeur A
-     */
-    AD1CON2 = 0;
-
-    /* - Utilisation de l'horloge RC interne à l'ADC
-     * - Auto-samplig sur 15x T_AD
-     * - T_AD sélectionner sur F_PB/2
-     */
-    AD1CON3 = 0x8F00;
-
-    /* - Activation de l'ADC
-     */
-    AD1CON1bits.ADON = 1;
+    
 
 
 }

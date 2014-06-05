@@ -14,6 +14,11 @@
 #include "Menu.h"
 #include "Generator.h"
 
+#include "Progmem.h"
+
+#include "plib.h"
+#include "p32xxxx.h"
+
 Generator gen_sig = Generator();
 
 Menu menu = Menu();
@@ -25,7 +30,7 @@ S_ParamGen RemoteGenerator;
 S_ParamGen OldGeneratorValue;
 S_ParamGen SendGenerator;
 
-const uint32_t PROGMEM_MAGIC = 0x10;
+const uint32_t PROGMEM_MAGIC = 0x0F1E2D3C;
 uint8_t EchNb; // No de l'échantillon
 
 bool local_flag = true;
@@ -90,6 +95,32 @@ void key_management(void)
             menu.update_value(-1, &generator);
         }
     }
+    else if(key1.get_pressed_time() > 2000)
+    {
+        key1.reset_timer();
+        // Sauvegarde
+        
+        lcd.clear();
+        lcd << cursor(1,1) << "Sauvegarde ?";
+        
+        while(pec12.key.is_relached());
+        while(pec12.key.is_pressed() && pec12.key.get_pressed_time() < 500);
+       // while(pec12.key.has_been_relached());
+        
+        if (pec12.key.get_pressed_time() < 500)
+        {
+            progmem_save_data(&generator);
+            lcd << cursor(1,1) << "Sauvegarde effectuee";
+            delay::s(1);
+        }
+        else
+        {
+            lcd << cursor(1,1) << "Sauvegarde annulee";
+            delay::s(1);
+        }
+
+        menu.init(&generator);
+    }
     else
     {
         // Le pec12 n'a pas été tourné
@@ -145,8 +176,8 @@ void key_management(void)
 
 
 
-#define TIMER2_TICK_PS_16 ((1.0/ (SYS_FREQ / 16)))
-#define TIMER2_10MS_PS_16 (0.01 / TIMER2_TICK_PS_16 )
+#define TIMER2_TICK_PS_4 ((1.0/ (SYS_FREQ / 4)))
+#define TIMER2_1MS_PS_4 ( (1.0 /(100.0 * 48)) / TIMER2_TICK_PS_4 )
 
 /*******************************************************************************
  * FONCTION PRINCIPALE
@@ -169,14 +200,16 @@ int main(void)
     generator.Frequence = 100;
     generator.Amplitude = 10000;
     generator.Offset = 0;
-    generator.Magic = 0x0;
+    generator.Magic = PROGMEM_MAGIC;
+
+    progmem_load_data(&generator);
 
 
     menu.init(&generator);
     gen_sig.update(&generator);
     dac.reset();
 
-    OpenTimer2(T2_ON | T2_SOURCE_INT | T2_PS_1_16, TIMER2_10MS_PS_16);
+    OpenTimer2(T2_ON | T2_SOURCE_INT | T2_PS_1_4, TIMER2_1MS_PS_4);
     ConfigIntTimer2(T2_INT_ON | T2_INT_PRIOR_4);
 
 
@@ -206,11 +239,7 @@ void __ISR(_TIMER_2_VECTOR, IPL6AUTO) Timer2Handler(void)
 {
     mT2ClearIntFlag();
     led0.set_off();
-    //output_high(LIGNE3); // marque début
 
-    // recharge Timer0
-    //PR2 = gen_sig.get_timer_reload_value();
-    //set_timer0(Timer0Reload);
 
     // traitement d'un échantillon
     // ---------------------------

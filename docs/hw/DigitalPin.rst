@@ -52,11 +52,17 @@ Description
     
         Configure la broche en sortie
     
+    .. cpp:function:: void write(enum state STATE)
+    
+        Met la broche à l'état indiqué.
+        
+        :param STATE: HIGH ou LOW
+        
     .. cpp:function:: void write(bool STATE)
     
         Met la broche à l'état indiqué.
         
-        :param STATE: HIGH (1) ou LOW (0)
+        :param STATE: 0 pour état bas, 1 pour état haut
         
     .. cpp:function:: void set_low(void)
     
