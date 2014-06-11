@@ -25,8 +25,8 @@ extern Led led2 = Led("A4");
 extern Led led3 = Led("A5");
 extern Led led4 = Led("A6");
 extern Led led5 = Led("A7");
-extern Led led6 = Led("A15");
-extern Led led7 = Led("B10");
+//extern Led led6 = Led("A15");
+//extern Led led7 = Led("B10");
 
 /*******************************************************************************
  * Touches

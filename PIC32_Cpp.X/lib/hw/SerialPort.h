@@ -14,6 +14,8 @@
 
 #include <plib.h>
 
+#include "DigitalPin.h"
+
 enum handshaking {
     SOFTWARE,
     HARDWARE,
@@ -43,6 +45,7 @@ private:
     UART_MODULE M_UART;
     CircularBuffer * M_TX_BUFFER;
     CircularBuffer * M_RX_BUFFER;
+
 };
 
 /******************************************************************************

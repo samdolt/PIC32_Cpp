@@ -62,10 +62,6 @@ int main (void){
     int8_t pot_speed = 0;
     int8_t pot_angle = 0;
 
-    uint8_t unsigned_value = 90;
-    int8_t signed_value = -90;
-    char c;
-
     int no_mess_cpt = 0;
     bool local_mode = false;
 
@@ -188,7 +184,7 @@ int main (void){
             {
                 no_mess_cpt++;
 
-                if(no_mess_cpt++ > 3)
+                if(no_mess_cpt++ > 15)
                 {
                     local_mode = true;
                     pwm_speed = pot_speed;
@@ -203,13 +199,4 @@ int main (void){
     return 0;
 }
 
-/*******************************************************************************
- * VECTEURS D'INTERRUPTIONS
- ******************************************************************************/
 
-extern "C"
-{
-    // Les vecteurs d'interruption doivent être compilé en "mode" C
-
-
-}

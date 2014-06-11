@@ -12,6 +12,11 @@
 
 #include "CircularBuffer.h"
 
+#include "Led.h"
+
+Led led6 = Led("A15");
+Led led7 = Led("B10");
+
 /*
  * Le code est presque pret pour être compatible avec tous les UART, seul
  * les parties concernant les buffers circulaires et les interruptions doivent
@@ -25,15 +30,23 @@
 bool rx_interrupt_handler(UART_MODULE UART);
 bool tx_interrupt_handler(UART_MODULE UART);
 
+DigitalPin CTS("D14");
+DigitalPin RTS("D15");
 
-CircularBuffer tx_buffer1 = CircularBuffer(20);
-CircularBuffer rx_buffer1 = CircularBuffer(20);
+CircularBuffer tx_buffer1 = CircularBuffer(21);
+CircularBuffer rx_buffer1 = CircularBuffer(21);
 
 
 
 SerialPort::SerialPort(UART_MODULE UART)
 {
     M_UART = UART;
+
+   RTS.set_low();
+   RTS.set_output();
+
+   CTS.set_input();
+
 
     UARTConfigure(
        M_UART,
@@ -50,7 +63,7 @@ SerialPort::SerialPort(UART_MODULE UART)
         (UART_LINE_CONTROL_MODE) (UART_DATA_SIZE_8_BITS | UART_PARITY_NONE | UART_STOP_BITS_1)
     );
 
-    UARTSetDataRate(M_UART, SYS_FREQ, 9600);
+    UARTSetDataRate(M_UART, SYS_FREQ, 57600);
 
     UARTEnable(
        M_UART,
@@ -115,7 +128,11 @@ void SerialPort::write(uint8_t data)
 
 uint8_t SerialPort::get(void)
 {
-     return rx_buffer1.get();
+    if(rx_buffer1.get_free_size() >= 12)
+    {
+        RTS.set_low();
+    }
+    return rx_buffer1.get();
 }
 
 
@@ -157,6 +174,7 @@ SerialPort::~SerialPort()
 
 bool rx_interrupt_handler(UART_MODULE UART)
 {
+    led6.set_on();
     bool error = false;
     UART_LINE_STATUS rx_status;
 
@@ -173,12 +191,18 @@ bool rx_interrupt_handler(UART_MODULE UART)
         error = true;
     }
 
+    if(rx_buffer1.get_free_size() <= 6)
+    {
+       //RTS.set_high();
+    }
+    led6.set_off();
     return error;
 
 }
 
 bool tx_interrupt_handler(UART_MODULE UART)
 {
+    led7.set_on();
     bool disable_tx = false;
     bool tx_ready;
     uint8_t tx_size;
@@ -187,7 +211,7 @@ bool tx_interrupt_handler(UART_MODULE UART)
     tx_ready = UARTTransmitterIsReady(UART);
     tx_size = tx_buffer1.get_number_of_item();
 
-    if ((tx_size > 0) && tx_ready) {
+    if ((tx_size > 0) && tx_ready && (CTS.read() == 0))  {
         do {
             tx_data = tx_buffer1.get();
 
@@ -197,13 +221,13 @@ bool tx_interrupt_handler(UART_MODULE UART)
 
             tx_ready = UARTTransmitterIsReady(UART);
 
-        } while ((tx_size > 0) && tx_ready);
+        } while ((tx_size > 0) && tx_ready &&  (CTS.read() == 0));
     }
     else
     {
         disable_tx = true;
     }
-
+    led7.set_off();
     return disable_tx;
 }
 

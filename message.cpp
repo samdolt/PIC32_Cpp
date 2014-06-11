@@ -27,7 +27,7 @@ bool Message::validator(void)
     }
     else
     {
-        no_error = false;
+        //no_error = false;
     }
         
     return no_error;
