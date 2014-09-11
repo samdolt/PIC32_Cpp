@@ -11,6 +11,7 @@
 #include <stdint.h>
 #include <CircularBuffer.h>
 #include <string>
+#include <stdarg.h>
 
 #include <plib.h>
 
@@ -30,7 +31,7 @@ public:
     char get(void);
     void update(void);
     void read(char buf[], int buf_size);
-
+    void printf(const char * format, ...);
     virtual ~SerialPort();
 private:
     uint32_t M_SPEED;

@@ -17,6 +17,7 @@
 #include <cstdio>
 #include "DigitalPin.h"
 
+#include <stdarg.h>
 
 typedef struct{
     uint8_t width;
@@ -89,6 +90,8 @@ public:
     void print(enum stream_symbol symbol);
     void print(lcd_config_s config);
     void print(cursor_s cursor);
+
+    void printf(const char * format, ...);
 
     /*
      *  write écrit un caractère sur l'écran

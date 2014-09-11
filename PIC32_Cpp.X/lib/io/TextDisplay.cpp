@@ -167,6 +167,17 @@ TextDisplay::TextDisplay(const char RS[], const char RW[], const char EN[],
     delay::us(40); //ds0066 demande >39us
 }
 
+void TextDisplay::printf(const char * format, ...)
+{
+    char Buffer[82];
+
+    va_list args;
+    va_start(args, format);
+
+    vsprintf(Buffer, format, args);
+    print(Buffer);
+}
+
 void TextDisplay::print(const char *ptr_char) {
     int i;
 
@@ -236,6 +247,8 @@ void TextDisplay::print(enum stream_symbol symbol)
             break;
     }
 }
+
+
 
 void TextDisplay::print(lcd_config_s config)
 {
@@ -359,6 +372,7 @@ void TextDisplay::clear( void )
 {
     command(LCD::CLEARDISPLAY);
     delay::ms(2);
+    set_cursor(1,1);
 }
 
 void TextDisplay::clear_line(void)

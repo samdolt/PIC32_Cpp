@@ -10,6 +10,11 @@
 #ifndef SK_PIC32_B_H
 #define	SK_PIC32_B_H
 
+/*******************************************************************************
+ * MaxSonar
+ ******************************************************************************/
+#include "MaxSonar.h"
+extern MaxSonar sonar = MaxSonar();
 
 /*******************************************************************************
  * Affichage et Leds
@@ -19,14 +24,14 @@
 #include "Led.h"
 
 extern TextDisplay lcd = TextDisplay("E0", "E1", "E2", "E3", "E4", "E5", "E6", "E7");
-extern Led led0 = Led("A0");
-extern Led led1 = Led("A1");
-extern Led led2 = Led("A4");
-extern Led led3 = Led("A5");
-extern Led led4 = Led("A6");
-extern Led led5 = Led("A7");
-extern Led led6 = Led("A15");
-extern Led led7 = Led("B10");
+extern Led led0 = Led("A0", true);
+extern Led led1 = Led("A1", true);
+extern Led led2 = Led("A4", true);
+extern Led led3 = Led("A5", true);
+extern Led led4 = Led("A6", true);
+extern Led led5 = Led("A7", true);
+extern Led led6 = Led("A15", true);
+extern Led led7 = Led("B10", true);
 
 /*******************************************************************************
  * Touches
@@ -52,7 +57,7 @@ extern Keypad keypad = Keypad("G6","G7","B14","B15", "B2", "B3", "B4", "B5");
  ******************************************************************************/
 
 #include "SerialPort.h"
-extern SerialPort serial = SerialPort(UART1);
+//extern SerialPort serial = SerialPort(UART1);
 
 /*******************************************************************************
  * Entrée analogique

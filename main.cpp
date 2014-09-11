@@ -9,10 +9,10 @@
 
 #include "core.h"
 #include "etml-es/SK-PIC32-B.h"
-#include "delay.h"
+#include "Delay.h"
+#include "PIC32_Cpp.X/lib/io/Led.h"
 
 #include <CircularBuffer.h>
-
 
 
 /*******************************************************************************
@@ -22,35 +22,36 @@ int main (void){
 
     uint8_t unsigned_value = 90;
     int8_t signed_value = -90;
+    int cpt_s = 0;
+    int sonar_value;
 
     init();
     
     /*
      * Affichage initiale
      * ------------------------- */
-    lcd << "Local Settings" << endl ;
-    lcd << "TP2A PWM 2013-2014" << endl;
-    lcd << "DOLT Samuel" << endl;
-    lcd << "Mailard France" << endl;
+    lcd << "Diplome 1403x" << endl ;
+    lcd << "Samuel Dolt" << endl;
 
     delay::s(5);
 
     lcd.clear();
 
     
-    I2CBUS.configure();
+    
     
     while(1){
-        unsigned_value = pot1.read() * 100;
-        signed_value = pot2.read() * 200 - 100;
-        lcd << cursor(2,1) << " Vitesse : " << setw(4) << with_sign_plus << signed_value;
-        lcd << cursor(3,1) << " Angle   :  " << setw(3) << without_sign_plus << unsigned_value;
-        lcd << cursor(4,1) << get_peripheral_clock() / 20000000;
-
-        if(I2CBUS.write(0x55) == I2C_SUCCESS)
-        {
-            lcd << cursor(4,3) << "i2c ok";
+        if(sonar.has_new_value()) {
+            sonar_value = sonar.get_value();
+            lcd.set_cursor(1,1);
+            lcd.printf("Sonar %4d [mm]", sonar_value);
+            
         }
+        led0.toggle();
+
+
+
+        cpt_s++;
         
     }
 

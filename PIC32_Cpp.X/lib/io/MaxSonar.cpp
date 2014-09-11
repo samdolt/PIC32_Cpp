@@ -6,45 +6,19 @@
  * Fonction d'abstraction pour la gestion du port série
  */
 
-#include "SerialPort.h"
-
-#include <iostream>
-
+#include "MaxSonar.h"
 #include "CircularBuffer.h"
-
-/*
- * Le code est presque pret pour être compatible avec tous les UART, seul
- * les parties concernant les buffers circulaires et les interruptions doivent
- * être adaptées
- */
 
 #ifndef SYS_FREQ
     #define SYS_FREQ (80000000L)
 #endif
 
-bool rx_interrupt_handler(UART_MODULE UART);
-bool tx_interrupt_handler(UART_MODULE UART);
+CircularBuffer rx_buffer = CircularBuffer(20);
 
+bool MaxSonar_interrupt_handler(UART_MODULE UART);
 
-CircularBuffer tx_buffer1 = CircularBuffer(20);
-CircularBuffer rx_buffer1 = CircularBuffer(20);
-
-CircularBuffer tx_buffer2 = CircularBuffer(20);
-CircularBuffer rx_buffer2 = CircularBuffer(20);
-
-CircularBuffer tx_buffer3 = CircularBuffer(20);
-CircularBuffer rx_buffer3 = CircularBuffer(20);
-
-CircularBuffer tx_buffer4 = CircularBuffer(20);
-CircularBuffer rx_buffer4 = CircularBuffer(20);
-
-CircularBuffer tx_buffer5 = CircularBuffer(20);
-CircularBuffer rx_buffer5 = CircularBuffer(20);
-
-
-SerialPort::SerialPort(UART_MODULE UART)
-{
-    M_UART = UART;
+MaxSonar::MaxSonar() {
+    M_UART = UART2;
 
     UARTConfigure(
        M_UART,
@@ -53,9 +27,9 @@ SerialPort::SerialPort(UART_MODULE UART)
 
     UARTSetFifoMode(
         M_UART,
-        (UART_FIFO_MODE)(UART_INTERRUPT_ON_TX_BUFFER_EMPTY | UART_INTERRUPT_ON_RX_3_QUARTER_FULL)
+        (UART_FIFO_MODE)(UART_INTERRUPT_ON_RX_3_QUARTER_FULL)
     );
-    
+
     UARTSetLineControl(
         M_UART,
         (UART_LINE_CONTROL_MODE) (UART_DATA_SIZE_8_BITS | UART_PARITY_NONE | UART_STOP_BITS_1)
@@ -66,7 +40,7 @@ SerialPort::SerialPort(UART_MODULE UART)
     UARTEnable(
        M_UART,
         (UART_ENABLE_MODE) UART_ENABLE_FLAGS(
-            (UART_ENABLE_MODE) (UART_PERIPHERAL | UART_TX | UART_RX)
+            (UART_ENABLE_MODE) (UART_PERIPHERAL | UART_RX)
        )
     );
 
@@ -84,74 +58,74 @@ SerialPort::SerialPort(UART_MODULE UART)
             (INT_VECTOR) INT_VECTOR_UART(M_UART),
             INT_SUB_PRIORITY_LEVEL_0
     );
-    
+
 }
 
-void SerialPort::printf(const char * format, ...)
-{
-    char Buffer[82];
-
-    va_list args;
-    va_start(args, format);
-
-    vsprintf(Buffer, format, args);
-    print(Buffer);
-}
-
-void SerialPort::print(const char data[])
-{
-
-
-    int i = 0;
-
-    while(data[i] != '\0') {
-        write( data[i] );
-        i++;
-    } 
-}
-
-
-void SerialPort::write(char data)
-{
-    tx_buffer1.put(data);
-   
-    if(tx_buffer1.get_number_of_item() != 0 )
-    {
-        INTEnable(INT_U1TX, INT_ENABLED);
-    }
-};
-
-
-char SerialPort::get(void)
-{
-     return rx_buffer1.get();
-}
-
-void SerialPort::read(char buf[], int buf_size)
-{
-
-    update();
-    int i = 0;
-    while( (rx_buffer1.get_number_of_item() > 0) && (i < (buf_size - 1)) ) // On laisse une place pour \0
-    {
-        buf[i] = rx_buffer1.get();
-        i++;
-    }
-    buf[i] = '\0';
-}
-
-void SerialPort::update(void)
+void MaxSonar::update(void)
 {
     while(UARTReceivedDataIsAvailable(M_UART))
     {
-       rx_buffer1.put(UARTGetDataByte(M_UART));
+       rx_buffer.put(UARTGetDataByte(M_UART));
     }
-}
-SerialPort::~SerialPort()
-{
+
+    char data[6];
+    bool found = false;
+
+    while(rx_buffer.get_number_of_item() > 5) {
+        if(rx_buffer.get_number_of_item() > 5) {
+            data[0] = rx_buffer.get();
+
+            if(data[0] == 'R') {
+                data[1] = rx_buffer.get();
+                data[2] = rx_buffer.get();
+                data[3] = rx_buffer.get();
+                data[4] = rx_buffer.get();
+                data[5] = rx_buffer.get();
+
+                found = true;
+            }
+        }
+    }
+
+    if(found) {
+
+        // Contrôle des valeurs
+        if(data[0] != 'R') {
+            return;
+        }
+
+        for(int i = 1; i < 4 ; i++) {
+            if(data[i] < '0' || data[i] > '9') {
+                return;
+            }
+        }
+
+        if(data[5] != '\r') {
+            return;
+        }
+
+        // Mise à jour de la valeur
+
+        m_value =  (data[1] - '0') * 1000;
+        m_value += (data[2] - '0') *  100;
+        m_value += (data[3] - '0') *   10;
+        m_value += (data[4] - '0') *    1;
+
+        m_new_value = true;
+    }
+
+
 }
 
-bool rx_interrupt_handler(UART_MODULE UART)
+int MaxSonar::get_value(void) {
+    m_new_value = false;
+    return m_value;
+}
+
+bool MaxSonar::has_new_value() {
+    return m_new_value;
+}
+bool MaxSonar_interrupt_handler(UART_MODULE UART)
 {
     bool error = false;
     UART_LINE_STATUS rx_status;
@@ -161,7 +135,7 @@ bool rx_interrupt_handler(UART_MODULE UART)
     if ((rx_status & (UART_PARITY_ERROR | UART_FRAMING_ERROR | UART_OVERRUN_ERROR)) == 0) {
 
         while (UARTReceivedDataIsAvailable(UART)) {
-            rx_buffer1.put(UARTGetDataByte(UART));
+            rx_buffer.put(UARTGetDataByte(UART));
         }
     }
     else
@@ -173,81 +147,38 @@ bool rx_interrupt_handler(UART_MODULE UART)
 
 }
 
-bool tx_interrupt_handler(UART_MODULE UART)
-{
-    bool disable_tx = false;
-    bool tx_ready;
-    uint8_t tx_size;
-    uint8_t tx_data;
-
-    tx_ready = UARTTransmitterIsReady(UART);
-    tx_size = tx_buffer1.get_number_of_item();
-
-    if ((tx_size > 0) && tx_ready) {
-        do {
-            tx_data = tx_buffer1.get();
-
-            UARTSendDataByte(UART, tx_data);
-
-            tx_size = tx_buffer1.get_number_of_item();
-
-            tx_ready = UARTTransmitterIsReady(UART);
-
-        } while ((tx_size > 0) && tx_ready);
-    }
-    else
-    {
-        disable_tx = true;
-    }
-
-    return disable_tx;
-}
-
-
 extern "C" {
 
-    void __ISR(_UART_1_VECTOR, IPL5SOFT) UART1_isr(void)
+    void __ISR(_UART_2_VECTOR, IPL5SOFT) UART2_isr(void)
     {
         bool rx_have_error;
         bool disable_tx;
 
-        if( INTGetFlag(INT_U1RX) && INTGetEnable(INT_U1RX)) {
+        if( INTGetFlag(INT_U2RX) && INTGetEnable(INT_U2RX)) {
             // Gestion de l'interruption de récéption
 
-            rx_have_error = rx_interrupt_handler(UART1);
+            rx_have_error = MaxSonar_interrupt_handler(UART2);
 
             if(rx_have_error)
             {
-                UART1ClearAllErrors();
+                UART2ClearAllErrors();
             }
             else
             {
-                INTClearFlag(INT_U1RX);
+                INTClearFlag(INT_U2RX);
             }
-        } 
-
-        if(INTGetFlag(INT_U1TX) && INTGetEnable(INT_U1TX))
-        {
-            // Gestion de l'interruption de transmission
-            disable_tx = tx_interrupt_handler(UART1);
-
-            if(disable_tx)
-            {
-                INTEnable(INT_U1TX, INT_DISABLED);
-            }
-            else
-            {
-                INTClearFlag(INT_U1TX);
-            } 
         }
-    } // UART1_isr
+
+        if(INTGetFlag(INT_U2TX) && INTGetEnable(INT_U2TX))
+        {
+            // L'interruption Tx ne doit pas être enclenchée
+            INTEnable(INT_U2TX, INT_DISABLED);
+        }
+    } // UART2_isr
+
 
 
 }
-
-
-
-
 
 /******************************************************************************
  * LICENSE

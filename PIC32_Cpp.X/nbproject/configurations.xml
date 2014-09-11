@@ -13,11 +13,13 @@
         <itemPath>lib/core/Delay.h</itemPath>
         <itemPath>lib/core/core.h</itemPath>
         <itemPath>lib/core/CircularBuffer.h</itemPath>
+        <itemPath>lib/core/settings.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="hw" projectFiles="true">
         <itemPath>lib/hw/Port.h</itemPath>
         <itemPath>lib/hw/SerialPort.h</itemPath>
         <itemPath>lib/hw/DigitalPin.h</itemPath>
+        <itemPath>lib/hw/AnalogPin.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="io" projectFiles="true">
         <itemPath>lib/io/Key.h</itemPath>
@@ -25,9 +27,12 @@
         <itemPath>lib/io/Led.h</itemPath>
         <itemPath>lib/io/Keypad.h</itemPath>
         <itemPath>lib/io/IncrementalEncoder.h</itemPath>
+        <itemPath>lib/io/I2C.h</itemPath>
+        <itemPath>lib/io/I2CMaster.h</itemPath>
+        <itemPath>lib/io/SPI.h</itemPath>
+        <itemPath>lib/hw/LTC2604.h</itemPath>
+        <itemPath>lib/io/MaxSonar.h</itemPath>
       </logicalFolder>
-      <itemPath>lib/hw/AnalogPin.cpp</itemPath>
-      <itemPath>lib/hw/AnalogPin.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -39,11 +44,13 @@
       <logicalFolder name="f3" displayName="core" projectFiles="true">
         <itemPath>lib/core/Delay.cpp</itemPath>
         <itemPath>lib/core/CircularBuffer.cpp</itemPath>
+        <itemPath>lib/core/settings.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="hw" projectFiles="true">
         <itemPath>lib/hw/Port.cpp</itemPath>
         <itemPath>lib/hw/SerialPort.cpp</itemPath>
         <itemPath>lib/hw/DigitalPin.cpp</itemPath>
+        <itemPath>lib/hw/AnalogPin.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="io" projectFiles="true">
         <itemPath>lib/io/Key.cpp</itemPath>
@@ -51,6 +58,11 @@
         <itemPath>lib/io/Led.cpp</itemPath>
         <itemPath>lib/io/Keypad.cpp</itemPath>
         <itemPath>lib/io/IncrementalEncoder.cpp</itemPath>
+        <itemPath>lib/io/SPI.cpp</itemPath>
+        <itemPath>lib/io/I2C.cpp</itemPath>
+        <itemPath>lib/io/I2CMaster.cpp</itemPath>
+        <itemPath>lib/hw/LTC2604.cpp</itemPath>
+        <itemPath>lib/io/MaxSonar.cpp</itemPath>
       </logicalFolder>
       <itemPath>../main.cpp</itemPath>
     </logicalFolder>
@@ -59,16 +71,6 @@
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
-    <itemPath>lib/io/I2CMaster.cpp</itemPath>
-    <itemPath>lib/io/I2CMaster.h</itemPath>
-    <itemPath>lib/core/settings.cpp</itemPath>
-    <itemPath>lib/core/settings.h</itemPath>
-    <itemPath>lib/io/SPI.cpp</itemPath>
-    <itemPath>lib/io/SPI.h</itemPath>
-    <itemPath>lib/hw/LTC2604.cpp</itemPath>
-    <itemPath>lib/hw/LTC2604.h</itemPath>
-    <itemPath>lib/io/I2C.cpp</itemPath>
-    <itemPath>lib/io/I2C.h</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>..</Elem>
@@ -83,16 +85,19 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>1.31</languageToolchainVersion>
-        <platform>3</platform>
+        <languageToolchainVersion>1.33</languageToolchainVersion>
+        <platform>2</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
           </linkerLibItems>
         </linkerTool>
+        <archiverTool>
+        </archiverTool>
         <loading>
           <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>false</parseOnProdLoad>
           <alternateLoadableFile></alternateLoadableFile>
         </loading>
       </compileType>
@@ -129,6 +134,9 @@
         <property key="use-iar" value="false"/>
         <property key="use-indirect-calls" value="false"/>
       </C32>
+      <C32-AR>
+        <property key="additional-options-chop-files" value="false"/>
+      </C32-AR>
       <C32-AS>
         <property key="assembler-symbols" value=""/>
         <property key="enable-symbols" value="true"/>
@@ -153,6 +161,13 @@
         <property key="exclude-floating-point-library" value="false"/>
         <property key="exclude-standard-libraries" value="false"/>
         <property key="extra-lib-directories" value=""/>
+        <property key="fill-flash-options-addr" value=""/>
+        <property key="fill-flash-options-const" value=""/>
+        <property key="fill-flash-options-how" value="0"/>
+        <property key="fill-flash-options-inc-const" value="1"/>
+        <property key="fill-flash-options-increment" value=""/>
+        <property key="fill-flash-options-seq" value=""/>
+        <property key="fill-flash-options-what" value="0"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-cross-reference-file" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
@@ -182,7 +197,7 @@
         <property key="exceptions" value="true"/>
         <property key="exclude-floating-point" value="false"/>
         <property key="extra-include-directories"
-                  value="..\;lib\boards;lib\hw;lib\io;lib\core"/>
+                  value="lib/;lib/boards;lib/hw;lib/io;lib/core"/>
         <property key="generate-16-bit-code" value="false"/>
         <property key="generate-micro-compressed-code" value="false"/>
         <property key="isolate-each-function" value="false"/>
@@ -200,7 +215,10 @@
         <appendMe value="-fthread-jumps            -fcaller-saves            -fcrossjumping            -fcse-follow-jumps  -fcse-skip-blocks            -fdelete-null-pointer-checks            -fexpensive-optimizations            -fgcse  -fgcse-lm             -finline-small-functions            -findirect-inlining            -fipa-sra            -foptimize-sibling-calls            -fpeephole2            -freorder-functions            -frerun-cse-after-loop             -fsched-interblock  -fsched-spec            -fschedule-insns  -fschedule-insns2            -fstrict-aliasing -fstrict-overflow            -ftree-switch-conversion           -ftree-pre            "/>
       </C32CPP>
       <C32Global>
+        <property key="common-include-directories" value=""/>
+        <property key="gp-relative-option" value=""/>
         <property key="legacy-libc" value="false"/>
+        <property key="relaxed-math" value="false"/>
         <property key="save-temps" value="false"/>
         <property key="wpo-lto" value="false"/>
       </C32Global>
@@ -232,6 +250,10 @@
         <property key="OUTPUT COMPARE 5" value="true"/>
         <property key="PARALLEL MASTER/SLAVE PORT" value="true"/>
         <property key="REAL TIME CLOCK" value="true"/>
+        <property key="SPI 1" value="true"/>
+        <property key="SPI 2" value="true"/>
+        <property key="SPI 3" value="true"/>
+        <property key="SPI 4" value="true"/>
         <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="TIMER1" value="true"/>
         <property key="TIMER2" value="true"/>
@@ -248,24 +270,27 @@
         <property key="UART5" value="true"/>
         <property key="UART6" value="true"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="false"/>
         <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.dataflash" value="true"/>
         <property key="memories.eeprom" value="true"/>
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.end" value="0x1d07ffff"/>
         <property key="memories.programmemory.start" value="0x1d000000"/>
+        <property key="memories.userotp" value="false"/>
         <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveprogramrange" value="false"/>
         <property key="programoptions.preserveprogramrange.end" value="0x1d07ffff"/>
         <property key="programoptions.preserveprogramrange.start" value="0x1d000000"/>
         <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.testmodeentrymethod" value="VPPFirst"/>
         <property key="programoptions.usehighvoltageonmclr" value="false"/>
         <property key="programoptions.uselvpprogramming" value="false"/>

@@ -115,6 +115,7 @@ extern "C" {
         menu5.update();
         keypad.update();
         pec12.update();
+        sonar.update();
     }
 }
 
